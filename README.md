@@ -1,0 +1,1 @@
+Specter is not ready yet. I am working hard to make it a reality. Thank you for taking interest in specter. Feel free to raise any issues for feature requests or something that you want to see in specter.
