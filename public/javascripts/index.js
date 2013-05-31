@@ -1993,6 +1993,8 @@ function prepareInitialWorkSpace() {
 
     function setHtmlinPreviewPane(markdownText) {
         wordCountLabel.text('words: ' + getWordCount(markdownText));
+        var previewHtml = markdown.toHTML(markdownText);
+        replaceAllImagesWithFigure(previewHtml);
         previewPaneView.html(markdown.toHTML(markdownText));
     }
 
@@ -2020,6 +2022,16 @@ function prepareInitialWorkSpace() {
         return hasTitileAndDraft;
 
     }
+
+
+function replaceAllImagesWithFigure(html){
+    
+    $('img').replaceWith(function(){
+        
+        var figure = '<figure><img src="'+$(this).src+'"><figcaption>'+$(this).attr('alt')+'</figcaption></figure>';
+        return figure;
+    });
+}
 var editArea = prepareInitialWorkSpace();
 
     
