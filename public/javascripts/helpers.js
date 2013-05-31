@@ -29,8 +29,7 @@ function prepareInitialWorkSpace() {
     function setHtmlinPreviewPane(markdownText) {
         wordCountLabel.text('words: ' + getWordCount(markdownText));
         var previewHtml = markdown.toHTML(markdownText);
-        replaceAllImagesWithFigure(previewHtml);
-        previewPaneView.html(markdown.toHTML(markdownText));
+        previewPaneView.html(replaceAllImagesWithFigure(previewHtml));
     }
 
     function setRawHtml() {
@@ -61,11 +60,14 @@ function prepareInitialWorkSpace() {
 
 function replaceAllImagesWithFigure(html){
     
-    $('img').replaceWith(function(){
+    var parsedHtml = $(html);
+    
+    $('img',parsedHtml).replaceWith(function(){
         
-        var figure = '<figure><img src="'+$(this).src+'"><figcaption>'+$(this).attr('alt')+'</figcaption></figure>';
-        return figure;
+       return '<figure><img src="'+$(this).attr('src')+'"><figcaption>'+$(this).attr('alt')+'</figcaption></figure>';
+        
     });
+  return parsedHtml.html();   
 }
 var editArea = prepareInitialWorkSpace();
 
