@@ -1,5 +1,5 @@
 exports.views = {
     
-    editor : 'Abstract/view.html'
+    createPost : 'Abstract/view.html'
     
 };
