@@ -1,1 +1,1 @@
-exports.views = require('./views');
+exports.views = require('./views').views;
