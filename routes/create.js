@@ -7,4 +7,10 @@ exports.newPost = function(req,res){
 
 exports.addPost = function(req,res){
     
+    var postData = req.body;
+    
+    var secret = postData.secret;
+    
+    //check the role of the poster
+    
 };

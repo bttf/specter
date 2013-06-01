@@ -77,7 +77,8 @@ function getItemsToPost(){
         
         postHtml: previewPaneView.html(),
         wordCount :getWordCountFromLabel(wordCountLabel.text()),
-        title : titleContainer.val()
+        title : titleContainer.val(),
+        secret :secret.val()
     }
     
     return item;
