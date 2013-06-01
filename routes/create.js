@@ -1,5 +1,6 @@
 var constants = require('../constants');
 var helpers = require('../helpers');
+var cheerio = require('cheerio');
 
 exports.newPost = function(req,res){
     return res.render(constants.views.createPost);
@@ -14,22 +15,22 @@ exports.addPost = function(req,res){
     //check if the user is a contributor
     
     var contributor = helpers.getContributor.getRoleFromSecret(secret);
-    var preparedPost = preparePostForSaving(postData);
-    
-  return  contributor ? savePost(preparedPost) : res.send({error:"Bad secret"},400);
+    var preparedPost = preparePostForSaving(postData,contributor);    
+    return  contributor ? savePost(preparedPost,res) : res.send({error:"Bad secret"},400);
     
 };
 
 
 function preparePostForSaving(postData,contributor){
-    console.log(contributor);
+    var $ = cheerio.load(postData.postHtml);
     postData["postedBy"] = contributor.name;
     postData["about"] = contributor.about? contributor.about: contributor.website
     postData["postedOn"] = Date.now();
+    postData["postText"] = $("*").text();
    return postData;
 }   
 
-function savePost(postData){
+function savePost(postData,res){
     console.log(postData);
-    return res.send(200);
+        return res.send(200);
 }
