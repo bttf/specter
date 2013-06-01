@@ -6,5 +6,5 @@ exports.newPost = function(req,res){
 };
 
 exports.addPost = function(req,res){
-    console.log(contributors);
+    console.log(constants.contributors);
 };
