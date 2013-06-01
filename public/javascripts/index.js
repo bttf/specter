@@ -1875,6 +1875,7 @@ var draft = function (parsed, title) {
         self.showEditor = ko.observable(true);
         self.showTitle = ko.observable(true);
         self.raw = ko.observable(true);
+        self.publishEnabled = false;
 
         self.deleteDraft = function (draft, event) {
 
@@ -2026,18 +2027,12 @@ function prepareInitialWorkSpace() {
 
 function replaceAllImagesWithFigure(html){
     
+    var parsedHtml = $(html);    
     
-    var parsedHtml = $(html);
-    
-    console.log(parsedHtml);
-//    $('img',parsedHtml).replaceWith(function(){
-//        
-//       return '<figure><img src="'+$(this).attr('src')+'"><figcaption>'+$(this).attr('alt')+'</figcaption></figure>';
-//        
-//    });
-   var a= $('img',parsedHtml).each(function(){
+    $('img',parsedHtml).replaceWith(function(){
         
-        $(this).replaceWith('<figure><img src="'+$(this).attr('src')+'"><figcaption>'+$(this).attr('alt')+'</figcaption></figure>');
+       return '<figure><img src="'+$(this).attr('src')+'"><figcaption>'+$(this).attr('alt')+'</figcaption></figure>';
+        
     });
     
   return parsedHtml;   

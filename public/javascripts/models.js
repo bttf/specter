@@ -17,6 +17,7 @@ var draft = function (parsed, title) {
         self.showEditor = ko.observable(true);
         self.showTitle = ko.observable(true);
         self.raw = ko.observable(true);
+        self.publishEnabled = false;
 
         self.deleteDraft = function (draft, event) {
 
