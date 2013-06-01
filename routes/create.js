@@ -13,7 +13,10 @@ exports.addPost = function(req,res){
     
     //check if the user is a contributor
     
-  return  helpers.getContributor.getRoleFromSecret(secret) ? addVerifiedPost(postData,res) : res.send({error:"Bad secret"});
+    var contributor = helpers.getContributor.getRoleFromSecret(secret);
+    console.log(contributor);
+    
+  return  contributor ? addVerifiedPost(postData,res) : res.send({error:"Bad secret"},400);
     
 };
 
