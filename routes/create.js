@@ -31,6 +31,5 @@ function preparePostForSaving(postData,contributor){
 }   
 
 function savePost(postData,res){
-    console.log(postData);
-        return res.send(200);
+            return res.send(200);
 }

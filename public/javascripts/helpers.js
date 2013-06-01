@@ -73,14 +73,19 @@ function replaceAllImagesWithFigure(html){
 
 function getItemsToPost(){
     
+    var html = previewPaneView.html();
+    var image = getCoverImage(html);
     var item = {
         
-        postHtml: previewPaneView.html(),
+        postHtml: html,
         wordCount :getWordCountFromLabel(wordCountLabel.text()),
         title : titleContainer.val(),
-        secret :secret.val()
+        secret :secret.val(),
+        imgSrc : image.src,
+        caption : image.attr('alt')
     }
     
+    console.log(item);
     return item;
 }
 
@@ -91,6 +96,12 @@ function publishArticle(){
         console.log(data);
     });
 }
+
+function getCoverImage(html){
+    
+    var parsedHtml =$(html);
+    return  $('img',parsedHtml)[0];
+};
 
 var editArea = prepareInitialWorkSpace();
 
