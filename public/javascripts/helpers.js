@@ -70,6 +70,19 @@ function replaceAllImagesWithFigure(html){
     
   return parsedHtml;   
 }
+
+function getItemsToPost(){
+    
+    var item = {
+        
+        postHtml: previewPaneView.html(),
+        wordCount :getWordCountFromLabel(wordCountLabel.text()),
+        title : titleContainer.val()
+    }
+    
+    return item;
+}
+
 var editArea = prepareInitialWorkSpace();
 
     
