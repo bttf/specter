@@ -17,7 +17,7 @@ exports.contributors = {
         }
     ],
     
-    guest : [
+    guests : [
         {
             name : 'A guest',
             secret : 'by!invitation&',
