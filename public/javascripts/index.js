@@ -1974,8 +1974,7 @@ var draft = function (parsed, title) {
         
         self.publishArticle = function(data,event){
             event.stopPropagation();
-            var items = getItemsToPost();
-            console.log(items);
+            publishArticle()
         };
     };
 
