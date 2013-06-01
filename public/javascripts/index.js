@@ -1994,6 +1994,7 @@ function prepareInitialWorkSpace() {
     function setHtmlinPreviewPane(markdownText) {
         wordCountLabel.text('words: ' + getWordCount(markdownText));
         var previewHtml = markdown.toHTML(markdownText);
+        console.log(replaceAllImagesWithFigure(previewHtml));
         previewPaneView.html(replaceAllImagesWithFigure(previewHtml));
     }
 
@@ -2025,14 +2026,21 @@ function prepareInitialWorkSpace() {
 
 function replaceAllImagesWithFigure(html){
     
+    
     var parsedHtml = $(html);
     
-    $('img',parsedHtml).replaceWith(function(){
+    console.log(parsedHtml);
+//    $('img',parsedHtml).replaceWith(function(){
+//        
+//       return '<figure><img src="'+$(this).attr('src')+'"><figcaption>'+$(this).attr('alt')+'</figcaption></figure>';
+//        
+//    });
+   var a= $('img',parsedHtml).each(function(){
         
-       return '<figure><img src="'+$(this).attr('src')+'"><figcaption>'+$(this).attr('alt')+'</figcaption></figure>';
-        
+        $(this).replaceWith('<figure><img src="'+$(this).attr('src')+'"><figcaption>'+$(this).attr('alt')+'</figcaption></figure>');
     });
-  return parsedHtml.html();   
+    
+  return parsedHtml;   
 }
 var editArea = prepareInitialWorkSpace();
 
