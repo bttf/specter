@@ -83,6 +83,14 @@ function getItemsToPost(){
     return item;
 }
 
+function publishArticle(){
+    
+    $.post('/addpost',getItemsToPost(),function(data){
+        
+        console.log(data);
+    });
+}
+
 var editArea = prepareInitialWorkSpace();
 
     
