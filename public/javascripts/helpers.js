@@ -61,10 +61,8 @@ function prepareInitialWorkSpace() {
 
 function replaceAllImagesWithFigure(html){
     
+    var parsedHtml = $(html);    
     
-    var parsedHtml = $(html);
-    
-    console.log(parsedHtml);
     $('img',parsedHtml).replaceWith(function(){
         
        return '<figure><img src="'+$(this).attr('src')+'"><figcaption>'+$(this).attr('alt')+'</figcaption></figure>';
