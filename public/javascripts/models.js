@@ -17,7 +17,7 @@ var draft = function (parsed, title) {
         self.showEditor = ko.observable(true);
         self.showTitle = ko.observable(true);
         self.raw = ko.observable(true);
-        self.publishEnabled = false;
+        self.secret = ko.observable();
 
         self.deleteDraft = function (draft, event) {
 
@@ -101,6 +101,10 @@ var draft = function (parsed, title) {
         self.raw(true);
 
         };
+        
+        self.hasProvidedSecret = ko.computed(function(){            
+        return self.secret()?true:false;
+        });
     };
 
     var initializeDrafts = new viewModel();
