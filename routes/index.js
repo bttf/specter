@@ -1,1 +1,1 @@
-exports.createPost = require('./createPost');
+exports.create = require('./create');
