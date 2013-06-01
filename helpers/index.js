@@ -1,0 +1,1 @@
+exports.getContributor = require('../getUserRole').getRoleFromSecret;
