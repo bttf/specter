@@ -1,12 +1,12 @@
 exports.contributors = {
     
-    admin : {
+    admins :[ {
         
         name : "Akshat Jiwan Sharma",
         secret : 'dont#fail@',
         about : ''
         
-    },
+    }],
     
     users : [
         

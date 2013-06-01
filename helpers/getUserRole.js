@@ -10,24 +10,9 @@ exports.getRoleFromSecret = function(secret){
     
     else{
         
-        var users = contributors.users.length;
-        var guests = contributors.guests.length;
+        var user = contributors.users.filter(function(user){return user.secret===secret});
+        var guest = contributors.guests.filter(function(guest){return guest.secret===secret});
         
-        for(var i = 0; i<users; i++){
-            
-            var contributor = contributors.users[i];
-            if(contributor.secret===secret){
-                
-                return contributor;
-            }
-        }
-        
-        for(var i =0; i<guests;i++){
-            
-            var contributor = contributors.guests[i];
-            if(contributor.secret===secret){return contributor;}
-        }
-        
-        return false;
     }
+    return false;
 };
