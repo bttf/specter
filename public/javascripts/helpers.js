@@ -85,7 +85,6 @@ function getItemsToPost(){
         caption : image.alt
     }
     
-    console.log(item);
     return item;
 }
 
