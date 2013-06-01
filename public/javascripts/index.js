@@ -2046,8 +2046,8 @@ function replaceAllImagesWithFigure(html){
     var parsedHtml = $(html);    
     
     $('img',parsedHtml).replaceWith(function(){
-        
-       return '<figure><img src="'+$(this).attr('src')+'"><figcaption>'+$(this).attr('alt')+'</figcaption></figure>';
+        var alt = $(this).attr('alt');
+       return '<figure><img src="'+$(this).attr('src')+'" alt="'+alt+'"><figcaption>'+alt+'</figcaption></figure>';
         
     });
     
@@ -2065,7 +2065,7 @@ function getItemsToPost(){
         title : titleContainer.val(),
         secret :secret.val(),
         imgSrc : image.src,
-        caption : image.attr('alt')
+        caption : image.alt
     }
     
     console.log(item);
