@@ -1875,8 +1875,8 @@ var draft = function (parsed, title) {
         self.showEditor = ko.observable(true);
         self.showTitle = ko.observable(true);
         self.raw = ko.observable(true);
-        self.secret = ko.observable('tell me all your secrets');
-
+        self.secret = ko.observable();
+        
         self.deleteDraft = function (draft, event) {
 
             event.stopPropagation();
@@ -1960,9 +1960,21 @@ var draft = function (parsed, title) {
 
         };
         
+        
+        self.editingSecret = function(data,event){
+            
+            event.stopPropagation();
+        };
+        
         self.hasProvidedSecret = ko.computed(function(){            
         return self.secret()?true:false;
         });
+
+        
+        self.publishArticle = function(data,event){
+            
+            event.stopPropagation();
+        };
     };
 
     var initializeDrafts = new viewModel();
@@ -1999,7 +2011,6 @@ function prepareInitialWorkSpace() {
     function setHtmlinPreviewPane(markdownText) {
         wordCountLabel.text('words: ' + getWordCount(markdownText));
         var previewHtml = markdown.toHTML(markdownText);
-        console.log(replaceAllImagesWithFigure(previewHtml));
         previewPaneView.html(replaceAllImagesWithFigure(previewHtml));
     }
 
