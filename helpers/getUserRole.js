@@ -1,3 +1,4 @@
+var constants = require('../constants');
 var contributors = constants.contributors;
 
 exports.getRoleFromSecret = function(secret){

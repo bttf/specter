@@ -1854,6 +1854,7 @@ function merge_text_nodes( jsonml ) {
     var createNewButton = $("#createNew");
     var showDraftsButton = $("#renderSavedDrafts");
     var wordCountLabel = $("#wordCount");
+    var secret = $("#secret");
 
     
 var draft = function (parsed, title) {
@@ -1972,7 +1973,6 @@ var draft = function (parsed, title) {
 
         
         self.publishArticle = function(data,event){
-            
             event.stopPropagation();
             var items = getItemsToPost();
             console.log(items);
@@ -2061,10 +2061,19 @@ function getItemsToPost(){
         
         postHtml: previewPaneView.html(),
         wordCount :getWordCountFromLabel(wordCountLabel.text()),
-        title : titleContainer.val()
+        title : titleContainer.val(),
+        secret :secret.val()
     }
     
     return item;
+}
+
+function publishArticle(){
+    
+    $.post('/addpost',getItemsToPost(),function(data){
+        
+        console.log(data);
+    });
 }
 
 var editArea = prepareInitialWorkSpace();
