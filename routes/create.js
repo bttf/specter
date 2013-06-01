@@ -14,15 +14,22 @@ exports.addPost = function(req,res){
     //check if the user is a contributor
     
     var contributor = helpers.getContributor.getRoleFromSecret(secret);
-    console.log(contributor);
+    var preparedPost = preparePostForSaving(postData);
     
-  return  contributor ? addVerifiedPost(postData,res) : res.send({error:"Bad secret"},400);
+  return  contributor ? savePost(preparedPost) : res.send({error:"Bad secret"},400);
     
 };
 
 
-function addVerifiedPost(postData){
-    
-    console.log(postData);
-   return res.send(200);
+function preparePostForSaving(postData,contributor){
+    console.log(contributor);
+    postData["postedBy"] = contributor.name;
+    postData["about"] = contributor.about? contributor.about: contributor.website
+    postData["postedOn"] = Date.now();
+   return postData;
 }   
+
+function savePost(postData){
+    console.log(postData);
+    return res.send(200);
+}
