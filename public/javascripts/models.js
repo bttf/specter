@@ -115,7 +115,7 @@ var draft = function (parsed, title) {
         
         self.publishArticle = function(data,event){
             event.stopPropagation();
-            publishArticle()
+            publishArticle();
         };
     };
 

@@ -1,6 +1,7 @@
 var constants = require('../constants');
 var helpers = require('../helpers');
 var cheerio = require('cheerio');
+var slugs = require('slugs');
 
 exports.newPost = function(req,res){
     return res.render(constants.views.createPost);
