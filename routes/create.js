@@ -2,6 +2,8 @@ var constants = require('../constants');
 var helpers = require('../helpers');
 var cheerio = require('cheerio');
 var slugs = require('slugs');
+var request = require('request');
+var queries = constants.queries;
 
 exports.newPost = function(req,res){
     return res.render(constants.views.createPost);
@@ -32,5 +34,13 @@ function preparePostForSaving(postData,contributor){
 }   
 
 function savePost(postData,res){
-            return res.send(200);
+    
+    var titleSlug = slugs(postData.title);
+    var url = queries.postType()+titleSlug;
+    var headers = helpers.setHeaders(url,postData);
+    request(headers,function(error,response,body){
+        if(error) return res.send({error:"Request failed"},500);
+        return res.send({data:body},200);
+    });
+            
 }
