@@ -81,8 +81,13 @@ function getItemsToPost(){
         wordCount :getWordCountFromLabel(wordCountLabel.text()),
         title : titleContainer.val(),
         secret :secret.val(),
-        imgSrc : image.src,
-        caption : image.alt
+        
+    }
+    
+    if(image){
+        
+        item.imgSrc = image.src;
+        item.caption = image.alt;
     }
     
     return item;

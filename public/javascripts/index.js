@@ -1974,7 +1974,7 @@ var draft = function (parsed, title) {
         
         self.publishArticle = function(data,event){
             event.stopPropagation();
-            publishArticle()
+            publishArticle();
         };
     };
 
@@ -2064,11 +2064,15 @@ function getItemsToPost(){
         wordCount :getWordCountFromLabel(wordCountLabel.text()),
         title : titleContainer.val(),
         secret :secret.val(),
-        imgSrc : image.src,
-        caption : image.alt
+        
     }
     
-    console.log(item);
+    if(image){
+        
+        item.imgSrc = image.src;
+        item.caption = image.alt;
+    }
+    
     return item;
 }
 
