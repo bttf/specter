@@ -17,7 +17,6 @@ exports.addPost = function(req,res){
     //check if the user is a contributor
     
     var contributor = helpers.getContributor.getRoleFromSecret(secret);
-    console.log(contributor);
     var preparedPost = preparePostForSaving(postData,contributor);    
     return  contributor ? savePost(preparedPost,res) : res.send({error:"Bad secret"},400);
     
@@ -29,6 +28,7 @@ function preparePostForSaving(postData,contributor){
     postData["about"] = contributor.about? contributor.about: contributor.website
     postData["postedOn"] = Date.now();
     postData["postText"] = helpers.stripHtml(postData.postHtml);
+    delete postData["secret"];
    return postData;
 }   
 
