@@ -1,6 +1,5 @@
 var constants = require('../constants');
 var helpers = require('../helpers');
-var cheerio = require('cheerio');
 var slugs = require('slugs');
 var request = require('request');
 var queries = constants.queries;
@@ -25,11 +24,10 @@ exports.addPost = function(req,res){
 
 
 function preparePostForSaving(postData,contributor){
-    var $ = cheerio.load(postData.postHtml);
     postData["postedBy"] = contributor.name;
     postData["about"] = contributor.about? contributor.about: contributor.website
     postData["postedOn"] = Date.now();
-    postData["postText"] = $("*").text();
+    postData["postText"] = helpers.stripHtml(postData.postHtml);
    return postData;
 }   
 
