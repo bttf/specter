@@ -1,2 +1,2 @@
 exports.create = require('./create');
-exports.getRecentPosts = require('./getRecentPosts');
+exports.recentPosts = require('./recentPosts');
