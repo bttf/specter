@@ -1,7 +1,9 @@
 exports.queries = {
     
      databaseUrl : 'http://localhost:9200/',
-     paginationSize : 10;
+    
+     paginationSize : 10,
+    
      blogIndex : function(){
          
          return this.databaseUrl+'blog/';
