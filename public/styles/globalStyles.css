@@ -1,0 +1,23 @@
+#searchBox{
+    
+    border:none;
+    outline:none;
+    font-size:25px;
+    box-shadow: none;
+    text-align:center;
+    margin-top:10px;
+}
+
+
+
+#results{
+    background-color: white;   
+}
+#results li {
+    
+border-bottom: 2px solid #e5eae4;
+font-size:20px;
+margin:20px 0;
+ text-align:center;
+line-height:28px;
+}
