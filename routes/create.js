@@ -27,7 +27,6 @@ function preparePostForSaving(postData,contributor){
     postData["postedBy"] = contributor.name;
     postData["about"] = contributor.about? contributor.about: contributor.website
     postData["postedOn"] = Date.now();
-    postData["postText"] = helpers.stripHtml(postData.postHtml);
     delete postData["secret"];
    return postData;
 }   
