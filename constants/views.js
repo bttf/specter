@@ -1,5 +1,5 @@
 exports.views = {
     
-    createPost : 'Abstract/view.html'
+    createPost : 'Abstract/index.html'
     
 };
