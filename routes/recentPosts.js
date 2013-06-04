@@ -5,7 +5,8 @@ var helpers = require('../helpers');
 exports.getRecentPosts = function(req,res){
     
     var url = constants.queries.recentPosts();
-    
+    var pageNo = req.params.page;
+    console.log(pageNo);
     var headers = helpers.setHeaders(url,getRecentPostsQueryData());
     
     request(headers,function(error,response,body){
