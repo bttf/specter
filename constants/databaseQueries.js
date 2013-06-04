@@ -12,7 +12,7 @@ exports.queries = {
     postType : function(){
         
         return this.blogIndex()+'post/';
-    }
+    },
     
     recentPosts : function(){
     
