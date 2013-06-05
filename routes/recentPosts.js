@@ -11,7 +11,9 @@ exports.getRecentPosts = function(req,res){
     request(headers,function(error,response,body){
         
         var resultCount = constants.queries.paginationSize - 1;
-        return res.render(constants.views.home,body.hits.slice(0,resultCount));
+        var results = body.hits;
+        var dataToRender = buildData(results.hits.slice(0,resultCount),pageNo,results.total);
+        return res.render(constants.views.home,dataToRender);
     });
     
     
@@ -44,5 +46,10 @@ function hasNextButton(total){
     return total===11?true:false;
 }
 
-function buildResponse(){
+function buildResponse(data,pageNo,total){
+    var items = {};
+    items.hits = data;
+    items.hasPrevious = hasPrevbutton(pageNo);
+    items.hasNext = hasNextButton(tota);
+    return items;
 }
