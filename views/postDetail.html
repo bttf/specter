@@ -8,7 +8,8 @@
   </head>
   <body>
     <div class="container-fluid">
-        <div class="span8 offset2">
+        <div class="row-fluid">
+        <div class="span9 offset2">
             <h1>{{_source.title}}</h1>
             <hr>
             <ul class="muted inline">
@@ -16,7 +17,8 @@
                 <li>{{_source.postedOn}}</li>
             </ul>
             <hr>
-            <div class="postBody">{{_source.postHtml}}</div>
+            <div class="postBody">{{{_source.postHtml}}}</div>
+        </div>
         </div>
       </div>
     <script src="http://code.jquery.com/jquery.js"></script>
