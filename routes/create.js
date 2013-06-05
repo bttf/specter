@@ -34,7 +34,7 @@ function preparePostForSaving(postData,contributor){
 function savePost(postData,res){
     
     var titleSlug = slugs(postData.title);
-    var url = queries.postType()+titleSlug;
+    var url = queries.postType()+titleSlug.toLowerCase();
     var headers = helpers.setHeaders(url,postData);
     request(headers,function(error,response,body){
         if(error) return res.send({error:"Request failed"},500);
