@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{_source.title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="/styles/globalStyles.css">
+  </head>
+  <body>
+    <div class="container-fluid">
+        <div class="span8 offset2">
+            <h1>{{_source.title}}</h1>
+            <hr>
+            <ul class="muted inline">
+                <li>{{_source.postedBy}}</li>
+                <li>{{_source.postedOn}}</li>
+            </ul>
+            <hr>
+            <div class="postBody">{{_source.postHtml}}</div>
+        </div>
+      </div>
+    <script src="http://code.jquery.com/jquery.js"></script>
+  </body>
+</html>
