@@ -10,27 +10,29 @@ exports.getRecentPosts = function(req,res){
     
     request(headers,function(error,response,body){
         
-        return res.render(constants.views.home,body.hits);
+        var resultCount = constants.queries.paginationSize - 1;
+        return res.render(constants.views.home,body.hits.slice(0,resultCount));
     });
     
     
 };
 
-function getRecentPostsQueryData(){
+function getRecentPostsQueryData(pageNo,paginationSize){
     
     var queryData = {
       "sort" :{ "postedOn" : {"order" : "desc"}} 
     };
+    
+     
+    queryData.from = getPaginationParameters(pageNo,paginationSize);
+    queryData.size = paginationSize;
+    
     return queryData;
 }
 
 function getPaginationParameters(pageNo,paginationSize){
     
-    //This one is for the first page
-    if(!pageNo) return {from:0,size:paginationSize}; 
-    
-    var from = pageNo*paginationSize;
-    return {from:from,size:paginationSize}; 
+    return pageNo ? pageNo*paginationSize -1 : 0; 
 }
 
 function hasPrevbutton(pageNo){
@@ -40,4 +42,7 @@ function hasPrevbutton(pageNo){
 function hasNextButton(total){
     
     return total===11?true:false;
+}
+
+function buildResponse(){
 }
