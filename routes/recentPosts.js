@@ -13,6 +13,7 @@ exports.getRecentPosts = function(req,res){
         var resultCount = constants.queries.paginationSize - 1;
         var results = body.hits;
         var dataToRender = buildResponse(results.hits.slice(0,resultCount),pageNo,results.total);
+        console.log(dataToRender);
         return res.render(constants.views.home,dataToRender);
     });
     

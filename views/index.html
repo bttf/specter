@@ -25,6 +25,34 @@
 </div>
           </div>
       </div>
+      <div class="container-fluid">
+          {{#hits}}
+          {{#_source.imgSrc}}
+          <div class="row-fluid">
+              <div class="span12">
+                  <figure>
+                      <img src ="{{_source.imgSrc}}">
+            <figcaption>
+                {{_source.caption}}
+                      </figcaption>
+                  </figure>
+              </div>
+          </div>
+          {{/_source.imgSrc}}
+          
+          <div class="row-fluid">
+              <div class="span8 offset2">
+                  <h1 class="postHeading"><a href="/_id">{{_source.title}}</a></h1>
+                  <ul class="muted inline">
+                      <li>{{_source.postedBy}}</li>
+                      <li>{{_source.postedOn}}</li>
+                  </ul>
+                <div class="postBody">{{{_source.postHtml}}}</div>  
+              </div>
+          </div>
+          <hr>
+          {{/hits}}
+      </div>
       <script src="http://code.jquery.com/jquery.js"></script>
   </body>
 </html>
