@@ -33,8 +33,11 @@ function getPaginationParameters(pageNo,paginationSize){
     return {from:from,size:paginationSize}; 
 }
 
-function hasPrevbutton(){
+function hasPrevbutton(pageNo){
+    return pageNo? true:false;
 }
 
-function hasNextButton(){
+function hasNextButton(total){
+    
+    return total===11?true:false;
 }
