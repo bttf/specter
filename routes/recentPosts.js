@@ -59,7 +59,7 @@ function buildResponse(data,pageNo,total){
 function prettifyDates (data){
     data.forEach(function(item,index,arr){        
         item._source.postedOn = new Date(item._source.postedOn).toDateString();
-        
+        item._source.postHtml = helpers.stripHtml(item._source.postHtml).substring(0,500);
     });
     
     return data;
