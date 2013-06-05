@@ -12,7 +12,7 @@ exports.getRecentPosts = function(req,res){
         
         var resultCount = constants.queries.paginationSize - 1;
         var results = body.hits;
-        var dataToRender = buildData(results.hits.slice(0,resultCount),pageNo,results.total);
+        var dataToRender = buildResponse(results.hits.slice(0,resultCount),pageNo,results.total);
         return res.render(constants.views.home,dataToRender);
     });
     
@@ -38,18 +38,28 @@ function getPaginationParameters(pageNo,paginationSize){
 }
 
 function hasPrevbutton(pageNo){
-    return pageNo? true:false;
+    return pageNo? pageNo-1:false;
 }
 
-function hasNextButton(total){
+function hasNextButton(total,paginationSize){
     
-    return total===11?true:false;
+    return total===11?pageNo*paginationSize -1:false;
 }
 
 function buildResponse(data,pageNo,total){
-    var items = {};
-    items.hits = data;
+       var items = {};
+    
+    items.hits = prettifyDates(data); 
     items.hasPrevious = hasPrevbutton(pageNo);
-    items.hasNext = hasNextButton(tota);
+    items.hasNext = hasNextButton(total);
     return items;
+}
+
+function prettifyDates (data){
+    data.forEach(function(item,index,arr){        
+        item._source.postedOn = new Date(item._source.postedOn).toDateString();
+        
+    });
+    
+    return data;
 }
