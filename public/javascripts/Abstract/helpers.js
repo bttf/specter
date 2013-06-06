@@ -103,7 +103,7 @@ function publishArticle(){
 
 function updatePost(){
     
-    $.post('/updatePost',{post:editArea.val()},function(data){
+    $.post('/updatePost',{post:previewPaneView.html(),secret:secret.val()},function(data){
         
         console.log(data);
     });
