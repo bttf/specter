@@ -13,11 +13,8 @@ exports.editPost = function(req,res){
         var parsed = JSON.parse(body);
         var html = removeFigureCaption( parsed._source.postHtml);
         var markdownText = getMarkdownFromHtml(html);
-        var item = {
-        post :helpers.stripHtml(markdownText),
-        title : parsed._source.title
-            }
-        return res.render(constants.views.createPost,item);
+       
+        return res.render(constants.views.createPost,buildData(markdownText,parsed));
     });
 };
 
@@ -30,4 +27,14 @@ function removeFigureCaption(html){
     var $ = cheerio.load(html);
      $("figcaption").remove();
     return $.html();
+}
+
+function buildData(markdownText,parsed){
+    
+     var item = {
+        post :helpers.stripHtml(markdownText),
+        title : parsed._source.title
+            }
+     
+     return item;
 }
