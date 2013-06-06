@@ -11,7 +11,10 @@ exports.editPost = function(req,res){
         if(!body) return res.send(404);
         var parsed = JSON.parse(body);
         var markdownText = getMarkdownFromHtml(parsed._source.postHtml);
-        return res.render(constants.views.createPost,{post:markdownText});
+        var item = {};
+        item.post = markdownText;
+        item.title = parsed._source.title;
+        return res.render(constants.views.createPost,item);
     })
 };
 
