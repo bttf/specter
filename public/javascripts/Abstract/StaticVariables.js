@@ -18,5 +18,6 @@
     var showDraftsButton = $("#renderSavedDrafts");
     var wordCountLabel = $("#wordCount");
     var secret = $("#secret");
+    var update = $("#update");
 
     

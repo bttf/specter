@@ -1855,6 +1855,7 @@ function merge_text_nodes( jsonml ) {
     var showDraftsButton = $("#renderSavedDrafts");
     var wordCountLabel = $("#wordCount");
     var secret = $("#secret");
+    var update = $("#update");
 
     
 var draft = function (parsed, title) {
@@ -2091,7 +2092,8 @@ function publishArticle(){
 
 function updatePost(){
     
-    $.post('/updatePost',{post:editArea.val()},function(data){
+    
+    $.post('/updatePost',{post:previewPaneView.html(),secret:secret.val(),postedBy : update.data().postedby},function(data){
         
         console.log(data);
     });
