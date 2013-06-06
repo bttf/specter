@@ -8,7 +8,7 @@ exports.editPost = function(req,res){
     var url = constants.queries.postType() + id;
     console.log(url);
     request(url,function(error,response,body){
-        
+        if(!body) return res.send(404);
         console.log(body);
     })
 };
