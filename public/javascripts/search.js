@@ -17,9 +17,11 @@ var searchViewModel = function(){
         
     };
     
-    self.hasAppropriateLength = ko.computed(function(){
+    self.hasAppropriateLength = ko.computed(function(data,event){
         
-        return self.searchText()? self.searchText().length>=3 ? self.search():false:false;
+        var text = self.searchText();
+        console.log(event);
+        return text? text.length>=3 ? self.search():false:false;
     });
     
     
