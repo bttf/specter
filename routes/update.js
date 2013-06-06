@@ -1,4 +1,4 @@
-var constants = require('constant');
+var constants = require('../constant');
 var request = require('request');
 
 exports.updatePost = function(req,res){
