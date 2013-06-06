@@ -3,14 +3,20 @@ var searchViewModel = function(){
     self.searchText = ko.observable();
     self.searchResults = ko.observableArray();
     
-    self.keypress = function(data,event){
+    self.keydown = function(data,event){
         
-        if (event.which === 13){
+        if (event.keyCode === 13){
             
             
             if(self.searchResults().length>0){ 
                 window.location.href = '/'+self.searchResults()[0]._id; 
             }
+        }
+        
+        if(event.keyCode == 27){
+            
+            self.searchText('');
+            self.searchResults.removeAll();
         }
         
         return true;
