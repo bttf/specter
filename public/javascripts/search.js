@@ -2,15 +2,16 @@ var searchViewModel = function(){
     var self = this;
     self.searchText = ko.observable();
     self.searchResults = ko.observableArray();
-    self.hasAppropriateLength = function(item){
+    self.hasAppropriateLength = ko.computed(){
         
-        return item.length>3 ? true:false;
+        return self.searchText().length>3 ? true:false;
     }
     self.search = function(){
         var postData = {};
         var query = self.searchText();
         postData.query = query;
-        if(hasAppropriateLength(query)){
+        console.log(self.hasAppropriateLength())
+        if(self.hasAppropriateLength()){
             
             $.post('/searchByTitle',postData,function(data){
                 
