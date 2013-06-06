@@ -8,5 +8,6 @@ app.get('/page/:page',routes.recentPosts.getRecentPosts);
 app.get('/',routes.recentPosts.getRecentPosts);
 app.post('/searchByTitle',routes.search.searchByTitle);    
 app.post('/addpost',routes.create.addPost);
+app.post('/:id/editPost',routes.edit.editPost);    
     
 };
