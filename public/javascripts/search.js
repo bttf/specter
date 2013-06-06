@@ -10,7 +10,7 @@ var searchViewModel = function(){
         var postData = {};
         var query = self.searchText();
         postData.query = query;
-        if(hasAppropriateLlength(query)){
+        if(hasAppropriateLength(query)){
             
             $.post('/searchByTitle',postData,function(data){
                 
