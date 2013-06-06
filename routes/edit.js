@@ -12,10 +12,9 @@ exports.editPost = function(req,res){
         if(!body) return res.send(404);
         var parsed = JSON.parse(body);
         var html = removeFigureCaption( parsed._source.postHtml);
-        var stripped = helpers.stripHtml(html);
-        var markdownText = getMarkdownFromHtml(stripped);
+        var markdownText = getMarkdownFromHtml(html);
         var item = {};
-        item.post = markdownText;
+        item.post =helpers.stripHtml(markdownText);
         item.title = parsed._source.title;
         return res.render(constants.views.createPost,item);
     });
