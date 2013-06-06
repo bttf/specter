@@ -32,7 +32,8 @@ function buildData(markdownText,parsed){
 
  var item = {
     post :helpers.stripHtml(markdownText),
-    title : parsed._source.title
+    title : parsed._source.title,
+     postedBy : parsed._source.postedBy
         }
  
  return item;
