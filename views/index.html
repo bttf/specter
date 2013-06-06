@@ -10,13 +10,13 @@
   <body>    
       <div class="continer-fluid">
           <div class="row-fluid">
-              <input type="text" placeholder="Search" class="span12" id="searchBox" data-bind="value:searchText,valueUpdate:afterkeydown">
+              <input type="text" placeholder="Search" class="span12" id="searchBox" data-bind="value:searchText,valueUpdate:'afterkeydown'">
                         </div>
           <div class="row-fluid">
             <div class="span10 offset1">  
               <ul class="unstyled" id="results">
                    <!-- ko foreach: searchResults -->
-                  <li><span><a data-bind="attr:{href:_id},text:title"></a></span><span data-bind="text:wordCount + 'words'"></span></li>
+                  <li><span><a data-bind="attr:{href:_id},text:title"></a></span> <span class="muted small" data-bind="text:wordCount +' '+ 'words'"></span></li>
                   <!-- /ko -->
               </ul>
 </div>
