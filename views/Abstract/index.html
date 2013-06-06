@@ -44,9 +44,17 @@
                         </li>
                         
                     </ul>
+                    
             <p>
                 <input class="span4" type="text" placeholder="enter secret" data-bind="value:secret,click:editingSecret,valueUpdate:'afterkeydown' " id="secret" ></p> 
-                <p><button class="btn btn-success" data-bind="enable:hasProvidedSecret,click:publishArticle">publish</button></p>    
+                <p>
+                    {{^post}}
+                    <button class="btn btn-success" data-bind="enable:hasProvidedSecret,click:publishArticle">publish</button>
+                    {{/post}}
+                    {{#post}}
+                    <button class="btn btn-success" data-bind="enable:hasProvidedSecret,click:publishArticle">Update</button>
+                    {{/post}}
+                    </p>    
                 </div>
             </div>
         </div>
