@@ -53,7 +53,7 @@
                     <button class="btn btn-success" data-bind="enable:hasProvidedSecret,click:publishArticle">publish</button>
                     {{/post}}
                     {{#post}}
-                    <button class="btn btn-success" data-bind="enable:hasProvidedSecret,click:updateArticle" data-postedby="{{postedBy}}" id="update">Update</button>
+                    <button class="btn btn-success" data-bind="enable:hasProvidedSecret,click:updateArticle" data-postedby="{{postedBy}}" data-id = {{id}} id="update">Update</button>
                     {{/post}}
                     </p>    
                 </div>

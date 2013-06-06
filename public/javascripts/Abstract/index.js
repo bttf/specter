@@ -2093,7 +2093,7 @@ function publishArticle(){
 function updatePost(){
     
     
-    $.post('/updatePost',{post:previewPaneView.html(),secret:secret.val(),postedBy : update.data().postedby},function(data){
+    $.post('/updatePost',{post:previewPaneView.html(),secret:secret.val(),postedBy : update.data().postedby,id:update.data().id},function(data){
         
         console.log(data);
     });
