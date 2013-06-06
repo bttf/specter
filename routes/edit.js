@@ -12,8 +12,7 @@ exports.editPost = function(req,res){
         if(!body) return res.send(404);
         var parsed = JSON.parse(body);
         var html = removeFigureCaption( parsed._source.postHtml);
-        var markdownText = getMarkdownFromHtml(html);
-       
+        var markdownText = getMarkdownFromHtml(html);       
         return res.render(constants.views.createPost,buildData(markdownText,parsed));
     });
 };
@@ -30,11 +29,11 @@ function removeFigureCaption(html){
 }
 
 function buildData(markdownText,parsed){
-    
-     var item = {
-        post :helpers.stripHtml(markdownText),
-        title : parsed._source.title
-            }
-     
-     return item;
+
+ var item = {
+    post :helpers.stripHtml(markdownText),
+    title : parsed._source.title
+        }
+ 
+ return item;
 }
