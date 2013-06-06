@@ -3,12 +3,25 @@ var searchViewModel = function(){
     self.searchText = ko.observable();
     self.searchResults = ko.observableArray();
     
+    self.keypress = function(data,event){
+        
+        if (event.which === 13){
+            
+            
+            if(self.searchResults().length>0){ 
+                window.location.href = '/'+self.searchResults()[0]._id; 
+            }
+        }
+        
+        return true;
+    }
+    
+    
     self.search = function(){
         var postData = {};
         var query = self.searchText();
         postData.query = query;
-        console.log(self.hasAppropriateLength());
-        
+                
             
             $.post('/searchByTitle',postData,function(data){
                 
@@ -20,7 +33,7 @@ var searchViewModel = function(){
     self.hasAppropriateLength = ko.computed(function(data,event){
         
         var text = self.searchText();
-        console.log(event);
+        if(!text) return self.searchResults.removeAll();
         return text? text.length>=3 ? self.search():false:false;
     });
     
