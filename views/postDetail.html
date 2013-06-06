@@ -7,14 +7,16 @@
       <link rel="stylesheet" href="/styles/globalStyles.css">
   </head>
   <body>
-      <div class="continer-fluid">
+       <div class="continer-fluid">
           <div class="row-fluid">
-              <input type="text" placeholder="Search" class="span12" id="searchBox">
+              <input type="text" placeholder="Search" class="span12" id="searchBox" data-bind="value:searchText,valueUpdate:'afterkeydown',event:{'keydown':keydown}">
                         </div>
           <div class="row-fluid">
             <div class="span10 offset1">  
               <ul class="unstyled" id="results">
-                  
+                   <!-- ko foreach: searchResults -->
+                  <li><span><a data-bind="attr:{href:_id},text:title"></a></span> <span class="muted" style="font-size:17px;" data-bind="text:wordCount +' '+ 'words'"></span><hr></li>
+                  <!-- /ko -->
               </ul>
 </div>
           </div>
