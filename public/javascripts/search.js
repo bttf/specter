@@ -2,7 +2,7 @@ var searchViewModel = function(){
     var self = this;
     self.searchText = ko.observable();
     self.searchResults = ko.observableArray();
-    self.hasAppropriateLength = fuction(item){
+    self.hasAppropriateLength = function(item){
         
         return item.length>3 ? true:false;
     }
