@@ -9,7 +9,9 @@ exports.editPost = function(req,res){
     console.log(url);
     request(url,function(error,response,body){
         if(!body) return res.send(404);
-        console.log(body);
+        var parsed = JSON.parse(body);
+        var markdownText = getMarkdownFromHtml(parsed._source.postHtml);
+        return res.render(constants.views.createPost,{post:markdownText});
     })
 };
 
