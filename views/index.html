@@ -10,12 +10,14 @@
   <body>    
       <div class="continer-fluid">
           <div class="row-fluid">
-              <input type="text" placeholder="Search" class="span12" id="searchBox">
+              <input type="text" placeholder="Search" class="span12" id="searchBox" data-bind="value:searchText">
                         </div>
           <div class="row-fluid">
             <div class="span10 offset1">  
               <ul class="unstyled" id="results">
                    <!-- ko foreach: searchResults -->
+                  <li><span><a data-bind="attr:{href:_id},text:title"></a></span><span data-bind="text:wordCount + 'words'"></span></li>
+                  <!-- /ko -->
               </ul>
 </div>
           </div>
@@ -50,6 +52,7 @@
           {{/hits}}
       </div>
       <script src="http://code.jquery.com/jquery.js"></script>
+      <script type="text/javascript" src="http://knockoutjs.com/downloads/knockout-2.2.1.js"></script>
       <script type="text/javascript" src="/javascripts/search.js"></script>
   </body>
 </html>
