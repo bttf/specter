@@ -5,7 +5,8 @@ var request = require('request');
 exports.editPost = function(req,res){
     
     var id = req.params.id;
-    var url = constants.queries.postType + 'id';
+    var url = constants.queries.postType() + id;
+    console.log(url);
     request(url,function(error,response,body){
         
         console.log(body);
