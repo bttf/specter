@@ -1976,6 +1976,11 @@ var draft = function (parsed, title) {
             event.stopPropagation();
             publishArticle();
         };
+        
+        self.updateArticle = function(data,event){
+            event.stopPropagation();
+            updatePost();
+        }
     };
 
     var initializeDrafts = new viewModel();
@@ -2079,6 +2084,14 @@ function getItemsToPost(){
 function publishArticle(){
     
     $.post('/addpost',getItemsToPost(),function(data){
+        
+        console.log(data);
+    });
+}
+
+function updatePost(){
+    
+    $.post('/updatePost',{post:editArea.val()},function(data){
         
         console.log(data);
     });

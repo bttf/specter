@@ -101,6 +101,14 @@ function publishArticle(){
     });
 }
 
+function updatePost(){
+    
+    $.post('/updatePost',{post:editArea.val()},function(data){
+        
+        console.log(data);
+    });
+}
+
 function getCoverImage(html){
     
     var parsedHtml =$(html);

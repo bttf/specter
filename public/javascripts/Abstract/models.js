@@ -117,6 +117,11 @@ var draft = function (parsed, title) {
             event.stopPropagation();
             publishArticle();
         };
+        
+        self.updateArticle = function(data,event){
+            event.stopPropagation();
+            updatePost();
+        }
     };
 
     var initializeDrafts = new viewModel();
