@@ -1,5 +1,6 @@
 var tomarkdown = require('to-markdown').toMarkdown;
 var constants = require('../constants');
+var request = require('request');
 
 exports.editPost = function(req,res){
     
