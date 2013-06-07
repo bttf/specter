@@ -1,10 +1,11 @@
 var helpers = require('../helpers');
-var request = require('../request');
+var request = require('request');
+var constants = require('../constants');
 
 exports.searchByTitle = function(req,res){
     
     var searchQuery = req.body.query;
-    console.log(searchQuery);
+   
     
     
     return res.send(response);

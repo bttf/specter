@@ -14,7 +14,7 @@ exports.queries = {
         return this.blogIndex()+'post/';
     },
     
-    recentPosts : function(){
+    search : function(){
     
     return this.postType()+'_search';
     
