@@ -2069,9 +2069,9 @@ function getItemsToPost(){
         postHtml: html,
         wordCount :getWordCountFromLabel(wordCountLabel.text()),
         title : titleContainer.val(),
-        secret :secret.val(),
+        secret :secret.val()
         
-    }
+    };
     
     if(image){
         
@@ -2092,8 +2092,11 @@ function publishArticle(){
 
 function updatePost(){
     
-    
-    $.post('/updatePost',{post:previewPaneView.html(),secret:secret.val(),postedBy : update.data().postedby,id:update.data().id},function(data){
+    var items = getItemsToPost();
+    items.postedBy = update.data().postedby;
+    items.id = update.data().id;
+    items.postedOn = update.data().postedon;
+    $.post('/updatePost',items,function(data){
         
         console.log(data);
     });
@@ -2103,7 +2106,7 @@ function getCoverImage(html){
     
     var parsedHtml =$(html);
     return  $('img',parsedHtml)[0];
-};
+}
 
 var editArea = prepareInitialWorkSpace();
 
