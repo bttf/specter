@@ -9,5 +9,11 @@ exports.updatePost = function(req,res){
     if(!dataToPost){return res.send(400);}
     var url = constants.queries.postType()+dataToPost.id;
     var contributor = helpers.getContributor(dataToPost.secret);
-   //if(contributor.name===)
+    var condition = contributor.role === 'admin' || contributor.details.name === dataToPost.postedBy;    
+    if(!condition) return res.send(403);
+    delete dataToPost["secret"];
+    request(helpers.setHeaders(url,dataToPost),function(error,response,body){
+        if(error)return res.send(500);
+        return res.send(200);
+    });
 };

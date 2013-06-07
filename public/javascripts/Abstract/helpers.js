@@ -108,7 +108,7 @@ function updatePost(){
     items.id = update.data().id;
     items.postedOn = update.data().postedon;
     $.post('/updatePost',items,function(data){
-        
+        //use jquery xhr object
         console.log(data);
     });
 }

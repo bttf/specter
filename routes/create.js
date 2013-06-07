@@ -18,7 +18,7 @@ exports.addPost = function(req,res){
     
     var contributor = helpers.getContributor.getRoleFromSecret(secret);
     var preparedPost = preparePostForSaving(postData,contributor);    
-    return  contributor ? savePost(preparedPost,res) : res.send({error:"Bad secret"},400);
+    return  contributor ? savePost(preparedPost,res) : res.send(400);
     
 };
 
@@ -37,8 +37,8 @@ function savePost(postData,res){
     var url = queries.postType()+titleSlug.toLowerCase();
     var headers = helpers.setHeaders(url,postData);
     request(headers,function(error,response,body){
-        if(error) return res.send({error:"Request failed"},500);
-        return res.send({data:body},200);
+        if(error) return res.send(500);
+        return res.send(200);
     });
             
 }
