@@ -7,9 +7,11 @@ exports.searchByTitle = function(req,res){
     var searchQuery = req.body.query;
     var url = constants.queries.search();
     var searchData = buildSearchQuery(searchQuery);
-    request(helpers.setHeaders(url,searchData),function(error,response,body){
-        return res.send(body.hits);
-    })  
+   var headers = helpers.setHeaders(url,searchData);
+    request(headers,function(error,response,body){
+        console.log(error);
+        return res.send(body);
+    });  
     
 };
 
@@ -19,7 +21,9 @@ var query = {
     
     "query":{
         "bool":{
-            "must":{
+            
+                "should":[
+            {
                 "match":{
                     "title":{
                         "query": searchTerm,
@@ -27,7 +31,6 @@ var query = {
                     }
                 }
             },
-                "should":[
                     {
                         "match" :{
                             
@@ -43,4 +46,6 @@ var query = {
             }
         }
     };
+    
+    return query;
 }
