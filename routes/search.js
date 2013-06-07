@@ -12,7 +12,39 @@ exports.searchByTitle = function(req,res){
         "_id": "test",
         "title" : "Test",
         "wordCount" : "700"}
-        ]
+        ];
     
     return res.send(response);
+};
+
+function buildSearchQuery(searchTerm){
+    
+var query = {  
+    
+    "query":{
+        "bool":{
+            "must":{
+                "match":{
+                    "title":{
+                        "query": searchTerm,
+                        "operator": "and"    
+                    }
+                }
+            },
+                "should":[
+                    {
+                        "match" :{
+                            
+                            "postHtml" : searchTerm  
+                        }
+                    },
+                    {
+                        "match":{
+                            "caption" : searchTerm
+                        }
+                    }
+                ]
+            }
+        }
+    };
 }
