@@ -12,8 +12,10 @@ exports.updatePost = function(req,res){
     var condition = contributor.role === 'admin' || contributor.details.name === dataToPost.postedBy;    
     if(!condition) return res.send(403);
     delete dataToPost["secret"];
+    dataToPost.postedOn = parseInt(dataToPost.postedOn);
     request(helpers.setHeaders(url,dataToPost),function(error,response,body){
         if(error)return res.send(500);
         return res.send(200);
     });
 };
+
