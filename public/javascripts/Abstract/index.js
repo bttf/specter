@@ -2095,7 +2095,7 @@ function updatePost(){
     var items = getItemsToPost();
     items.postedBy = update.data().postedby;
     items.id = update.data().id;
-    items.postedOn = parseInt(update.data().postedon);
+    items.postedOn = update.data().postedon;
     $.post('/updatePost',items,function(data){
         //use jquery xhr object
         console.log(data);
