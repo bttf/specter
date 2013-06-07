@@ -1,3 +1,5 @@
+//In decreasing order of privileges admin > user > guest. 
+
 exports.contributors = {
     
     admins :[ {
