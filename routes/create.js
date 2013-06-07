@@ -24,8 +24,8 @@ exports.addPost = function(req,res){
 
 
 function preparePostForSaving(postData,contributor){
-    postData["postedBy"] = contributor.name;
-    postData["about"] = contributor.about? contributor.about: contributor.website
+    postData["postedBy"] = contributor.details.name;
+    postData["about"] = contributor.details.about? contributor.details.about: contributor.details.website
     postData["postedOn"] = Date.now();
     delete postData["secret"];
    return postData;
