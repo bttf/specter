@@ -5,10 +5,10 @@ var constants = require('../constants');
 exports.searchByTitle = function(req,res){
     
     var searchQuery = req.body.query;
-    var url = helpers.databaseUrl.search();
+    var url = constants.queries.search();
     var searchData = buildSearchQuery(searchQuery);
     request(helpers.setHeaders(url,searchData),function(error,response,body){
-        console.log(body);
+        return res.send(body.hits);
     })  
     
 };
