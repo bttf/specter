@@ -18,7 +18,7 @@ exports.searchByTitle = function(req,res){
 function buildSearchQuery(searchTerm){
     
 var query = {  
-    
+    "fields" : ["title","wordCount"],
     "query":{
         "bool":{
             
