@@ -6,7 +6,9 @@ exports.getRoleFromSecret = function(secret){
         var user = getUserFromSecret(secret);
         var guest = getGuestFromSecret(secret);
         var admin = getAdminFromSecret(secret);
-        var contibutor = admin.length>0 ? setContibutorDetails("admin",admin[0]) : user.length>0? setContibutorDetails("user",user[0]):guest.length>0?setContibutorDetails("guest",guest[0]):false;
+        var contibutor = admin.length>0 ? setContibutorDetails("admin",admin[0]) : 
+        user.length>0? setContibutorDetails("user",user[0]):
+        guest.length>0?setContibutorDetails("guest",guest[0]):false;
         return contibutor;
 };
 
