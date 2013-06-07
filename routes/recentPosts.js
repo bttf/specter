@@ -49,13 +49,13 @@ function hasNextButton(total,paginationSize){
 function buildResponse(data,pageNo,total){
        var items = {};
     
-    items.hits = prettifyDates(data); 
+    items.hits = prepareResponse(data); 
     items.hasPrevious = hasPrevbutton(pageNo);
     items.hasNext = hasNextButton(total);
     return items;
 }
 
-function prettifyDates (data){
+function prepareResponse (data){
     data.forEach(function(item,index,arr){        
         item._source.postedOn = new Date(item._source.postedOn).toDateString();
         item._source.postHtml = helpers.stripHtml(item._source.postHtml).substring(0,500);

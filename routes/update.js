@@ -8,7 +8,7 @@ exports.updatePost = function(req,res){
     var dataToPost = req.body;
     if(!dataToPost){return res.send(400);}
     var url = constants.queries.postType()+dataToPost.id;
-    var contributor = helpers.getContributor(dataToPost.secret);
+    var contributor = helpers.getContributor.getRoleFromSecret(dataToPost.secret);
     var condition = contributor.role === 'admin' || contributor.details.name === dataToPost.postedBy;    
     if(!condition) return res.send(403);
     delete dataToPost["secret"];
