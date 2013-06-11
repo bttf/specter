@@ -2086,8 +2086,8 @@ function publishArticle(){
     
     $.post('/addpost',getItemsToPost(),function(data){
         
-        console.log(data);
-    });
+         window.location.href = "/"+data.id;
+    }).fail(function(data){alert("The post could not be created. Please check if the database server is online")});;
 }
 
 function updatePost(){
