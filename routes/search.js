@@ -10,7 +10,7 @@ exports.searchByTitle = function(req,res){
    var headers = helpers.setHeaders(url,searchData);
     request(headers,function(error,response,body){
         
-        return res.send(buildDataToSend(body.hits.hits));
+        return res.send(body.hits.hits);
     });  
     
 };
@@ -50,16 +50,6 @@ var query = {
     return query;
 }
 
-function buildDataToSend(data){
+
     
- var items =   data.map(function(item){
-      
-       var result = {};
-       result._id = item._id;
-       result.title = item.fields.title;
-       result.wordCount = item.fields.wordCount;       
-       return result;
-   });
-    
-    return items;
-}
+ 
