@@ -109,7 +109,7 @@ function updatePost(){
     items.postedOn = update.data().postedon;
     $.post('/updatePost',items,function(data){
         window.location.href = "/"+data.id;
-    }).fail(function(data){console.log(data);});
+    }).fail(function(data){alert("The post could not be updated. Please check if the database server is online")});
 }
 
 function getCoverImage(html){
