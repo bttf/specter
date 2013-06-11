@@ -36,8 +36,8 @@ var query = {
                             
                             "postHtml":{
                             
-                            "query" : searchTerm,
-                            "slop" : 1    
+                            "query" : searchTerm
+                                
                          }
                     
                         }        
