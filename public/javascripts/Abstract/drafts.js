@@ -30,9 +30,13 @@ function loadSavedDrafts() {
         initializeDrafts.drafts(array);
     }
 
-    function saveCurrentDraft() {
+    function saveCurrentDraft(prevKey) {
 
         var key = titleContainer.val();
+        if(localStorage.hasOwnProperty(prevKey))
+        {
+           removeDraft(prevKey);
+        }
         var draft = {};
         draft["time"] = new Date();
         draft["text"] = getMarkdownText();
@@ -50,5 +54,5 @@ function loadSavedDrafts() {
         localStorage.removeItem(key);
     }
 
-
+    
 

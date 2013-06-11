@@ -1878,6 +1878,7 @@ var draft = function (parsed, title) {
         self.showTitle = ko.observable(true);
         self.raw = ko.observable(true);
         self.secret = ko.observable();
+        self.currentKey = '';
         
         self.deleteDraft = function (draft, event) {
 
@@ -1917,7 +1918,7 @@ var draft = function (parsed, title) {
                 self.showEditor(false);
                 self.showTitle(true);
                 showThis([rawHtmlExpression,previewContainerExpression]);
-                saveCurrentDraft();
+                saveCurrentDraft(self.currentKey);
                 saveStatusNotification.fadeIn().show().delay(1000).fadeOut();
             }
 
@@ -1940,6 +1941,7 @@ var draft = function (parsed, title) {
             draftsView.hide();
             editArea.val(parsed.text).trigger('autosize');
             titleContainer.val(title);
+            self.currentKey = title;
             wordCountLabel.text(parsed.wordCount);
             self.showEditor(true);
             self.showTitle(true);
@@ -2143,9 +2145,13 @@ function loadSavedDrafts() {
         initializeDrafts.drafts(array);
     }
 
-    function saveCurrentDraft() {
+    function saveCurrentDraft(prevKey) {
 
         var key = titleContainer.val();
+        if(localStorage.hasOwnProperty(prevKey))
+        {
+           removeDraft(prevKey);
+        }
         var draft = {};
         draft["time"] = new Date();
         draft["text"] = getMarkdownText();
@@ -2163,7 +2169,7 @@ function loadSavedDrafts() {
         localStorage.removeItem(key);
     }
 
-
+    
 
 
 });
