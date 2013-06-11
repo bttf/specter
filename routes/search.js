@@ -32,10 +32,15 @@ var query = {
                 }
             },
                     {
-                        "match" :{
+                        "match_phrase" :{
                             
-                            "postHtml" : searchTerm  
-                        }
+                            "postHtml":{
+                            
+                            "query" : searchTerm,
+                            "slop" : 1    
+                         }
+                    
+                        }        
                     },
                     {
                         "match":{
