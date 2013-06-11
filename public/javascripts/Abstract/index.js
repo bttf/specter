@@ -1918,8 +1918,7 @@ var draft = function (parsed, title) {
                 self.showEditor(false);
                 self.showTitle(true);
                 showThis([rawHtmlExpression,previewContainerExpression]);
-                saveCurrentDraft(self.currentKey);
-                saveStatusNotification.fadeIn().show().delay(1000).fadeOut();
+                self.saveAndNotify();
             }
 
         };
@@ -1947,7 +1946,11 @@ var draft = function (parsed, title) {
             self.showTitle(true);
 
         };
-
+        
+        self.titleChanged = function(){
+             self.saveAndNotify();
+        }
+        
         self.rawHtml = function(data,event){
 
         setRawHtml();
@@ -1983,6 +1986,11 @@ var draft = function (parsed, title) {
         self.updateArticle = function(data,event){
             event.stopPropagation();
             updatePost();
+        }
+        
+        self.saveAndNotify = function(){
+             saveCurrentDraft(self.currentKey);
+            saveStatusNotification.fadeIn().show().delay(1000).fadeOut();
         }
     };
 
