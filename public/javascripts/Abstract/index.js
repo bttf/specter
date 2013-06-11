@@ -2085,7 +2085,7 @@ function getItemsToPost(){
 function publishArticle(){
     
     $.post('/addpost',getItemsToPost(),function(data){
-        
+        removeDraft(titleContainer.val());
          window.location.href = "/"+data.id;
     }).fail(function(data){alert("The post could not be created. Please check if the database server is online")});;
 }
@@ -2097,6 +2097,7 @@ function updatePost(){
     items.id = update.data().id;
     items.postedOn = update.data().postedon;
     $.post('/updatePost',items,function(data){
+        removeDraft(items.title);
         window.location.href = "/"+data.id;
     }).fail(function(data){alert("The post could not be updated. Please check if the database server is online")});
 }
