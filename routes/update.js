@@ -13,7 +13,7 @@ exports.updatePost = function(req,res){
     if(!condition) return res.send(403);    
     request(helpers.setHeaders(url,prepareDataForPosting(dataToPost)),function(error,response,body){
         if(error)return res.send(500);
-        return res.send(200);
+        return res.send({id:body._id},200);
     });
 };
 
