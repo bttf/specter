@@ -19,6 +19,7 @@ function buildSearchQuery(searchTerm){
     
 var query = {  
     "fields" : ["title","wordCount"],
+    size:1,
     "query":{
         "bool":{
             
