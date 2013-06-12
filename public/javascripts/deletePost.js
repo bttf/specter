@@ -16,7 +16,7 @@
        $.post('/deletePost',data,function(){
             
            $("#deleteContainer").hide();
-           $('body').html('<p>The post was deleted. Click <a href="/">here</a> to go back</p>')
+           $('body').html('<p class="lead" style="margin-top:20px;">The post was deleted. Click <a href="/">here</a> to go back</p>')
         }).fail(function(data){
            console.log(data.status)
            if(data.status === 403)alert('un-authorized');
