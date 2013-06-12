@@ -18,7 +18,7 @@ exports.addPost = function(req,res){
     
     var contributor = helpers.getContributor.getRoleFromSecret(secret);
     var preparedPost = preparePostForSaving(postData,contributor);    
-    return  contributor ? savePost(preparedPost,res) : res.send(400);
+    return  contributor ? savePost(preparedPost,res) : res.send(403);
     
 };
 

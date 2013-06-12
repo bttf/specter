@@ -13,7 +13,14 @@
     self.deletePost = function(){
         
        var data = self.getPostToDelete();
-        console.log(data);
+       $.post('/deletePost',data,function(){
+            
+            window.location.href = '/';
+        }).fail(function(data){
+           console.log(data.status)
+           if(data.status === 403)alert('un-authorized');
+           if(data.status===500) alert('internal server error');
+        })
     };   
     
     self.getPostToDelete = function(){
