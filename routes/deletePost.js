@@ -9,7 +9,7 @@ exports.getPostToDelete = function(req,res){
     var url = constants.queries.postType()+id;
     request(url,function(error,response,body){
         if(error)return res.send(404);
-        return res.render(buildResponse(body));
+        return res.render(buildResponse(body),constants.views.deletePost);
     });
 };
 

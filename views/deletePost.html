@@ -5,7 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span10 offset2">
+                <h1 data-id={{id}}>{{title}}<small>{{wordCount}}</small></h1>
+                
+            </div>
+            <div class="row-fluid">
+                <div class="span10 offset2">
+                    <input type="text" class="span6" placeholder="Enter secret to delete this post">
+                    <button class="btn btn-danger" id="deletePost">Delete</button>
+                </div>
+            </div>
+        </div>
+      </div>
     <script src="http://code.jquery.com/jquery.js"></script>
   </body>
 </html>
