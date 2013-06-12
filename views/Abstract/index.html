@@ -47,7 +47,7 @@
                     </ul>
                     
             <p>
-                <input class="span4" type="text" placeholder="enter secret" data-bind="value:secret,click:editingSecret,valueUpdate:'afterkeydown' " id="secret" ></p> 
+                <input class="span4" type="password" placeholder="enter secret" data-bind="value:secret,click:editingSecret,valueUpdate:'afterkeydown' " id="secret" ></p> 
                 <p>
                     {{^post}}
                     <button class="btn btn-success" data-bind="enable:hasProvidedSecret,click:publishArticle">publish</button>
