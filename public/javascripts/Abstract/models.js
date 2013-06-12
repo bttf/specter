@@ -87,9 +87,6 @@ var draft = function (parsed, title) {
 
         };
         
-        self.titleChanged = function(){
-             self.saveAndNotify();
-        }
         
         self.rawHtml = function(data,event){
 
