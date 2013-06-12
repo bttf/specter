@@ -9,6 +9,23 @@
     return  self.secret() ? true :false;  
     
     });
+        
+    self.deletePost = function(){
+        
+       var data = self.getPostToDelete();
+        console.log(data);
+    };   
+    
+    self.getPostToDelete = function(){
+        
+        var post = {};
+        var data = $("#title").data();
+        post.id = data.id;
+        post.postedBy = data.by;
+        post.secret = self.secret();
+        
+        return post;
+    };
     
 };
 
