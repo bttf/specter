@@ -34,6 +34,6 @@ function buildResponse(postDetail){
     data.id = postDetail._id;
     data.title = postDetail._source.title;
     data.wordCount = postDetail._source.wordCount;
-    data.postedBy === postDetail._source.posteBy;
+    data.postedBy = postDetail._source.postedBy;
     return data;    
 }

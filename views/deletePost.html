@@ -3,18 +3,21 @@
   <head>
     <title>Delete Post</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+      
   </head>
   <body>
-    <div class="container-fluid">
+    <div class="container-fluid" style="margin-top:20px;">
         <div class="row-fluid">
             <div class="span10 offset2">
-                <h1 data-id={{id}}>{{title}}<small>{{wordCount}}</small></h1>
+                <h1 data-id={{id}} data-by="{{postedBy}}" id="title">{{title}}</h1>
+                <p><small>{{wordCount}}</small> words</p>
                 
             </div>
             <div class="row-fluid">
                 <div class="span10 offset2">
-                    <input type="text" class="span6" placeholder="Enter secret to delete this post">
-                    <button class="btn btn-danger" id="deletePost">Delete</button>
+                    <p><input type="text" class="span6" placeholder="Enter secret to delete this post"></p>
+                    <p><button class="btn btn-danger" id="deletePost">Delete</button></p>
                 </div>
             </div>
         </div>
