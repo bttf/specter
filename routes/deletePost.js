@@ -1,6 +1,6 @@
 var constants = require('../constants');
-var request = require('../request');
-var helpers = require(../helpers');
+var request = require('request');
+var helpers = require('../helpers');
 
 exports.deletePost = function(req,res){
     
@@ -11,4 +11,4 @@ exports.deletePost = function(req,res){
         if(error) return res.send(500);
         return res.send(200)
     });
-}
+};
