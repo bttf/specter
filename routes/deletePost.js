@@ -9,7 +9,7 @@ exports.getPostToDelete = function(req,res){
     var url = constants.queries.postType()+id;
     request(url,function(error,response,body){
         if(error)return res.send(404);
-        return res.render(buildResponse(body),constants.views.deletePost);
+        return res.render(constants.views.deletePost,buildResponse(JSON.parse(body)));
     });
 };
 
@@ -31,7 +31,7 @@ exports.deletePost = function(req,res){
 
 function buildResponse(postDetail){
     var data = {};
-    data.id = postDetail._id,
+    data.id = postDetail._id;
     data.title = postDetail._source.title;
     data.wordCount = postDetail._source.wordCount;
     data.postedBy === postDetail._source.posteBy;
