@@ -90,7 +90,7 @@ var draft = function (parsed, title) {
         
         self.rawHtml = function(data,event){
 
-        setRawHtml();
+            setRawHtml();
         event.stopPropagation();
         self.raw(false);
 
@@ -123,11 +123,17 @@ var draft = function (parsed, title) {
         self.updateArticle = function(data,event){
             event.stopPropagation();
             updatePost();
-        }
+        };
         
         self.saveAndNotify = function(){
              saveCurrentDraft(self.currentKey);
             saveStatusNotification.fadeIn().show().delay(1000).fadeOut();
+        };
+        
+        self.editTitle = function(){
+            self.currentKey = titleContainer.val();
+            previewContainerView.hide();
+            self.showEditor(true);
         }
     };
 
