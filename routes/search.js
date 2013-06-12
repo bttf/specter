@@ -6,7 +6,7 @@ exports.searchByTitle = function(req,res){
     
     var searchQuery = req.body.query;
     var url = constants.queries.search();
-    var searchData = buildSearchQuery(searchQuery);
+    var searchData = buildSearchQuery(searchQuery,constants.queries.searchSize);
    var headers = helpers.setHeaders(url,searchData);
     request(headers,function(error,response,body){
         
@@ -15,11 +15,11 @@ exports.searchByTitle = function(req,res){
     
 };
 
-function buildSearchQuery(searchTerm){
+function buildSearchQuery(searchTerm,size){
     
 var query = {  
     "fields" : ["title","wordCount"],
-    size:1,
+    "size":size,
     "query":{
         "bool":{
             
