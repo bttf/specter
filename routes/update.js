@@ -9,8 +9,9 @@ exports.updatePost = function(req,res){
     if(!dataToPost){return res.send(400);}
     var url = constants.queries.postType()+dataToPost.id;
     var contributor = helpers.getContributor.getRoleFromSecret(dataToPost.secret);
-    var isAuthorized = contributor.role === 'admin' || contributor.details.name === dataToPost.postedBy;    
-    if(!helpers.authorization.isUserAuthorized(contributor,dataToPost.postedBy)) return res.send(403);    
+	
+    if(!helpers.authorization.isUserAuthorized(contributor,dataToPost.postedBy)) return res.send(403); 
+	
     request(helpers.setHeaders(url,prepareDataForPosting(dataToPost)),function(error,response,body){
         if(error)return res.send(500);
         return res.send({id:body._id},200);
