@@ -20,7 +20,7 @@ exports.deletePost = function(req,res){
     var url = constants.queries.postType()+id;
     var contributor = helpers.getContributor.getRoleFromSecret(secret);
 	
-    if(!helpers.authorization.isUserAuthorized(contributor,dataToPost.postedBy)) return res.send(403);
+    if(!helpers.authorization.isUserAuthorized(contributor,req.body.postedBy)) return res.send(403);
     request.del(url,function(error,response,body){
         
         if(error) return res.send(500);
