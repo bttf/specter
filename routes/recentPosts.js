@@ -5,19 +5,17 @@ var helpers = require('../helpers');
 exports.getRecentPosts = function(req,res){
     
     var url = constants.queries.search();
-    var pageNo = req.params.page;
+    var pageNo = parseInt(req.params.page);
     var headers = helpers.setHeaders(url,getRecentPostsQueryData(pageNo,constants.queries.paginationSize));
     
     request(headers,function(error,response,body){
-		console.log(headers);
-	var hasPosts = !error && body.hits.hits.length>0;
-		console.log(hasPosts);
+			var hasPosts = !error && body.hits.hits.length>0;
+		
         if(!hasPosts){return res.redirect('/create');}
         var resultCount = constants.queries.paginationSize - 1;
         var results = body.hits;
         var dataToRender = buildResponse(results.hits.slice(0,resultCount),pageNo,body.hits.hits.length);
-		console.log(dataToRender);
-        return res.render(constants.views.home,dataToRender);
+		return res.render(constants.views.home,dataToRender);
     });
     
     
@@ -41,7 +39,7 @@ function buildResponse(data,pageNo,total){
     
     items.hits = prepareResponse(data); 
     items.hasPrevious = helpers.pagination.hasPrevButton(pageNo);
-    items.hasNext = helpers.pagination.hasNextButton(total,													 helpers.pagination.getPaginationParameters(pageNo,constants.queries.paginationSize));
+    items.hasNext = helpers.pagination.hasNextButton(total,pageNo);
 	items.isFirstPage = items.hasPrevious === 1 ? true :false;
     return items;
 }

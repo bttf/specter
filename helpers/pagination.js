@@ -5,10 +5,9 @@ exports.pagination = {
 getPaginationParameters	:function (pageNo,paginationSize){
 	
 	//If the page number parameter is undefined the page is first page
-    if(!pageNo){return 0;}
+    if(!pageNo){return 0;}	
 	
-	
-    return pageNo ? pageNo*paginationSize -(paginationSize+1) : 0; 
+    return pageNo*paginationSize -(paginationSize+(pageNo-1)); 
 },
 
 hasPrevButton: function (pageNo){
@@ -17,7 +16,8 @@ hasPrevButton: function (pageNo){
 
 hasNextButton:function (total,pageNo){
     
-    return total=== constants.queries.paginationSize?pageNo+2:false;
+	if(!pageNo&&total=== constants.queries.paginationSize) return 2;
+	return total=== constants.queries.paginationSize?parseInt(pageNo)+1:false;
 }
 
 };
