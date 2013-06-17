@@ -28,36 +28,18 @@ function getRecentPostsQueryData(pageNo,paginationSize){
     };
     
      
-    queryData.from = getPaginationParameters(pageNo,paginationSize);
+    queryData.from = helpers.pagination.getPaginationParameters(pageNo,paginationSize);
     queryData.size = paginationSize;
     
     return queryData;
-}
-
-function getPaginationParameters(pageNo,paginationSize){
-	//If the page number parameter is undefined the page is first page
-    if(!pageNo){return 1;}
-	
-	//Otherwise return the page number
-	
-    return pageNo ? pageNo*paginationSize -1 : 0; 
-}
-
-function hasPrevbutton(pageNo){
-    return pageNo? pageNo-1:false;
-}
-
-function hasNextButton(total,pageNo){
-    
-    return total=== constants.queries.paginationSize?pageNo+1:false;
 }
 
 function buildResponse(data,pageNo,total){
        var items = {};
     
     items.hits = prepareResponse(data); 
-    items.hasPrevious = hasPrevbutton(pageNo);
-    items.hasNext = hasNextButton(total,getPaginationParameters(pageNo,constants.queries.paginationSize));
+    items.hasPrevious = helpers.pagination.hasPrevbutton(pageNo);
+    items.hasNext = helpers.pagination.hasNextButton(total,getPaginationParameters(pageNo,constants.queries.paginationSize));
     return items;
 }
 
