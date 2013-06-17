@@ -6,7 +6,7 @@ exports.getRecentPosts = function(req,res){
     
     var url = constants.queries.search();
     var pageNo = req.params.page;
-    var headers = helpers.setHeaders(url,getRecentPostsQueryData());
+    var headers = helpers.setHeaders(url,getRecentPostsQueryData(pageNo,constants.queries.paginationSize));
     
     request(headers,function(error,response,body){
 	var hasPosts = !error && body.hits.hits.length>0;
@@ -14,6 +14,7 @@ exports.getRecentPosts = function(req,res){
         var resultCount = constants.queries.paginationSize - 1;
         var results = body.hits;
         var dataToRender = buildResponse(results.hits.slice(0,resultCount),pageNo,results.total);
+		console.log(dataToRender);
         return res.render(constants.views.home,dataToRender);
     });
     
@@ -34,7 +35,11 @@ function getRecentPostsQueryData(pageNo,paginationSize){
 }
 
 function getPaginationParameters(pageNo,paginationSize){
-    
+	//If the page number parameter is undefined the page is first page
+    if(!pageNo){return 1;}
+	
+	//Otherwise return the page number
+	
     return pageNo ? pageNo*paginationSize -1 : 0; 
 }
 
@@ -42,9 +47,9 @@ function hasPrevbutton(pageNo){
     return pageNo? pageNo-1:false;
 }
 
-function hasNextButton(total,paginationSize){
+function hasNextButton(total,pageNo){
     
-    return total===11?pageNo*paginationSize -1:false;
+    return total=== constants.queries.paginationSize?pageNo* constants.queries.paginationSize -1:false;
 }
 
 function buildResponse(data,pageNo,total){
@@ -52,7 +57,7 @@ function buildResponse(data,pageNo,total){
     
     items.hits = prepareResponse(data); 
     items.hasPrevious = hasPrevbutton(pageNo);
-    items.hasNext = hasNextButton(total);
+    items.hasNext = hasNextButton(total,getPaginationParameters(pageNo,constants.queries.paginationSize));
     return items;
 }
 

@@ -2,7 +2,7 @@ exports.queries = {
     
      databaseUrl : 'http://localhost:9200/',
     
-     paginationSize : 11,
+     paginationSize : 2,
      searchSize : 5,
     
      blogIndex : function(){
