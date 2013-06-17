@@ -50,6 +50,20 @@
           </div>
           
           {{/hits}}
+		  <ul class="pager">
+			  {{#hasPrevious}}
+  				<li><a href="#">Previous</a></li>
+			  {{/hasPrevious}}
+			   {{^hasPrevious}}
+  				<li><span class="disabled"><a href="#">Previous</a></span></li>
+			  {{/hasPrevious}}
+			  {{#hasNext}}
+  				<li><a href="#">Next</a></li>
+			  {{/hasNext}}
+			  {{^hasNext}}
+  				<li><span class="disabled"><a href="#">Next</a></span></li>
+			  {{/hasNext}}
+		  		</ul>
       </div>
       <script src="http://code.jquery.com/jquery.js"></script>
       <script type="text/javascript" src="http://knockoutjs.com/downloads/knockout-2.2.1.js"></script>
