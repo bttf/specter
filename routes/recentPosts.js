@@ -9,11 +9,13 @@ exports.getRecentPosts = function(req,res){
     var headers = helpers.setHeaders(url,getRecentPostsQueryData(pageNo,constants.queries.paginationSize));
     
     request(headers,function(error,response,body){
+		console.log(headers);
 	var hasPosts = !error && body.hits.hits.length>0;
+		console.log(hasPosts);
         if(!hasPosts){return res.redirect('/create');}
         var resultCount = constants.queries.paginationSize - 1;
         var results = body.hits;
-        var dataToRender = buildResponse(results.hits.slice(0,resultCount),pageNo,results.total);
+        var dataToRender = buildResponse(results.hits.slice(0,resultCount),pageNo,body.hits.hits.length);
 		console.log(dataToRender);
         return res.render(constants.views.home,dataToRender);
     });
