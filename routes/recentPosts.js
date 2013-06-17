@@ -38,8 +38,9 @@ function buildResponse(data,pageNo,total){
        var items = {};
     
     items.hits = prepareResponse(data); 
-    items.hasPrevious = helpers.pagination.hasPrevbutton(pageNo);
-    items.hasNext = helpers.pagination.hasNextButton(total,getPaginationParameters(pageNo,constants.queries.paginationSize));
+    items.hasPrevious = helpers.pagination.hasPrevButton(pageNo);
+    items.hasNext = helpers.pagination.hasNextButton(total,													 helpers.pagination.getPaginationParameters(pageNo,constants.queries.paginationSize));
+	
     return items;
 }
 
