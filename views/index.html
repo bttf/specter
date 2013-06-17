@@ -52,11 +52,16 @@
           {{/hits}}
 		  <ul class="pager">
 			  {{#hasPrevious}}
+			  {{^isFirstPage}}
   				<li><a href="/page/{{hasPrevious}}">Previous</a></li>
+			  {{/isFirstPage}}
 			  {{/hasPrevious}}
 			   {{^hasPrevious}}
-  				<li><span class="disabled"><a href="#">Previous</a></span></li>
+  				<li><span class="disabled"><a href="/">Previous</a></span></li>
 			  {{/hasPrevious}}
+			  {{#isFirstPage}}
+  				<li><a href="/">Previous</a></li>
+			  {{/isFirstPage}}
 			  {{#hasNext}}
   				<li><a href="/page/{{hasNext}}">Next</a></li>
 			  {{/hasNext}}
