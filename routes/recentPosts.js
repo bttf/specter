@@ -49,7 +49,7 @@ function hasPrevbutton(pageNo){
 
 function hasNextButton(total,pageNo){
     
-    return total=== constants.queries.paginationSize?pageNo* constants.queries.paginationSize -1:false;
+    return total=== constants.queries.paginationSize?pageNo+1:false;
 }
 
 function buildResponse(data,pageNo,total){
