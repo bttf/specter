@@ -2,8 +2,8 @@ var helpers = require('../helpers');
 
 exports.testFromParameter = function(test){
 	
-	test.equal(helpers.pagination.getPaginationParameters(0,0),0);
-	test.equal(helpers.pagination.getPaginationParameters(3,11),20);
+	test.equal(helpers.pagination.getFromParameter(0,0),0);
+	test.equal(helpers.pagination.getFromParameter(3,11),20);
 	test.done();
 	
 };

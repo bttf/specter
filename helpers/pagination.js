@@ -2,7 +2,7 @@ var constants = require('../constants');
 
 exports.pagination = {
 	
-getPaginationParameters	:function (pageNo,paginationSize){
+getFromParameter	:function (pageNo,paginationSize){
 	
 	//If the page number parameter is undefined the page is first page
     if(!pageNo){return 0;}	

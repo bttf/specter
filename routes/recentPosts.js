@@ -28,7 +28,7 @@ function getRecentPostsQueryData(pageNo,paginationSize){
     };
     
      
-    queryData.from = helpers.pagination.getPaginationParameters(pageNo,paginationSize);
+    queryData.from = helpers.pagination.getFromParameter(pageNo,paginationSize);
     queryData.size = paginationSize;
     
     return queryData;
