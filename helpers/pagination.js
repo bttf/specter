@@ -14,7 +14,7 @@ hasPrevButton: function (pageNo){
     return pageNo? pageNo-1:false;
 },
 
-hasNextButton:function (total,pageNo,paginationSize){
+hasNextButton:function (pageNo,total,paginationSize){
     
 	if(!pageNo&&total=== paginationSize) return 2;
 	return total=== paginationSize?parseInt(pageNo)+1:false;

@@ -39,7 +39,7 @@ function buildResponse(data,pageNo,total){
     
     items.hits = prepareResponse(data); 
     items.hasPrevious = helpers.pagination.hasPrevButton(pageNo);
-    items.hasNext = helpers.pagination.hasNextButton(total,pageNo,constants.queries.paginationSize);
+    items.hasNext = helpers.pagination.hasNextButton(pageNo,total,constants.queries.paginationSize);
 	items.isFirstPage = items.hasPrevious === 1 ? true :false;
     return items;
 }
