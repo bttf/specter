@@ -15,4 +15,12 @@ exports.testPreviousPage = function(test){
 	test.equal(helpers.pagination.hasPrevButton(3),2);
 	test.done();
 	
-}
+};
+
+exports.testNextPage = function(test){
+	
+	test.equal(helpers.pagination.hasNextButton(0,11,11),2);
+	test.equal(helpers.pagination.hasNextButton(2,11,11),3);
+	test.equal(helpers.pagination.hasNextButton(2,10,11),false);
+	test.done();
+};
