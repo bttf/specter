@@ -14,10 +14,10 @@ hasPrevButton: function (pageNo){
     return pageNo? pageNo-1:false;
 },
 
-hasNextButton:function (total,pageNo){
+hasNextButton:function (total,pageNo,paginationSize){
     
-	if(!pageNo&&total=== constants.queries.paginationSize) return 2;
-	return total=== constants.queries.paginationSize?parseInt(pageNo)+1:false;
+	if(!pageNo&&total=== paginationSize) return 2;
+	return total=== paginationSize?parseInt(pageNo)+1:false;
 }
 
 };
