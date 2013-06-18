@@ -18,6 +18,11 @@ hasNextButton:function (pageNo,total,paginationSize){
     
 	if(!pageNo&&total=== paginationSize) return 2;
 	return total=== paginationSize?parseInt(pageNo)+1:false;
-}
+},
+	
+isFirstPage = function(previousPage){
+	
+	previousPage === 1 ? true :false;
+}	
 
 };

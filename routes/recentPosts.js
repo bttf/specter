@@ -40,7 +40,7 @@ function buildResponse(data,pageNo,total){
     items.hits = prepareResponse(data); 
     items.hasPrevious = helpers.pagination.hasPrevButton(pageNo);
     items.hasNext = helpers.pagination.hasNextButton(pageNo,total,constants.queries.paginationSize);
-	items.isFirstPage = items.hasPrevious === 1 ? true :false;
+	items.isFirstPage = helpers.pagination.isFirstPage(items.hasPrevious);
     return items;
 }
 
