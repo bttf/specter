@@ -19,7 +19,7 @@ function getAdminFromSecret(secret,contributors){
    return contributors.admins.filter(function(admin){return admin.secret===secret;});
 }
 
-function getGuestFromSecret(secret.contributors){
+function getGuestFromSecret(secret,contributors){
     
     return contributors.guests.filter(function(guest){return guest.secret===secret;});
 }
