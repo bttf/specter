@@ -8,7 +8,7 @@ exports.updatePost = function(req,res){
     var dataToPost = req.body;
     if(!dataToPost){return res.send(400);}
     var url = constants.queries.postType()+dataToPost.id;
-    var contributor = helpers.getContributor.getRoleFromSecret(dataToPost.secret);
+    var contributor = helpers.getContributor.getRoleFromSecret(dataToPost.secret,constants.contributors);
 	
 	if(!helpers.authorization.isUserAuthorized(contributor,dataToPost.postedBy)) return res.send(403); 
 	

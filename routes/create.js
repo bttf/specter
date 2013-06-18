@@ -4,6 +4,7 @@ var slugs = require('slugs');
 var request = require('request');
 var queries = constants.queries;
 
+
 exports.newPost = function(req,res){
     return res.render(constants.views.createPost);
 };
@@ -16,7 +17,7 @@ exports.addPost = function(req,res){
     
     //check if the user is a contributor
     
-    var contributor = helpers.getContributor.getRoleFromSecret(secret);
+    var contributor = helpers.getContributor.getRoleFromSecret(secret,constants.contributors);
     var preparedPost = preparePostForSaving(postData,contributor);    
     return  contributor ? savePost(preparedPost,res) : res.send(403);
     
