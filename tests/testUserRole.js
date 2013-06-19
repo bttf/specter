@@ -39,3 +39,23 @@ exports.testUserRole = function(test){
 	test.equal(justUser.details.name, 'Akshat Jiwan Sharma');
 	test.done();
 };
+
+
+exports.testGuestRole = function(test){
+	
+	var contributor = helpers.getContributor.getRoleFromSecret('by!invitation&',mock.contributors);
+	var guest = {
+		guests:[
+			{
+				"name":"Akshat Jiwan Sharma",
+				'secret' : 'hey'
+			}
+		]
+	};
+	var justGuest = helpers.getContributor.getRoleFromSecret('hey',guest)	
+	test.equal(contributor.role,'guest');
+	test.equal(contributor.details.name,'A guest');
+	test.equal(justGuest.role,'guest');
+	test.equal(justGuest.details.name, 'Akshat Jiwan Sharma');
+	test.done();
+};
