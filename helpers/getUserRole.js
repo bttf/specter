@@ -11,16 +11,19 @@ exports.getRoleFromSecret = function(secret,contributors){
 
 function getUserFromSecret(secret,contributors){
     
+	if(!contributors.users) return [];
     return contributors.users.filter(function(user){return user.secret===secret;});
 }
 
 function getAdminFromSecret(secret,contributors){
+	if(!contributors.admins) return [];
     
    return contributors.admins.filter(function(admin){return admin.secret===secret;});
 }
 
 function getGuestFromSecret(secret,contributors){
-    
+	
+    if(!contributors.guests) return [];
     return contributors.guests.filter(function(guest){return guest.secret===secret;});
 }
 
