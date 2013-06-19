@@ -20,3 +20,22 @@ exports.testAdminRole = function(test){
 	test.equal(justAdmin.details.name, 'Akshat Jiwan Sharma');
 	test.done();
 };
+
+exports.testUserRole = function(test){
+	
+	var contributor = helpers.getContributor.getRoleFromSecret('get@creative#',mock.contributors);
+	var user = {
+		users:[
+			{
+				"name":"Akshat Jiwan Sharma",
+				'secret' : 'hey'
+			}
+		]
+	};
+	var justUser = helpers.getContributor.getRoleFromSecret('hey',user)	
+	test.equal(contributor.role,'user');
+	test.equal(contributor.details.name,'Not an admin');
+	test.equal(justUser.role,'user');
+	test.equal(justUser.details.name, 'Akshat Jiwan Sharma');
+	test.done();
+};
