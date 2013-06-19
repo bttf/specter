@@ -28,6 +28,7 @@ function getGuestFromSecret(secret,contributors){
 }
 
 function setContibutorDetails (role,data){
+	if(!(role&&data)) return false;
     
     var contributor = {
         
