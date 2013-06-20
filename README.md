@@ -8,7 +8,7 @@ An open source platform that simplifies the process of blogging by providing:
 
 * Customization that is limited only by your imagination.
 
-Does all this sound too good to be true? Don't believe what I say? See it in [action](http://specterdemo.aws.af.cm/) for yourself
+Does all this sound too good to be true? Don't believe what I say? See it in [action](http://www.staticshin.com/) for yourself
 
 
 
@@ -37,7 +37,7 @@ All right so you have installed specter and it is running. What next ?  Here is 
 * To delete an article you need to `url-of-the-article\delete` and provide it with your secret.
 
 
-**Don't have time to check out specter locally. Play with the [live version here](http://specterdemo.aws.af.cm/)  `\create, \edit, \delete` will work. Use by!invitation& as secret. Enjoy **
+
 
 #Creating contributors in specter
 
