@@ -9,9 +9,8 @@ exports.getRecentPosts = function(req,res){
     var headers = helpers.setHeaders(url,getRecentPostsQueryData(pageNo,constants.queries.paginationSize));
     
     request(headers,function(error,response,body){
-			var hasPosts = !error && body.hits.hits.length>0;
-		
-        if(!hasPosts){return res.redirect('/create');}
+		var hasPosts = !error && body.hits.hits.length>0;
+		if(!hasPosts){return res.redirect('/create');}
         var resultCount = constants.queries.paginationSize - 1;
         var results = body.hits;
         var dataToRender = buildResponse(results.hits.slice(0,resultCount),pageNo,body.hits.hits.length);
@@ -24,7 +23,8 @@ exports.getRecentPosts = function(req,res){
 function getRecentPostsQueryData(pageNo,paginationSize){
     
     var queryData = {
-      "sort" :{ "postedOn" : {"order" : "desc"}} 
+      "sort" :{ "postedOn" : {"order" : "desc"}},
+	   "fields" : ["postedOn","title","wordCount","imgSrc"]	
     };
     
      
@@ -46,8 +46,8 @@ function buildResponse(data,pageNo,total){
 
 function prepareResponse (data){
     data.forEach(function(item,index,arr){        
-        item._source.postedOn = new Date(item._source.postedOn).toDateString();
-        item._source.postHtml = helpers.stripHtml(item._source.postHtml).substring(0,500);
+        item.fields.postedOn = new Date(item.fields.postedOn).toDateString();
+        //item._source.postHtml = helpers.stripHtml(item._source.postHtml).substring(0,500);
     });
     
     return data;
