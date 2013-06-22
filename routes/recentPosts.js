@@ -9,7 +9,8 @@ exports.getRecentPosts = function(req,res){
     var headers = helpers.setHeaders(url,getRecentPostsQueryData(pageNo,constants.queries.paginationSize));
     
     request(headers,function(error,response,body){
-		var hasPosts = !error && body.hits.hits.length>0;
+
+		var hasPosts = body.error || body.hits.hits.length===0?false:true;
 		if(!hasPosts){return res.redirect('/create');}
         var resultCount = constants.queries.paginationSize - 1;
         var results = body.hits;
