@@ -1,4 +1,4 @@
-var preferences = require('../preferences').preferences;
+var preferences = require('../preferences');
 
 exports.queries = {
     
