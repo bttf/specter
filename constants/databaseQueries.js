@@ -1,9 +1,11 @@
+var preferences = require('../preferences').preferences;
+
 exports.queries = {
     
-     databaseUrl : 'http://localhost:9200/',
+     databaseUrl : preferences.databaseUrl,
     
-     paginationSize : 11,
-     searchSize : 5,
+     paginationSize : preferences.paginationSize,
+     searchSize : preferences.searchSize,
     
      blogIndex : function(){
          

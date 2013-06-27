@@ -1,54 +1,11 @@
-exports.prefrences = {
+exports.preferences = {
 	
 	"paginationSize" :11, 
-	 "databaseUrl"   :"http://localhost:9200",
+	 "databaseUrl"   :"http://localhost:9200/",
 	"searchResults" :5,
 	"pageFields":["postedBy","postedOn","title","wordCount"],
-	"summaryLength" : 0 ,
+	"summaryLength" : 0
 	
 };
 
-
-/*								REFERENCE
-								----------
-									
-									
-									
-paginationSze : Gives the number of pages in the index page and the search page. Should be an integer and one more than actual number of pages you want to display .For example if you want to display 10 pages use a pagination size of 11.
---------------------------------------------------------------------------------------------------------------------------------
-
-databaseUrl : The url that points to your elastic search database. Could be local (http://localhost:9200/) or on the web.
---------------------------------------------------------------------------------------------------------------------------------
-
-searchResults: number of results to display in the search box. This is just for the text box autocomplete. On a different page number of results is equal to the pagination size
---------------------------------------------------------------------------------------------------------------------------------
-
-pageFileds : The fields that you want to display on the index page. The array can contain following items for the default schema. 
-
- postHtml, postedBy, postedOn, title, wordCount.
-
-NOTE: If you change the schema and add or remove items then you must add that field to the page fields property.
---------------------------------------------------------------------------------------------------------------------------------
-
-
-summaryLength : Number of html elements to display in the summary of the index.If 0 no items are displayed. If 1 the first html element is displayed and so on. The postHtml must be present in the fields for this to work.
-
-
-Consider this html fragment
-
-<p>Hello</p>
-<p>World</p>
-
-<div>and hello</div>
-<em>Me<em>
-
-These are a total of 4 html elements. So if summaryLength : 3 following elements are displayed in summary
-
-<p>Hello</p>
-<p>World</p>
-
-<div>and hello</div>
-
-
---------------------------------------------------------------------------------------------------------------------------------
-*/
+// reference :	https://github.com/brislink/specter/wiki/preferences-documentation 
