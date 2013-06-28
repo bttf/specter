@@ -18,7 +18,6 @@
            $("#deleteContainer").hide();
            $('body').html('<p class="lead" style="margin:20px;text-align:center;">The post was deleted. Click <a href="/">here</a> to go back</p>')
         }).fail(function(data){
-           console.log(data.status)
            if(data.status === 403)alert('un-authorized');
            if(data.status===500) alert('internal server error');
         })
