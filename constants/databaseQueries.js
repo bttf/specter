@@ -5,7 +5,7 @@ exports.queries = {
      databaseUrl : preferences.databaseUrl,
     
      paginationSize : preferences.paginationSize,
-     searchSize : preferences.searchSize,
+     searchSize : preferences.searchResults,
     
      blogIndex : function(){
          
