@@ -23,6 +23,14 @@ hasNextButton:function (pageNo,total,paginationSize){
 isFirstPage: function(previousPage){
 	
 	return previousPage === 1 ? true :false;
+},
+
+buildPaginationQuery : function(pageNo,paginationSize,queryData){
+	
+    queryData.from = this.getFromParameter(pageNo,paginationSize);
+    queryData.size = paginationSize;
+    
+    return queryData;
 }	
 
 };
