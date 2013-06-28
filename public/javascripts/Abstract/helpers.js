@@ -74,7 +74,6 @@ function replaceAllImagesWithFigure(html){
 function getItemsToPost(){
     
     var html = previewPaneView.html();
-    var image = getCoverImage(html);
     var item = {
         
         postHtml: html,
@@ -82,14 +81,8 @@ function getItemsToPost(){
         title : titleContainer.val(),
         secret :secret.val()
         
-    };
-    
-    if(image){
-        
-        item.imgSrc = image.src;
-        item.caption = image.alt;
-    }
-    
+    };    
+       
     return item;
 }
 
