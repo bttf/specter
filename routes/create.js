@@ -18,8 +18,7 @@ exports.addPost = function(req,res){
     //check if the user is a contributor
     
     var contributor = helpers.getContributor.getRoleFromSecret(secret,constants.contributors);
-    var preparedPost = preparePostForSaving(postData,contributor);    
-    return  contributor ? savePost(preparedPost,res) : res.send(403);
+	return  contributor ? savePost(res,contributor) : res.send(403);
     
 };
 
@@ -32,8 +31,8 @@ function preparePostForSaving(postData,contributor){
    return postData;
 }   
 
-function savePost(postData,res){
-    
+function savePost(res,contributor){
+    var postData = preparePostForSaving(postData,contributor);
     var titleSlug = slugs(postData.title);
     var url = queries.postType()+titleSlug.toLowerCase();
     var headers = helpers.setHeaders(url,postData);
