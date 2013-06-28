@@ -98,7 +98,11 @@ function publishArticle(){
     $.post('/addpost',getItemsToPost(),function(data){
         removeDraft(titleContainer.val());
          window.location.href = "/"+data.id;
-    }).fail(function(data){alert("The post could not be created. Please check if the database server is online")});;
+    }).fail(function(data){
+		
+			if(data.status === 403)alert('un-authorized');
+           if(data.status===500) alert('internal server error');
+	});
 }
 
 function updatePost(){
@@ -110,7 +114,11 @@ function updatePost(){
     $.post('/updatePost',items,function(data){
         removeDraft(items.title);
         window.location.href = "/"+data.id;
-    }).fail(function(data){alert("The post could not be updated. Please check if the database server is online")});
+    }).fail(function(data){
+		
+			if(data.status === 403)alert('un-authorized');
+           if(data.status===500) alert('internal server error');
+	});
 }
 
 function getCoverImage(html){
