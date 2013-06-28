@@ -1,6 +1,7 @@
 var constants = require('../constants');
 var request = require('request');
 var helpers = require('../helpers');
+var preferences = require('../preferences').preferences;
 
 exports.getRecentPosts = function(req,res){
     
@@ -25,14 +26,10 @@ function getRecentPostsQueryData(pageNo,paginationSize){
     
     var queryData = {
       "sort" :{ "postedOn" : {"order" : "desc"}},
-	   "fields" : ["postedOn","title","wordCount","imgSrc"]	
+	   "fields" : preferences.fields	
     };
-    
-     
-    queryData.from = helpers.pagination.getFromParameter(pageNo,paginationSize);
-    queryData.size = paginationSize;
-    
-    return queryData;
+	
+    return helpers.pagination.buildPaginationQuery(pageNo,paginationSize,queryData);
 }
 
 function buildResponse(data,pageNo,total){
