@@ -114,11 +114,6 @@ function updatePost(){
 	});
 }
 
-function getCoverImage(html){
-    
-    var parsedHtml =$(html);
-    return  $('img',parsedHtml)[0];
-}
 
 var editArea = prepareInitialWorkSpace();
 
