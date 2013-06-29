@@ -9,12 +9,12 @@ exports.prepareResponse = function (data){
 	  }
         
 		
-		if(hasField("postHtml")&&hasField("summaryLength")){
+		if(hasField("postHtml")&&preferences.summaryLength>0){
 			
 			var $ = cheerio.load(item.fields.postHtml);
 			item.fields.postHtml = $('<div/>').append($("*").slice(0,preferences.summaryLength)).html();
-			 item.fields.postHtml;
-		}
+			console.log(item.fields.postHtml);
+	}
 		
 		return item;
     });
