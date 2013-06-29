@@ -2,7 +2,7 @@ var constants = require('../constants');
 var request = require('request');
 var helpers = require('../helpers');
 var preferences = require('../preferences').preferences;
-var cheerio = require('cheerio');
+
 
 exports.getRecentPosts = function(req,res){
     
@@ -36,35 +36,11 @@ function getRecentPostsQueryData(pageNo,paginationSize){
 function buildResponse(data,pageNo,total){
        var items = {};
     
-    items.hits = prepareResponse(data); 
+    items.hits = helpers.prepareResponse(data); 
     items.hasPrevious = helpers.pagination.hasPrevButton(pageNo);
     items.hasNext = helpers.pagination.hasNextButton(pageNo,total,constants.queries.paginationSize);
 	items.isFirstPage = helpers.pagination.isFirstPage(items.hasPrevious);
     return items;
 }
 
-function prepareResponse (data){
-	//check preferences here.
-    data.forEach(function(item,index,arr){        
-      if(hasField("postedOn")){
-		  return item.fields.postedOn = new Date(item.fields.postedOn).toDateString();
-	  }
-        if(hasField("postHtml")&&!hasField("summaryLength")){
-			return item.fields.postHtml; 	
-		}
-		
-		if(hasField("postHtml")&&hasField("summaryLength")){
-			
-			var $ = cheerio.load(item.fields.postHtml);
-			item.fields.postHtml = $('<div/>').append($("*").slice(0,preferences.summaryLength)).html();
-			return item.fields.postHtml;
-		}
-    });
-    
-    return data;
-}
 
-function hasField(field){
-	
-	return preferences.pageFields.indexOf(field)>-1;
-};
