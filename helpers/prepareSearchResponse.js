@@ -7,7 +7,7 @@ exports.prepareResponse = function (data){
 		preparePostSummaryAndDate(data);
 	}
 	
-	if(hasField("postHtml")&&preferences.summaryLength>0&& !hasField("postedOn")){
+	if(hasField("postHtml")&&preferences.searchResultsSummaryLength>0&& !hasField("postedOn")){
 		preparePostSummary(data);
 	}
 	
