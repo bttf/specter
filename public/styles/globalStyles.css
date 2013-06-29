@@ -15,7 +15,13 @@ text-align:center;
 line-height:28px;
 }
 
-
-
-
+figure{
+	margin: 0px;
+}
+figcaption{
+	
+	font-style:italic;
+	text-align:center;
+	padding:2px;
+}
 
