@@ -4,7 +4,7 @@ exports.preferences = {
 	 "databaseUrl"   :"http://localhost:9200/",
 	"searchResults" :5,
 	"pageFields":["postedBy","postedOn","title","wordCount","postHtml"],
-	"summaryLength" : 3
+	"summaryLength" : 0
 	
 };
 
