@@ -3,7 +3,7 @@ exports.preferences = {
 	"paginationSize" :11, 
 	 "databaseUrl"   :"http://localhost:9200/",
 	"searchResults" :5,
-	"pageFields":["postedBy","postedOn","title","wordCount"],
+	"pageFields":["postedBy","postedOn","title","wordCount","postHtml"],
 	"summaryLength" : 0
 	
 };
