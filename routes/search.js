@@ -42,11 +42,6 @@ var query = {
                          }
                     
                         }        
-                    },
-                    {
-                        "match":{
-                            "caption" : searchTerm
-                        }
                     }
                 ]
             }
