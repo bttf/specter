@@ -22,7 +22,7 @@ exports.deepSearch = function(req,res){
     
     var url = constants.queries.search();
 	var pageNo = parseInt(req.params.page);
-    var headers = helpers.setHeaders(url,getSearchPostsQueryData(pageNo,constants.queries.paginationSize));
+    var headers = helpers.setHeaders(url,getSearchPostsQueryData(pageNo,constants.queries.paginationSize,true,req.body.query));
     
     request(headers,function(error,response,body){
 		
@@ -35,12 +35,9 @@ exports.deepSearch = function(req,res){
     
 };
 
-function getSearchPostsQueryData(pageNo,paginationSize){    
+function getSearchPostsQueryData(pageNo,paginationSize,isDeepSearch,searchQuery){  
 	
-    var queryData = {
-      "sort" :{ "postedOn" : {"order" : "desc"}},
-	   "fields" : preferences.pageFields	
-    };
+	var queryData = buildSearchQuery(searchQuery,isDeepSearch);
 	
     return helpers.pagination.buildPaginationQuery(pageNo,paginationSize,queryData);
 }
@@ -59,7 +56,7 @@ function buildSearchQuery(searchTerm,isDeepSearch){
     
 var query = {  
     "fields" : ["title","wordCount"],
-    "size":checkIfDeepSearch(isDeepSearch),
+    "size":constants.queries.searchSize,
     "query":{
         "bool":{
             
@@ -89,11 +86,5 @@ var query = {
     };
     
     return query;
-}
-
-
-    
- function checkIfDeepSearch(isDeepSearch){
-	 
-	return isDeepSearch ?  preferences.paginationSize : preferences.searchResults;
- }
+}  
+ 
