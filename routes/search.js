@@ -1,12 +1,13 @@
 var helpers = require('../helpers');
 var request = require('request');
 var constants = require('../constants');
+var preferences = require('../preferences').preferences;
 
 exports.searchByTitle = function(req,res){
     
     var searchQuery = req.body.query;
     var url = constants.queries.search();
-    var searchData = buildSearchQuery(searchQuery,constants.queries.searchSize);
+    var searchData = buildSearchQuery(searchQuery,false);
    var headers = helpers.setHeaders(url,searchData);
     request(headers,function(error,response,body){
         
@@ -15,11 +16,11 @@ exports.searchByTitle = function(req,res){
     
 };
 
-function buildSearchQuery(searchTerm,size){
+function buildSearchQuery(searchTerm,isDeepSearch){
     
 var query = {  
     "fields" : ["title","wordCount"],
-    "size":size,
+    "size":checkIfDeepSearch(isDeepSearch),
     "query":{
         "bool":{
             
@@ -53,4 +54,7 @@ var query = {
 
 
     
- 
+ function checkIfDeepSearch(isDeepSearch){
+	 
+	return isDeepSearch ?  preferences.paginationSize : preferences.searchResults;
+ }
