@@ -50,7 +50,7 @@ function buildResponse(data,pageNo,total){
     items.hasNext = helpers.pagination.hasNextButton(pageNo,total,constants.queries.paginationSize);
 	items.isFirstPage = helpers.pagination.isFirstPage(items.hasPrevious);
     return items;
-
+}
 
 function buildSearchQuery(searchTerm,isDeepSearch){
     
