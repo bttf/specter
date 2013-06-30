@@ -1,7 +1,7 @@
 var cheerio = require('cheerio');
 var preferences = require('../preferences').preferences;
 
-exports.prepareResponse = function (data){
+exports.prepareSearchResponse = function (data){
 	
 	if(hasField("postHtml")&&preferences.searchResultsSummaryLength>0&&hasField("postedOn")){
 		preparePostSummaryAndDate(data);
