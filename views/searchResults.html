@@ -48,17 +48,17 @@
 		  <ul class="pager">
 			  {{#hasPrevious}}
 			  {{^isFirstPage}}
-  				<li><a href="/page/{{hasPrevious}}">Previous</a></li>
+  				<li><a href="/searchResults/{{hasPrevious}}">Previous</a></li>
 			  {{/isFirstPage}}
 			  {{/hasPrevious}}
 			   {{^hasPrevious}}
   				<li><span class="disabled"><a href="/">Previous</a></span></li>
 			  {{/hasPrevious}}
 			  {{#isFirstPage}}
-  				<li><a href="/">Previous</a></li>
+  				<li><a href="/searchResults/1">Previous</a></li>
 			  {{/isFirstPage}}
 			  {{#hasNext}}
-  				<li><a href="/page/{{hasNext}}">Next</a></li>
+  				<li><a href="/searchResults/{{hasNext}}">Next</a></li>
 			  {{/hasNext}}
 			  {{^hasNext}}
   				<li><span class="disabled"><a href="#">Next</a></span></li>

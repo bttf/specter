@@ -22,13 +22,15 @@ exports.deepSearch = function(req,res){
     
     var url = constants.queries.search();
 	var pageNo = parseInt(req.params.page);
-    var headers = helpers.setHeaders(url,getSearchPostsQueryData(pageNo,constants.queries.paginationSize,true,req.body.query));
-    
+	var query = req.body.query;
+    var headers = helpers.setHeaders(url,getSearchPostsQueryData(pageNo,preferences.searchPageSize,true,query));
+    //use query strings to pass parameters
     request(headers,function(error,response,body){
+		
 		
         var resultCount = constants.queries.paginationSize - 1;
         var results = body.hits;
-        var dataToRender = buildResponse(results.hits.slice(0,resultCount),pageNo,body.hits.hits.length);
+        var dataToRender = buildResponse(results.hits.slice(0,resultCount),pageNo,body.hits.hits.length,query);
 		return res.render(constants.views.searchResults,dataToRender);
     });
     
