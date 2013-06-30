@@ -53,8 +53,7 @@ function preparePostDate(data){
 }
 
 function getPostSummary(item){
-	var $ = cheerio.load(item.fields.postHtml);
-	var dummy = $("<div></div>")
-	item.fields.postHtml = dummy.append($("*").slice(0,preferences.summaryLength).clone()).html();
+	var $ = cheerio.load();
+	item.fields.postHtml = $("<div></div>").html($(item.fields.postHtml.replace(/(\r\n|\n|\r)/gm,"")).slice(0,preferences.summaryLength)).html();
 	return item;
 };
