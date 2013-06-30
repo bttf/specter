@@ -29,7 +29,7 @@ exports.deepSearch = function(req,res){
         var resultCount = constants.queries.paginationSize - 1;
         var results = body.hits;
         var dataToRender = buildResponse(results.hits.slice(0,resultCount),pageNo,body.hits.hits.length);
-		return res.render(constants.views.home,dataToRender);
+		return res.render(constants.views.searchResults,dataToRender);
     });
     
     
