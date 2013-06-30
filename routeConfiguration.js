@@ -12,5 +12,5 @@ app.post('/searchByTitle',routes.search.searchByTitle);
 app.post('/addpost',routes.create.addPost);
 app.post('/updatePost',routes.update.updatePost);    
 app.post('/deletePost',routes.delete.deletePost);
-app.post('deepSearch',routes.search.deepSearch);	
+app.post('/deepSearch',routes.search.deepSearch);	
 };
