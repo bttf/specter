@@ -54,6 +54,7 @@ function preparePostDate(data){
 
 function getPostSummary(item){
 	var $ = cheerio.load(item.fields.postHtml);
-			item.fields.postHtml = $('<div/>').append($("*").slice(0,preferences.summaryLength)).html();
-			return item;
+	var dummy = $("<div></div>")
+	item.fields.postHtml = dummy.append($("*").slice(0,preferences.summaryLength).clone()).html();
+	return item;
 };
