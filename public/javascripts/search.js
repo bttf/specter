@@ -9,7 +9,7 @@ var searchViewModel = function(){
             
             
             if(self.searchResults().length>0){ 
-                window.location.href = '/'+self.searchResults()[0]._id; 
+                self.deepSearch();
             }
         }
         
@@ -22,6 +22,15 @@ var searchViewModel = function(){
         return true;
     }
     
+	self.deepSearch = function(){
+		
+		var url = '/deepSearch';
+		var form = $('<form action="' + url + '" method="post">' +
+		  '<input type="text" name="query" value="' + self.searchText() + '" />' +
+		  '</form>');
+		$('body').append(form);
+		$(form).submit();
+	};
     
     self.search = function(){
         var postData = {};
