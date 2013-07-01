@@ -27,3 +27,28 @@ exports.prepareResponse = function (data){
 };
 
 
+exports.prepareSearchResponse = function (data){
+	
+	var summaryLength = preferences.summaryLength;
+	var hasField = commonHelpers.hasField;
+	var searchFileds = preferences.searchResultsFileds;
+	var hasFieldPostHtml = hasField("postHtml",searchFileds);
+	var hasFiledPostedOn = hasField("postedOn",searchFileds);
+	
+	if(hasFieldPostHtml && summaryLength>0 && hasFiledPostedOn){
+		commonHelpers.preparePostSummaryAndDate(data,summaryLength);
+	}
+	
+	if(hasFieldPostHtml&& summaryLength>0 && ! hasFiledPostedOn){
+		commonHelpers.preparePostSummary(data,summaryLength);
+	}
+	
+	if(hasFiledPostedOn){
+		
+		commonHelpers.preparePostDate(data);
+		
+	   }
+    
+    return data;
+};
+
