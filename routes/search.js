@@ -22,7 +22,27 @@ exports.deepSearch = function(req,res){
     
     var url = constants.queries.search();
 	var pageNo = req.query.page;
-	var query =  pageNo? req.query.q: req.body.query;
+	var query = pageNo? req.query.q : req.body.query;
+	
+    var headers = helpers.setHeaders(url,getSearchPostsQueryData(pageNo,preferences.searchIndex.paginationSize,true,query));
+    
+    request(headers,function(error,response,body){
+		
+		
+        var resultCount = preferences.searchIndex.paginationSize - 1;
+        var results = body.hits;
+        var dataToRender = buildResponse(results.hits.slice(0,resultCount),pageNo,body.hits.hits.length,query);
+		return res.render(constants.views.searchResults,dataToRender);
+    });
+    
+    
+};
+
+exports.moreResults = function(req,res){
+    console.log('I am in');
+    var url = constants.queries.search();
+	var pageNo = req.query.page;
+	var query =  req.query.q;
 	
     var headers = helpers.setHeaders(url,getSearchPostsQueryData(pageNo,preferences.searchIndex.paginationSize,true,query));
     
@@ -50,7 +70,7 @@ function buildResponse(data,pageNo,total,query){
     
     items.hits = helpers.prepareResponse(data,preferences.searchIndex); 
     items.hasPrevious = helpers.pagination.hasPrevButton(pageNo);
-    items.hasNext = helpers.pagination.hasNextButton(pageNo,total,constants.queries.paginationSize);
+    items.hasNext = helpers.pagination.hasNextButton(pageNo,total,preferences.searchIndex.paginationSize);
 	items.isFirstPage = helpers.pagination.isFirstPage(items.hasPrevious);
 	items.query = query;
 	return items;
