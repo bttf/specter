@@ -4,10 +4,10 @@ exports.hasField = function (field,fields){
 };
 
 
-exports.preparePostSummaryAndDate = function(data){
+exports.preparePostSummaryAndDate = function(data,preferredSummaryLength){
 	data.forEach(function(item,index,arr){        
       
-		var summary =  getPostSummary(item);
+		var summary =  getPostSummary(item,preferredSummaryLength);
 		 summary.fields.postedOn = new Date(item.fields.postedOn).toDateString();
 		return summary;
     });
@@ -16,10 +16,10 @@ exports.preparePostSummaryAndDate = function(data){
 
 
 
-exports.preparePostSummary = function(data){
+exports.preparePostSummary = function(data,preferredSummaryLength){
 	
 	data.forEach(function(item,index,arr){      
-		  	return getPostSummary(item);
+		  	return getPostSummary(item,preferredSummaryLength);
     });
     return data;
 };
