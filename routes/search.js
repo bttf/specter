@@ -21,8 +21,8 @@ exports.searchByTitle = function(req,res){
 exports.deepSearch = function(req,res){
     
     var url = constants.queries.search();
-	var pageNo = parseInt(req.params.page);
-	var query = req.body.query;
+	var pageNo = req.query.page;
+	var query =  pageNo? req.query.q:req.body.query
     var headers = helpers.setHeaders(url,getSearchPostsQueryData(pageNo,preferences.searchIndex.paginationSize,true,query));
     //use query strings to pass parameters
     request(headers,function(error,response,body){
@@ -44,13 +44,14 @@ function getSearchPostsQueryData(pageNo,paginationSize,isDeepSearch,searchQuery)
     return helpers.pagination.buildPaginationQuery(pageNo,paginationSize,queryData);
 }
 
-function buildResponse(data,pageNo,total){
+function buildResponse(data,pageNo,total,query){
        var items = {};
     
     items.hits = helpers.prepareResponse(data,preferences.searchIndex); 
     items.hasPrevious = helpers.pagination.hasPrevButton(pageNo);
     items.hasNext = helpers.pagination.hasNextButton(pageNo,total,constants.queries.paginationSize);
 	items.isFirstPage = helpers.pagination.isFirstPage(items.hasPrevious);
+	items.query = query;
 	return items;
 }
 
