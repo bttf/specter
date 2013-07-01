@@ -1,4 +1,3 @@
-var cheerio = require('cheerio');
 var preferences = require('../preferences').preferences;
 var commonHelpers = require('./commonHelpers');
 
