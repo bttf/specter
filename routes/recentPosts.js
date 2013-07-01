@@ -36,7 +36,7 @@ function getRecentPostsQueryData(pageNo,paginationSize){
 function buildResponse(data,pageNo,total){
        var items = {};
     
-    items.hits = helpers.prepareResponse(data,preferences.pageFields); 
+    items.hits = helpers.prepareResponse(data,preferences.index); 
     items.hasPrevious = helpers.pagination.hasPrevButton(pageNo);
     items.hasNext = helpers.pagination.hasNextButton(pageNo,total,constants.queries.paginationSize);
 	items.isFirstPage = helpers.pagination.isFirstPage(items.hasPrevious);

@@ -2,9 +2,7 @@ var preferences = require('../preferences').preferences;
 
 exports.queries = {
     
-     databaseUrl : preferences.databaseUrl,
-    
-     paginationSize : preferences.paginationSize,
+     databaseUrl : preferences.databaseUrl,   
 	
      searchSize : preferences.searchResults,
     

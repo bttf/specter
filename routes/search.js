@@ -40,14 +40,14 @@ exports.deepSearch = function(req,res){
 function getSearchPostsQueryData(pageNo,paginationSize,isDeepSearch,searchQuery){  
 	
 	var queryData = buildSearchQuery(searchQuery,isDeepSearch);
-	queryData.fields = preferences.searchResultsFileds;
+	queryData.fields = preferences.searchIndex.pageFields;
     return helpers.pagination.buildPaginationQuery(pageNo,paginationSize,queryData);
 }
 
 function buildResponse(data,pageNo,total){
        var items = {};
     
-    items.hits = helpers.prepareResponse(data,preferences.searchResultsFileds); 
+    items.hits = helpers.prepareResponse(data,preferences.searchIndex); 
     items.hasPrevious = helpers.pagination.hasPrevButton(pageNo);
     items.hasNext = helpers.pagination.hasNextButton(pageNo,total,constants.queries.paginationSize);
 	items.isFirstPage = helpers.pagination.isFirstPage(items.hasPrevious);
