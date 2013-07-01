@@ -9,7 +9,7 @@ exports.getRecentPosts = function(req,res){
     var url = constants.queries.search();
 	var pageNo = parseInt(req.params.page);
     var headers = helpers.setHeaders(url,getRecentPostsQueryData(pageNo,preferences.index.paginationSize));
-    
+    console.log(getRecentPostsQueryData(pageNo,preferences.index.paginationSize));
     request(headers,function(error,response,body){
 
 		var hasPosts = error|| !body || body.error || body.hits.hits.length===0?false:true;
