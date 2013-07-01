@@ -1,3 +1,7 @@
+var cheerio = require('cheerio');
+
+
+
 exports.hasField = function (field,fields){
 	
 	return fields.indexOf(field)>-1;
