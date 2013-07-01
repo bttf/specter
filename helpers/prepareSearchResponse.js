@@ -54,6 +54,6 @@ function preparePostDate(data){
 
 function getPostSummary(item){
 	var $ = cheerio.load();
-	item.fields.postHtml = $("<div></div>").html($(item.fields.postHtml.replace(/(\r\n|\n|\r)/gm,"")).slice(0,preferences.summaryLength)).html();
+	item.fields.postHtml = $("<div></div>").html($(item.fields.postHtml.replace(/(\r\n|\n|\r)/gm,"")).slice(0,preferences.searchResultsSummaryLength)).html();
 	return item;
 };
