@@ -23,12 +23,12 @@ exports.deepSearch = function(req,res){
     var url = constants.queries.search();
 	var pageNo = parseInt(req.params.page);
 	var query = req.body.query;
-    var headers = helpers.setHeaders(url,getSearchPostsQueryData(pageNo,preferences.searchPageSize,true,query));
+    var headers = helpers.setHeaders(url,getSearchPostsQueryData(pageNo,preferences.searchIndex.paginationSize,true,query));
     //use query strings to pass parameters
     request(headers,function(error,response,body){
 		
 		
-        var resultCount = constants.queries.paginationSize - 1;
+        var resultCount = preferences.searchIndex.paginationSize - 1;
         var results = body.hits;
         var dataToRender = buildResponse(results.hits.slice(0,resultCount),pageNo,body.hits.hits.length,query);
 		return res.render(constants.views.searchResults,dataToRender);
