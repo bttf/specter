@@ -8,7 +8,7 @@ exports.getRecentPosts = function(req,res){
     
     var url = constants.queries.search();
 	var pageNo = parseInt(req.params.page);
-    var headers = helpers.setHeaders(url,getRecentPostsQueryData(pageNo,constants.queries.paginationSize));
+    var headers = helpers.setHeaders(url,getRecentPostsQueryData(pageNo,preferences.index.paginationSize));
     
     request(headers,function(error,response,body){
 
