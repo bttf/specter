@@ -47,7 +47,7 @@ function getSearchPostsQueryData(pageNo,paginationSize,isDeepSearch,searchQuery)
 function buildResponse(data,pageNo,total){
        var items = {};
     
-    items.hits = helpers.prepareSearchResponse(data); 
+    items.hits = helpers.prepareResponse(data,preferences.searchResultsFileds); 
     items.hasPrevious = helpers.pagination.hasPrevButton(pageNo);
     items.hasNext = helpers.pagination.hasNextButton(pageNo,total,constants.queries.paginationSize);
 	items.isFirstPage = helpers.pagination.isFirstPage(items.hasPrevious);
