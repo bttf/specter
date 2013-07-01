@@ -14,8 +14,8 @@
 		  <div class="row-fluid">
 			 <ul class="inline" style="text-align:center">
 				 <li><h1><a href="/" style="text-decoration:none;">Specter</a></h1><hr></li>
-				 
-			  </ul> 
+
+			  </ul>
 		  </div>
           <div class="row-fluid">
               <input type="text" placeholder="Search" class="span12" id="searchBox" data-bind="value:searchText,valueUpdate:'afterkeydown',event:{'keydown':keydown}">
@@ -32,6 +32,11 @@
       </div>
 	  <hr>
       <div class="container-fluid">
+      <div class="row-fluid">
+			  <div class="span12">
+				  <p class="lead" style="text-align:center;">Search results for {{query}}<p>
+			  </div>
+		  </div>
           {{#hits}}
 
           <div class="row-fluid">
