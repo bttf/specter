@@ -4,17 +4,19 @@ var commonHelpers = require('./commonHelpers');
 
 exports.prepareResponse = function (data){
 	
-	if(hasField("postHtml")&&preferences.summaryLength>0&&hasField("postedOn")){
-		preparePostSummaryAndDate(data);
+	var summaryLength = preferences.summaryLength;
+	
+	if(hasField("postHtml")&&summaryLength>0&&hasField("postedOn")){
+		commonHelpers.preparePostSummaryAndDate(data,summaryLength);
 	}
 	
-	if(hasField("postHtml")&&preferences.summaryLength>0&& !hasField("postedOn")){
-		preparePostSummary(data);
+	if(hasField("postHtml")&&summaryLength>0&& !hasField("postedOn")){
+		commonHelpers.preparePostSummary(data,summaryLength);
 	}
 	
 	if(hasField("postedOn")){
 		
-		preparePostDate(data);
+		commonHelpers.preparePostDate(data);
 		
 	   }
     
