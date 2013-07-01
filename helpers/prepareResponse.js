@@ -5,16 +5,20 @@ var commonHelpers = require('./commonHelpers');
 exports.prepareResponse = function (data){
 	
 	var summaryLength = preferences.summaryLength;
+	var hasField = commonHelpers.hasField;
+	var pageFileds = preferences.pageFields;
+	var hasFieldPostHtml = hasField("postHtml",pageFileds);
+	var hasFiledPostedOn = hasField("postedOn",pageFileds);
 	
-	if(hasField("postHtml")&&summaryLength>0&&hasField("postedOn")){
+	if(hasFieldPostHtml && summaryLength>0 && hasFiledPostedOn){
 		commonHelpers.preparePostSummaryAndDate(data,summaryLength);
 	}
 	
-	if(hasField("postHtml")&&summaryLength>0&& !hasField("postedOn")){
+	if(hasFieldPostHtml&& summaryLength>0 && ! hasFiledPostedOn){
 		commonHelpers.preparePostSummary(data,summaryLength);
 	}
 	
-	if(hasField("postedOn")){
+	if(hasFiledPostedOn){
 		
 		commonHelpers.preparePostDate(data);
 		
