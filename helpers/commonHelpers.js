@@ -32,7 +32,7 @@ exports.preparePostDate = function (data){
     return data;
 };
 
-exports.getPostSummary = function (item,preferredSummaryLength){
+function getPostSummary (item,preferredSummaryLength){
 	var $ = cheerio.load();
 	item.fields.postHtml = $("<div></div>").html($(item.fields.postHtml.replace(/(\r\n|\n|\r)/gm,"")).slice(0,preferredSummaryLength)).html();
 	return item;
