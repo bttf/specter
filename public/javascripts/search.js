@@ -24,7 +24,7 @@ var searchViewModel = function(){
     
 	self.deepSearch = function(){
 		
-		var url = '/searchResults/1';
+		var url = '/search';
 		var form = $('<form action="' + url + '" method="post">' +
 		  '<input type="text" name="query" value="' + self.searchText() + '" />' +
 		  '</form>');
