@@ -2,7 +2,8 @@ exports.preferences = {
 	// reference :	https://github.com/brislink/specter/wiki/preferences-documentation 	 
 	
 	"databaseUrl"   :"http://localhost:9200/",
-	"searchResults" :5,	
+	"searchResults" :5,
+	
 	"index" : {
 	
 	"pageFields":["postedBy","postedOn","title","wordCount","postHtml"],
