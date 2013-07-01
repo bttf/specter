@@ -38,6 +38,6 @@ exports.preparePostDate = function (data){
 
 function getPostSummary (item,preferredSummaryLength){
 	
-	item.fields.postHtml = $("<div></div>").html($(item.fields.postHtml).slice(0,preferredSummaryLength)).html();
+	item.fields.postHtml = $("<div></div>").html($(item.fields.postHtml.replace(/(\r\n|\n|\r)/gm,"")).slice(0,preferredSummaryLength)).html();
 	return item;
 };
