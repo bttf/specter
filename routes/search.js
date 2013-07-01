@@ -38,26 +38,6 @@ exports.deepSearch = function(req,res){
     
 };
 
-exports.moreResults = function(req,res){
-    console.log('I am in');
-    var url = constants.queries.search();
-	var pageNo = req.query.page;
-	var query =  req.query.q;
-	
-    var headers = helpers.setHeaders(url,getSearchPostsQueryData(pageNo,preferences.searchIndex.paginationSize,true,query));
-    
-    request(headers,function(error,response,body){
-		
-		
-        var resultCount = preferences.searchIndex.paginationSize - 1;
-        var results = body.hits;
-        var dataToRender = buildResponse(results.hits.slice(0,resultCount),pageNo,body.hits.hits.length,query);
-		return res.render(constants.views.searchResults,dataToRender);
-    });
-    
-    
-};
-
 function getSearchPostsQueryData(pageNo,paginationSize,isDeepSearch,searchQuery){  
 	
 	var queryData = buildSearchQuery(searchQuery,isDeepSearch);
