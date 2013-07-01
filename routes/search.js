@@ -22,9 +22,10 @@ exports.deepSearch = function(req,res){
     
     var url = constants.queries.search();
 	var pageNo = req.query.page;
-	var query =  pageNo? req.query.q:req.body.query
+	var query =  pageNo? req.query.q: req.body.query;
+	
     var headers = helpers.setHeaders(url,getSearchPostsQueryData(pageNo,preferences.searchIndex.paginationSize,true,query));
-    //use query strings to pass parameters
+    
     request(headers,function(error,response,body){
 		
 		
