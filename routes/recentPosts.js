@@ -14,7 +14,7 @@ exports.getRecentPosts = function(req,res){
 
 		var hasPosts = error|| !body || body.error || body.hits.hits.length===0?false:true;
 		if(!hasPosts){return res.redirect('/create');}
-        var resultCount = constants.queries.paginationSize - 1;
+        var resultCount = preferences.index.paginationSize - 1;
         var results = body.hits;
         var dataToRender = buildResponse(results.hits.slice(0,resultCount),pageNo,body.hits.hits.length);
 		return res.render(constants.views.home,dataToRender);
@@ -27,7 +27,7 @@ function getRecentPostsQueryData(pageNo,paginationSize){
 	
     var queryData = {
       "sort" :{ "postedOn" : {"order" : "desc"}},
-	   "fields" : preferences.pageFields	
+	   "fields" : preferences.index.pageFields	
     };
 	
     return helpers.pagination.buildPaginationQuery(pageNo,paginationSize,queryData);
