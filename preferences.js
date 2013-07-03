@@ -23,7 +23,7 @@ exports.preferences = {
 	
 	"rss" : true,
 	"atom" : true,
-	"size" : 10
+	"paginationSize" : 10
 }	
 	
 	
