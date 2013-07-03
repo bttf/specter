@@ -1,0 +1,1 @@
+var feed = require('feed');
