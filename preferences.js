@@ -9,6 +9,7 @@ exports.preferences = {
 	"pageFields":["postedBy","postedOn","title","wordCount","postHtml"],
 	"summaryLength" : 3,
 	"paginationSize" :11
+		
 	},
 	
 	"searchIndex" : {
@@ -16,7 +17,14 @@ exports.preferences = {
 	"pageFields" : ["postedBy","postedOn","title","wordCount","postHtml"],
 	"summaryLength" : 2,
 	"paginationSize" : 11
-}
+},
+	
+"feeds" : {
+	
+	"rss" : true,
+	"atom" : true,
+	"size" : 10
+}	
 	
 	
 };
