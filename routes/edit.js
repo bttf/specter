@@ -12,15 +12,12 @@ exports.editPost = function(req,res){
         var parsed = JSON.parse(body);
         if(!parsed._source) return res.send(404);
         var html = removeFigureCaption( parsed._source.postHtml);
-        var markdownText = getMarkdownFromHtml(html);       
+        var markdownText = tomarkdown(html);       
         return res.render(constants.views.createPost,buildData(markdownText,parsed));
     });
 };
 
-function getMarkdownFromHtml(html){
-    
-    return tomarkdown(html);
-}
+
 
 function removeFigureCaption(html){
     var $ = cheerio.load(html);
