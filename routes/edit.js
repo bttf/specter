@@ -15,10 +15,6 @@ exports.editPost = function(req,res){
     });
 };
 
-
-
-
-
 function buildData(markdownText,parsed){
 
  var item = {
