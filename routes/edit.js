@@ -10,25 +10,20 @@ exports.editPost = function(req,res){
     var url = constants.queries.postType() + id;
      request(url,function(error,response,body){
         var parsed = JSON.parse(body);
-        if(!parsed._source) return res.send(404);
-        var html = removeFigureCaption( parsed._source.postHtml);
-        var markdownText = tomarkdown(html);       
+        if(!parsed._source) return res.send(404);        
+        var markdownText = tomarkdown(parsed._source.postHtml);       
         return res.render(constants.views.createPost,buildData(markdownText,parsed));
     });
 };
 
 
 
-function removeFigureCaption(html){
-    var $ = cheerio.load(html);
-     $("figcaption").remove();
-    return $.html();
-}
+
 
 function buildData(markdownText,parsed){
 
  var item = {
-    post :helpers.stripHtml(markdownText),
+    post :markdownText,
     title : parsed._source.title,
      postedBy : parsed._source.postedBy,
      id : parsed._id,
