@@ -1,7 +1,6 @@
 var tomarkdown = require('to-markdown').toMarkdown;
 var constants = require('../constants');
 var request = require('request');
-var cheerio = require('cheerio');
 var helpers = require('../helpers');
 
 exports.editPost = function(req,res){
