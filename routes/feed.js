@@ -12,7 +12,7 @@ function getRecentFeedsQuery(){
 	
 	var queryData = {
       "sort" :{ "postedOn" : {"order" : "desc"}},
-	   "fields" :['postedOn','postTitle','postedBy'],
+	   "fields" :['postedOn','postTitle','postedBy','postHtml'],
 		"from" : 0,
 		"size" : preferences.feeds.paginationSize
     };
