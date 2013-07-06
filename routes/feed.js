@@ -17,7 +17,7 @@ exports.getFeeds = function(req,res){
 	request(headers,function(error,response,body){
 		
 		if(error||body.error) return res.send(500);
-		console.log(body);
+		
 		
 		
 		
@@ -38,5 +38,8 @@ function getRecentFeedsQuery(){
 	return queryData;
 }
 
-function buildResponse(){
+function buildResponse(data){
+	
+	data.forEach(function(item){
+	});
 }

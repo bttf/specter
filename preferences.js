@@ -23,7 +23,11 @@ exports.preferences = {
 	
 	"rss" : true,
 	"atom" : true,
-	"paginationSize" : 10
+	"paginationSize" : 10,
+	"title" : 'Title of your feed',
+	"description" : 'Describe your feed',
+	"link" : 'url of your website'
+	
 }	
 	
 	
