@@ -11,7 +11,8 @@ var feed = new feedBuilder({
 	
     title:          feedPref.title,
     description:    feedPref.description,
-    link:           feedPref.link
+    link:           feedPref.link,	
+	author : feedPref.author
     
 });
 
@@ -29,9 +30,15 @@ exports.getFeeds = function(req,res){
 		
 		if(error||body.error) return res.send(500);
 		
-		buildResponse(body.hits.hits);
-		if(type === 'rss'&& feedPref.rss) return res.send(feed.render('rss-2.0'));
-		if(type === 'atom' && feedPref.atom) return res.send(feed.render('atom-1.0'));
+	var feedResponse =	buildResponse(body.hits.hits,feed);
+		console.log(feedResponse);
+		if(type === 'rss'&& feedPref.rss){ 
+			res.set('Content-type','application/rss+xml');
+			return res.send(feedResponse.render('rss-2.0'));
+		}
+		if(type === 'atom' && feedPref.atom){
+			res.set('Content-type','application/atom+xml');
+			return res.send(feedResponse.render('atom-1.0'));}
 		return res.send(404);
 	});
 	
@@ -42,7 +49,7 @@ function getRecentFeedsQuery(){
 	
 	var queryData = {
       "sort" :{ "postedOn" : {"order" : "desc"}},
-	   "fields" :['postedOn','postTitle','postedBy','postHtml'],
+	   "fields" :['postedOn','title','postedBy','postHtml'],
 		"from" : 0,
 		"size" : feedPref.paginationSize
     };
@@ -50,24 +57,27 @@ function getRecentFeedsQuery(){
 	return queryData;
 }
 
-function buildResponse(data){
+function buildResponse(data,feed){
 	
-	data.forEach(function(item){
+	for(var i = 0; i<data.length;i++){
 		
+		var item = data[i];
+	
 		feed.item({
 			
 			title : item.fields.title,
 			link: feedPref.link + item._id,
-			description : helpers.getPostSummary(item.fields.postHtml),
+			description : helpers.getPostSummary(item,feedPref.paginationSize).fields.postHtml,
 			author : [
 				{
-					name : item.fields.postedBy
+					name : item.fields.postedBy,
 				},			
 			
 			],
-		date : 	new Date(item.fields.postedOn).toDateString()		
+		date : 	new Date(item.fields.postedOn)		
 			
 		});
-	});
-								
+}
+	
+	return feed;							
 }

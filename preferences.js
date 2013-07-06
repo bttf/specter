@@ -26,7 +26,12 @@ exports.preferences = {
 	"paginationSize" : 10,
 	"title" : 'Title of your feed',
 	"description" : 'Describe your feed',
-	"link" : 'url of your website'
+	"link" : 'url of your website',
+	 author: {
+        'name':       'John Doe',
+        'email':      'johndoe@example.com',
+        'link':       'https://example.com/johndoe'
+    }
 	
 }	
 	
