@@ -1,6 +1,6 @@
 var feed = require('feed');
 var request = require('request');
-var preferences = require('preferences').preferences;
+var preferences = require('../preferences').preferences;
 var helpers = require('../helpers');
 var constants = require('../constants');
 
@@ -17,7 +17,7 @@ exports.getFeeds = function(req,res){
 	request(headers,function(error,response,body){
 		
 		if(error||body.error) return res.send(500);
-		console.log(data);
+		console.log(body);
 		
 		
 		
