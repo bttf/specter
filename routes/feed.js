@@ -10,6 +10,10 @@ exports.getFeeds = function(req,res){
 	var url = constants.queries.search();
 	var headers = helpers.setHeaders(url,getRecentFeedsQuery());
 	request(headers,function(error,response,body){
+		
+		if(error||body.error) return res.send(500);
+		
+		
 	});
 	
 };
