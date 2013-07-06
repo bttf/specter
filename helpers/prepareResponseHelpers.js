@@ -1,4 +1,5 @@
 var helpers = require('../helpers');
+
 exports.hasField = function (field,fields){
 	
 	return fields.indexOf(field)>-1;
@@ -8,9 +9,9 @@ exports.hasField = function (field,fields){
 exports.preparePostSummaryAndDate = function(data,preferredSummaryLength){
 	data.forEach(function(item,index,arr){        
       
-		var summary =  helpers.getPostSummary(item,preferredSummaryLength);
-		 summary.fields.postedOn = new Date(item.fields.postedOn).toDateString();
-		return summary;
+		item.fields.postHtml =  helpers.getPostSummary(item.fields.postHtml,preferredSummaryLength);
+		 item.fields.postedOn = new Date(item.fields.postedOn).toDateString();
+		return item;
     });
     return data;
 };
@@ -19,8 +20,10 @@ exports.preparePostSummaryAndDate = function(data,preferredSummaryLength){
 
 exports.preparePostSummary = function(data,preferredSummaryLength){
 	
-	data.forEach(function(item,index,arr){      
-		  	return helpers.getPostSummary(item,preferredSummaryLength);
+	data.forEach(function(item,index,arr){
+		
+		  	 item.fields.postHtml= helpers.getPostSummary(item.fields.postHtml,preferredSummaryLength);
+			return item;
     });
     return data;
 };

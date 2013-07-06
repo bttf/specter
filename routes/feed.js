@@ -9,9 +9,12 @@ var feedPref = preferences.feed;
 
 var feed = new feedBuilder({	
 	
-    title:          feedPref.title,
-    description:    feedPref.description,
-    link:           feedPref.link,	
+    title:feedPref.title,
+	
+    description:feedPref.description,
+	
+    link:feedPref.link,
+	
 	author : feedPref.author
     
 });
@@ -67,7 +70,7 @@ function buildResponse(data,feed){
 			
 			title : item.fields.title,
 			link: feedPref.link + item._id,
-			description : helpers.getPostSummary(item,feedPref.paginationSize).fields.postHtml,
+			description : helpers.getPostSummary(item,feedPref.paginationSize),
 			author : [
 				{
 					name : item.fields.postedBy,
