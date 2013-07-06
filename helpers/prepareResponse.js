@@ -6,15 +6,16 @@ exports.buildResponse = function (common,optional){
 	var pageNo = common.pageNo;
 	var preferences = common.preferences;
     var items = {};    
-    items.hits = helpers.prepareResponse(common.data,preferences.index); 
+    items.hits = prepareResponse(common.data,preferences.index); 
     items.hasPrevious = helpers.pagination.hasPrevButton(pageNo);
     items.hasNext = helpers.pagination.hasNextButton(pageNo,common.total,preferences.index.paginationSize);
 	items.isFirstPage = helpers.pagination.isFirstPage(items.hasPrevious);
+	if(optional!==null && optional.query) items.query = optional.query;
     return items;
 };
 
 
-exports.prepareResponse = function (data,preferences){
+function prepareResponse (data,preferences){
 	
 	var summaryLength = preferences.summaryLength;
 	var hasField = commonHelpers.hasField;
