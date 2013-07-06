@@ -16,7 +16,16 @@ exports.getRecentPosts = function(req,res){
 		if(!hasPosts){return res.redirect('/create');}
         var resultCount = preferences.index.paginationSize - 1;
         var results = body.hits;
-        var dataToRender = buildResponse(results.hits.slice(0,resultCount),pageNo,body.hits.hits.length);
+		
+		var common = {
+			
+			data : results.hits.slice(0,resultCount),
+			pageNo : pageNo,
+			total: body.hits.hits.length,
+			preferences : preferences
+		}
+		
+        var dataToRender = require('../helpers/prepareResponse').buildResponse(common,null);
 		return res.render(constants.views.home,dataToRender);
     });
     
@@ -33,14 +42,6 @@ function getRecentPostsQueryData(pageNo,paginationSize){
     return helpers.pagination.buildPaginationQuery(pageNo,paginationSize,queryData);
 }
 
-function buildResponse(data,pageNo,total){
-       var items = {};
-    
-    items.hits = helpers.prepareResponse(data,preferences.index); 
-    items.hasPrevious = helpers.pagination.hasPrevButton(pageNo);
-    items.hasNext = helpers.pagination.hasNextButton(pageNo,total,preferences.index.paginationSize);
-	items.isFirstPage = helpers.pagination.isFirstPage(items.hasPrevious);
-    return items;
-}
+
 
 
