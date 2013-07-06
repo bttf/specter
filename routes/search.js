@@ -57,17 +57,6 @@ function getSearchPostsQueryData(pageNo,paginationSize,isDeepSearch,searchQuery)
     return helpers.pagination.buildPaginationQuery(pageNo,paginationSize,queryData);
 }
 
-//function buildResponse(data,pageNo,total,query){
-//       var items = {};
-//    
-//    items.hits = helpers.prepareResponse(data,preferences.searchIndex); 
-//    items.hasPrevious = helpers.pagination.hasPrevButton(pageNo);
-//    items.hasNext = helpers.pagination.hasNextButton(pageNo,total,preferences.searchIndex.paginationSize);
-//	items.isFirstPage = helpers.pagination.isFirstPage(items.hasPrevious);
-//	items.query = query;
-//	return items;
-//}
-
 function buildSearchQuery(searchTerm,isDeepSearch){
     
 var query = {  
