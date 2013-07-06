@@ -30,15 +30,15 @@ exports.getFeeds = function(req,res){
 		
 		if(error||body.error) return res.send(500);
 		
-	var feedResponse =	buildResponse(body.hits.hits,feed);
-		console.log(feedResponse);
+		buildResponse(body.hits.hits,feed);
+		
 		if(type === 'rss'&& feedPref.rss){ 
 			res.set('Content-type','application/rss+xml');
-			return res.send(feedResponse.render('rss-2.0'));
+			return res.send(feed.render('rss-2.0'));
 		}
 		if(type === 'atom' && feedPref.atom){
 			res.set('Content-type','application/atom+xml');
-			return res.send(feedResponse.render('atom-1.0'));}
+			return res.send(feed.render('atom-1.0'));}
 		return res.send(404);
 	});
 	
@@ -79,5 +79,5 @@ function buildResponse(data,feed){
 		});
 }
 	
-	return feed;							
+								
 }
