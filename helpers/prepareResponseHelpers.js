@@ -1,7 +1,4 @@
-var cheerio = require('cheerio');
-var $ = cheerio.load();
-
-
+var helpers = require('./helpers');
 exports.hasField = function (field,fields){
 	
 	return fields.indexOf(field)>-1;
@@ -11,7 +8,7 @@ exports.hasField = function (field,fields){
 exports.preparePostSummaryAndDate = function(data,preferredSummaryLength){
 	data.forEach(function(item,index,arr){        
       
-		var summary =  getPostSummary(item,preferredSummaryLength);
+		var summary =  helpers.getPostSummary(item,preferredSummaryLength);
 		 summary.fields.postedOn = new Date(item.fields.postedOn).toDateString();
 		return summary;
     });
@@ -23,7 +20,7 @@ exports.preparePostSummaryAndDate = function(data,preferredSummaryLength){
 exports.preparePostSummary = function(data,preferredSummaryLength){
 	
 	data.forEach(function(item,index,arr){      
-		  	return getPostSummary(item,preferredSummaryLength);
+		  	return helpers.getPostSummary(item,preferredSummaryLength);
     });
     return data;
 };
@@ -36,8 +33,3 @@ exports.preparePostDate = function (data){
     return data;
 };
 
-function getPostSummary (item,preferredSummaryLength){
-	
-	item.fields.postHtml = $("<div></div>").html($(item.fields.postHtml.replace(/(\r\n|\n|\r)/gm,"")).slice(0,preferredSummaryLength)).html();
-	return item;
-};
