@@ -31,10 +31,7 @@ exports.preferences = {
         'name':       '',
         'email':      '',
         'link':       ''
-    }
-	
+    }	
 }	
-	
-	
 };
 

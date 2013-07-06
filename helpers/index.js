@@ -8,6 +8,6 @@ exports.pagination = require('./pagination').pagination;
 exports.prepareResponse = require('./prepareResponse').prepareResponse;
 exports.getPostSummary = function(item,preferredSummaryLength){
 	
-	item.fields.postHtml = $("<div></div>").html($(item.fields.postHtml.replace(/(\r\n|\n|\r)/gm,"")).slice(0,preferredSummaryLength)).html();
+	item = $("<div></div>").html($(item.replace(/(\r\n|\n|\r)/gm,"")).slice(0,preferredSummaryLength)).html();
 	return item;
 };
