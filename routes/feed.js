@@ -29,9 +29,10 @@ exports.getFeeds = function(req,res){
 		
 		if(error||body.error) return res.send(500);
 		
-		
-		
-		
+		buildResponse(body.hits.hits);
+		if(type === 'rss'&& feedPref.rss) return res.send(feed.render('rss-2.0'));
+		if(type === 'atom' && feedPref.atom) return res.send(feed.render('atom-1.0'));
+		return res.send(404);
 	});
 	
 };
@@ -55,10 +56,18 @@ function buildResponse(data){
 		
 		feed.item({
 			
-			title : item._fields.title,
+			title : item.fields.title,
 			link: feedPref.link + item._id,
-			//description : 
+			description : helpers.getPostSummary(item.fields.postHtml),
+			author : [
+				{
+					name : item.fields.postedBy
+				},			
+			
+			],
+		date : 	new Date(item.fields.postedOn).toDateString()		
 			
 		});
 	});
+								
 }
