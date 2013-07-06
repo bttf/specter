@@ -2,7 +2,7 @@ var commonHelpers = require('./prepareResponseHelpers');
 var helpers = require('../helpers');	
 
 exports.buildResponse = function (common,optional){
-	console.log(common.pageNo);
+	
 	var pageNo = common.pageNo;
 	var preferences = common.preferences;
     var items = {};    
