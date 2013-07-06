@@ -9,9 +9,16 @@ exports.getFeeds = function(req,res){
 	var type = req.params.type;
 	var url = constants.queries.search();
 	var headers = helpers.setHeaders(url,getRecentFeedsQuery());
+	var atom = preferences.feeds.atom;
+	var rss = preferences.feeds.rss;
+	
+	if(!(rss||atom)){return res.send(404)};
+	
 	request(headers,function(error,response,body){
 		
 		if(error||body.error) return res.send(500);
+		console.log(data);
+		
 		
 		
 	});
@@ -29,4 +36,7 @@ function getRecentFeedsQuery(){
     };
 	
 	return queryData;
+}
+
+function buildResponse(){
 }
