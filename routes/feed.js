@@ -57,7 +57,7 @@ function buildResponse(data){
 			
 			title : item._fields.title,
 			link: feedPref.link + item._id,
-			description : 
+			//description : 
 			
 		});
 	});

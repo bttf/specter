@@ -1,4 +1,4 @@
-var helpers = require('./helpers');
+var helpers = require('../helpers');
 exports.hasField = function (field,fields){
 	
 	return fields.indexOf(field)>-1;
