@@ -2,7 +2,6 @@ function prepareInitialWorkSpace() {
 
         var editArea = $("#editArea");
         editArea.autosize();
-        titleContainer.focus();
         return editArea;
 
     }
