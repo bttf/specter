@@ -24,7 +24,7 @@ exports.deepSearch = function(req,res){
 	var pageNo = req.query.page;
 	var query = pageNo? req.query.q : req.body.query;
 	
-    var headers = helpers.setHeaders(url,getSearchPostsQueryData(pageNo,preferences.searchIndex.paginationSize,true,query));
+    var headers = helpers.setHeaders(url,getSearchPostsQueryData(pageNo,preferences.searchIndex.paginationSize,query));
     
     request(headers,function(error,response,body){
 		
@@ -48,14 +48,14 @@ exports.deepSearch = function(req,res){
     
 };
 
-function getSearchPostsQueryData(pageNo,paginationSize,isDeepSearch,searchQuery){  
+function getSearchPostsQueryData(pageNo,paginationSize,searchQuery){  
 	
-	var queryData = buildSearchQuery(searchQuery,isDeepSearch);
+	var queryData = buildSearchQuery(searchQuery);
 	queryData.fields = preferences.searchIndex.pageFields;
     return helpers.pagination.buildPaginationQuery(pageNo,paginationSize,queryData);
 }
 
-function buildSearchQuery(searchTerm,isDeepSearch){
+function buildSearchQuery(searchTerm){
     
 var query = {  
     "fields" : ["title","wordCount"],
