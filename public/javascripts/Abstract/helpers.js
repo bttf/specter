@@ -28,7 +28,7 @@ function prepareInitialWorkSpace() {
 
     function setHtmlinPreviewPane(markdownText) {
         wordCountLabel.text('words: ' + getWordCount(markdownText));
-        var previewHtml = markdown.toHTML(markdownText);
+        var previewHtml = marked(markdownText);
         previewPaneView.html(replaceAllImagesWithFigure(previewHtml));
     }
 
