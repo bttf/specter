@@ -27,6 +27,7 @@ exports.preferences = {
 	"title" : '',
 	"description" : '',
 	"link" : '',
+	"summaryLength" : 2,
 	 author: {
         'name':       '',
         'email':      '',
