@@ -13,7 +13,6 @@
 "buildify":"*",
 "cheerio" : "*",
 "slugs" : "*",
-"to-markdown":"*",
 "consolidate":"*",
 "feed" : "*"	
 },
