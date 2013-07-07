@@ -25,7 +25,7 @@ exports.getRecentPosts = function(req,res){
 			preferences : preferences
 		}
 		
-        var dataToRender = helpers.buildResponse(common,null);
+        var dataToRender = helpers.buildResponse(common);
 		return res.render(constants.views.home,dataToRender);
     });
     

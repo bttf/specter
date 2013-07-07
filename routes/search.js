@@ -37,13 +37,11 @@ exports.deepSearch = function(req,res){
 			pageNo : pageNo,
 			total: body.hits.hits.length,
 			preferences : preferences
-		};
+		};		
 		
-		var optional = {
-			
-			query : query
-		}
-        var dataToRender = helpers.buildResponse(common,optional);
+        var dataToRender = helpers.buildResponse(common);
+		dataToRender.query = query;
+		
 		return res.render(constants.views.searchResults,dataToRender);
     });
     
