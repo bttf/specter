@@ -70,7 +70,7 @@ function buildResponse(data,feed){
 			
 			title : item.fields.title,
 			link: feedPref.link + item._id,
-			description : helpers.getPostSummary(item.fields.postHtml,feedPref.paginationSize),
+			description : helpers.getPostSummary(item.fields.postHtml,feedPref.summaryLength),
 			author : [
 				{
 					name : item.fields.postedBy,
