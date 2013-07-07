@@ -1538,7 +1538,7 @@ function prepareInitialWorkSpace() {
     function setHtmlinPreviewPane(markdownText) {
         wordCountLabel.text('words: ' + getWordCount(markdownText));
         var previewHtml = marked(markdownText);
-        previewPaneView.html(replaceAllImagesWithFigure(previewHtml));
+        previewPaneView.html(previewHtml);
     }
 
     function setRawHtml() {
@@ -1567,18 +1567,6 @@ function prepareInitialWorkSpace() {
     }
 
 
-function replaceAllImagesWithFigure(html){
-    
-    var parsedHtml = $(html);    
-    
-    $('img',parsedHtml).replaceWith(function(){
-        var alt = $(this).attr('alt');
-       return '<figure><img src="'+$(this).attr('src')+'" alt="'+alt+'"><figcaption>'+alt+'</figcaption></figure>';
-        
-    });
-    
-  return parsedHtml;   
-}
 
 function getItemsToPost(){
     
