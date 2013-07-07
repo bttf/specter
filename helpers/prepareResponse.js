@@ -5,10 +5,14 @@ exports.buildResponse = function (common){
 	
 	var pageNo = common.pageNo;
 	var preferences = common.preferences;
-    var items = {};    
-    items.hits = prepareResponse(common.data,preferences.index); 
+    var items = {};  
+	
+    items.hits = common.index? prepareResponse(common.data,preferences.index): prepareResponse(common.data,preferences.searchIndex); 
+	
     items.hasPrevious = helpers.pagination.hasPrevButton(pageNo);
-    items.hasNext = helpers.pagination.hasNextButton(pageNo,common.total,preferences.index.paginationSize);
+	
+    items.hasNext = common.index ?  helpers.pagination.hasNextButton(pageNo,common.total,preferences.index.paginationSize):helpers.pagination.hasNextButton(pageNo,common.total,preferences.searchIndex.paginationSize);
+	
 	items.isFirstPage = helpers.pagination.isFirstPage(items.hasPrevious);
 	
     return items;
