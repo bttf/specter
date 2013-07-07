@@ -1,4 +1,3 @@
-var tomarkdown = require('to-markdown').toMarkdown;
 var constants = require('../constants');
 var request = require('request');
 var helpers = require('../helpers');
@@ -10,15 +9,14 @@ exports.editPost = function(req,res){
      request(url,function(error,response,body){
         var parsed = JSON.parse(body);
         if(!parsed._source) return res.send(404);        
-        var markdownText = tomarkdown(parsed._source.postHtml);       
-        return res.render(constants.views.createPost,buildData(markdownText,parsed));
+       return res.render(constants.views.createPost,buildData(parsed));
     });
 };
 
 function buildData(markdownText,parsed){
 
  var item = {
-    post :markdownText,
+    post :parsed_source.postHtml,
     title : parsed._source.title,
      postedBy : parsed._source.postedBy,
      id : parsed._id,
