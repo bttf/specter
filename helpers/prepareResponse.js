@@ -1,7 +1,7 @@
 var commonHelpers = require('./prepareResponseHelpers');
 var helpers = require('../helpers');	
 
-exports.buildResponse = function (common,optional){
+exports.buildResponse = function (common){
 	
 	var pageNo = common.pageNo;
 	var preferences = common.preferences;
@@ -10,7 +10,7 @@ exports.buildResponse = function (common,optional){
     items.hasPrevious = helpers.pagination.hasPrevButton(pageNo);
     items.hasNext = helpers.pagination.hasNextButton(pageNo,common.total,preferences.index.paginationSize);
 	items.isFirstPage = helpers.pagination.isFirstPage(items.hasPrevious);
-	if(optional!==null && optional.query) items.query = optional.query;
+	
     return items;
 };
 
