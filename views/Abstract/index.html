@@ -87,6 +87,7 @@
                 </div>
             </div>
         </div>
+<textarea class="hiddenElement" id="remarkDiv">{{post}}</textarea>		
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script type="text/javascript" src="http://knockoutjs.com/downloads/knockout-2.2.1.js"></script>
         <script src="/javascripts/Abstract/index.js"></script>
@@ -114,8 +115,10 @@
 	
 	var reMarker = new reMarked(options);
 	
-	var markdown = reMarker.render({{post}});
-	$("#editArea").val(markdown);
+	var markdown = reMarker.render($("#remarkDiv").val());				
+				
+	$("#editArea").val(markdown).trigger('autosize');
+	
 				
 			});
 		</script>
