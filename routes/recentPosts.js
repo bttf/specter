@@ -22,7 +22,8 @@ exports.getRecentPosts = function(req,res){
 			data : results.hits.slice(0,resultCount),
 			pageNo : pageNo,
 			total: body.hits.hits.length,
-			preferences : preferences
+			preferences : preferences,
+			index: true
 		}
 		
         var dataToRender = helpers.buildResponse(common);
