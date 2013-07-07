@@ -50,7 +50,6 @@ body,textarea,li{
 blockquote p {
 margin-bottom: 0;
 font-size: 17px;
-font-weight: 300;
 line-height: 25px;
 font-style:italic;
 }
@@ -63,3 +62,6 @@ textarea,textarea:focus{
     outline:none;
 }
 
+li{
+	margin: 0 0 5px 0 ;
+}
