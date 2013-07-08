@@ -9,11 +9,14 @@ exports.getRecentPosts = function(req,res){
     var url = constants.queries.search();
 	var pageNo = parseInt(req.params.page);
 	var paginationSize  = preferences.index.paginationSize;
+	
     var headers = helpers.setHeaders(url,getRecentPostsQueryData(pageNo,paginationSize));
     
     request(headers,function(error,response,body){
-
-		var hasPosts = error|| !body || body.error || body.hits.hits.length===0?false:true;
+		
+		var total = body.hits.hits.length;
+		
+		var hasPosts = error|| !body || body.error || total===0?false:true;
 		if(!hasPosts){return res.redirect('/create');}
         var resultCount = paginationSize - 1;
         var results = body.hits;
@@ -22,7 +25,7 @@ exports.getRecentPosts = function(req,res){
 			
 			data : results.hits.slice(0,resultCount),
 			pageNo : pageNo,
-			total: body.hits.hits.length,
+			total: total,
 			preferences : preferences,
 			index: true
 		}
