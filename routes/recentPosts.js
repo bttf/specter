@@ -8,13 +8,14 @@ exports.getRecentPosts = function(req,res){
     
     var url = constants.queries.search();
 	var pageNo = parseInt(req.params.page);
-    var headers = helpers.setHeaders(url,getRecentPostsQueryData(pageNo,preferences.index.paginationSize));
+	var paginationSize  = preferences.index.paginationSize;
+    var headers = helpers.setHeaders(url,getRecentPostsQueryData(pageNo,paginationSize));
     
     request(headers,function(error,response,body){
 
 		var hasPosts = error|| !body || body.error || body.hits.hits.length===0?false:true;
 		if(!hasPosts){return res.redirect('/create');}
-        var resultCount = preferences.index.paginationSize - 1;
+        var resultCount = paginationSize - 1;
         var results = body.hits;
 		
 		var common = {
