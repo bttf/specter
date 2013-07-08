@@ -23,13 +23,13 @@ exports.deepSearch = function(req,res){
     var url = constants.queries.search();
 	var pageNo = req.query.page;
 	var query = pageNo? req.query.q : req.body.query;
-	
-    var headers = helpers.setHeaders(url,getSearchPostsQueryData(pageNo,preferences.searchIndex.paginationSize,query));
+	var paginationSize = preferences.searchIndex.paginationSize;	
+    var headers = helpers.setHeaders(url,getSearchPostsQueryData(pageNo,paginationSize,query));
     
     request(headers,function(error,response,body){
 		
 		
-        var resultCount = preferences.searchIndex.paginationSize - 1;
+        var resultCount = paginationSize - 1;
         var results = body.hits;
 		var common = {
 			
