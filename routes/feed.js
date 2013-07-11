@@ -24,10 +24,10 @@ exports.getFeeds = function(req,res){
 	var type = req.params.type;
 	var url = constants.queries.search();
 	var headers = helpers.setHeaders(url,getRecentFeedsQuery());
-	var atom = feedPref.atom;
-	var rss = feedPref.rss;
+	var atomPreferred = feedPref.atom;
+	var rssPreferred = feedPref.rss;
 	
-	if(!(rss||atom)){return res.send(404)};
+	if(!(rssPreferred||atomPreferred)){return res.send(404)};
 	
 	request(headers,function(error,response,body){
 		
@@ -35,11 +35,11 @@ exports.getFeeds = function(req,res){
 		
 		buildResponse(body.hits.hits,feed);
 		
-		if(type === 'rss'&& feedPref.rss){ 
+		if(type === 'rss'&& rssPreferred){ 
 			res.set('Content-type','application/rss+xml');
 			return res.send(feed.render('rss-2.0'));
 		}
-		if(type === 'atom' && feedPref.atom){
+		if(type === 'atom' && atomPreferred){
 			res.set('Content-type','application/atom+xml');
 			return res.send(feed.render('atom-1.0'));}
 		return res.send(404);
