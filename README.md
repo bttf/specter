@@ -17,7 +17,7 @@ Does all this sound too good to be true? Don't believe what I say? See it in [ac
 
 1. Clone the repository
 
-2. [Download](http://www.elasticsearch.org/download/) elastic search for your platform
+2. [Download](http://www.elasticsearch.org/download/) elastic search for your platform. Make sure it is running on [http://localhost:9200/](http://localhost:9200/)
 
 3. `cd` to the location where you cloned specter. Do an `npm install` to install all the dependencies and then `npm start` to run it. Specter should now be running on [http://localhost:3000](http://localhost:3000)
 
@@ -59,7 +59,7 @@ An administrator has the highest authority he can edit or delete any post. A use
 # Theming specter
 
 
-Theming specter is incredibly easy. In the `\views` directory there are templates that use pure html and a bit of [mustache](http://mustache.github.io/) by default theyu are all built on twitter bootstrap so just by switching the css to one of the [swatches](http://bootswatch.com/) you can get a lot of diversity. Other wise if you prefer to write you own css you can create a styles file in `\specter\public\styles` directory and link it to any template that you want. 
+Theming specter is incredibly easy. In the `\views` directory there are templates that use pure html and a bit of [mustache](http://mustache.github.io/) by default they are all built on twitter bootstrap so just by switching the css to one of the [swatches](http://bootswatch.com/) you can get a lot of diversity. Other wise if you prefer to write you own css you can create a styles file in `\specter\public\styles` directory and link it to any template that you want. 
 
 
 Specter imposes no restrictions on the structuring your markup either. Only thing it cares about is the mustache variables. As long as you are using the right variables in the templates feel free to change the html structure to any form that you want.
