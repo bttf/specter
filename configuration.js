@@ -9,7 +9,7 @@ app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.engine('html',engines.mustache);    
 app.set('view engine', 'html');
-app.use(express.favicon());
+app.use(express.favicon(__dirname + '/public/images/favicon.ico'));
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
