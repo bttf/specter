@@ -14,10 +14,11 @@ exports.getRecentPosts = function(req,res){
     
     request(headers,function(error,response,body){
 		
-		var total = body.hits.hits.length;
-		
-		var hasPosts = error|| !body || body.error || total===0?false:true;
+				
+		var hasPosts = error|| !body || body.error || body.hits.hits.length===0?false:true;
 		if(!hasPosts){return res.redirect('/create');}
+		var total = body.hits.hits.length;
+
         var resultCount = paginationSize - 1;
         var results = body.hits;
 		
