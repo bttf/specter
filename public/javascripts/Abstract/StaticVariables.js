@@ -19,5 +19,5 @@
     var wordCountLabel = $("#wordCount");
     var secret = $("#secret");
     var update = $("#update");
-
+	
     

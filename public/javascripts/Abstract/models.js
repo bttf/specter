@@ -1,7 +1,7 @@
 var draft = function (parsed, title) {
 
         var self = this;
-        var wordCount = parsed.wordCount;
+		var wordCount = parsed.wordCount;
         self.date = new Date(parsed.time).toDateString();
         self.count = wordCount;
         self.title = title;
@@ -34,6 +34,7 @@ var draft = function (parsed, title) {
             self.showTitle(false);
             renderSavedDrafts();
             previewContainerView.hide();
+			$("#tags_tagsinput").hide();
             draftsView.show();
 
         };
@@ -46,6 +47,7 @@ var draft = function (parsed, title) {
             editArea.focus();
             editArea.val('');
             titleContainer.val('');
+			$("#tags_tagsinput").show();
 
         };
 
@@ -59,6 +61,7 @@ var draft = function (parsed, title) {
                 self.showTitle(true);
                 showThis([rawHtmlExpression,previewContainerExpression]);
                 self.saveAndNotify();
+				$("#tags_tagsinput").hide();
             }
 
         };
@@ -69,6 +72,7 @@ var draft = function (parsed, title) {
             self.showEditor(true);
             editArea.trigger('autosize');
             editArea.focus();
+			$("#tags_tagsinput").show();
 
         };
 
@@ -84,6 +88,7 @@ var draft = function (parsed, title) {
             wordCountLabel.text(parsed.wordCount);
             self.showEditor(true);
             self.showTitle(true);
+			$("#tags_tagsinput").show();
 
         };
         
@@ -134,6 +139,7 @@ var draft = function (parsed, title) {
             self.currentKey = titleContainer.val();
             previewContainerView.hide();
             self.showEditor(true);
+			$("#tags_tagsinput").show();
         }
     };
 
