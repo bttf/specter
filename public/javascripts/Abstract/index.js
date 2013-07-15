@@ -1785,7 +1785,7 @@ var draft = function (parsed, title) {
                 showThis([rawHtmlExpression,previewContainerExpression]);
                 self.saveAndNotify();
 				$("#tags_tagsinput").show();
-				$("#tags_tag").on('click',function(event){event.stopPropagation()});
+				$("#tags_tagsinput").on('click',function(event){event.stopPropagation()});
             }
 
         };
