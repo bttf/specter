@@ -40,7 +40,7 @@
             <div class="row-fluid hiddenElement" id="previewContainer" data-bind="click : hidePreview">
                 <div class="span12">
                     <div class="span12" id="previewPane">{{{post}}}</div>
-                    <ul class="unstyled inline muted previewFeedback">
+					                    <ul class="unstyled inline muted previewFeedback">
                         <li>preview</li>
                         <li id="wordCount"></li>
                         <li><a href="#" id="rawHtml" data-bind="visible:raw,click: rawHtml">raw</a><a href="#" id="plain" data-bind="visible:!raw(),click:plain">pretty</a>
@@ -50,9 +50,9 @@
                     
             <p>
 				
-				<hr>
 				<input type="text" id="tags">
-                <input class="span4" type="password" placeholder="Enter secret to publish" data-bind="value:secret,click:editingSecret,valueUpdate:'afterkeydown' " id="secret" ></p> 
+				
+				                <input class="span4" type="password" placeholder="Enter secret to publish" data-bind="value:secret,click:editingSecret,valueUpdate:'afterkeydown' " id="secret" ></p> 
                 <p>
                     {{^post}}
                     <button class="btn btn-success" data-bind="enable:hasProvidedSecret,click:publishArticle">publish</button>
