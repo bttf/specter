@@ -43,7 +43,7 @@
                     <ul class="unstyled inline muted previewFeedback">
                         <li>preview</li>
                         <li id="wordCount"></li>
-                        <li><a href="#" id="rawHtml" data-bind="visible:raw,click: rawHtml">raw</a><a href="#" id="plain" data-bind="visible:!raw(),click:plain">plain</a>
+                        <li><a href="#" id="rawHtml" data-bind="visible:raw,click: rawHtml">raw</a><a href="#" id="plain" data-bind="visible:!raw(),click:plain">pretty</a>
                         </li>
                         
                     </ul>
@@ -52,7 +52,7 @@
 				
 				<hr>
 				<input type="text" id="tags">
-                <input class="span4" type="password" placeholder="enter secret" data-bind="value:secret,click:editingSecret,valueUpdate:'afterkeydown' " id="secret" ></p> 
+                <input class="span4" type="password" placeholder="Enter secret to publish" data-bind="value:secret,click:editingSecret,valueUpdate:'afterkeydown' " id="secret" ></p> 
                 <p>
                     {{^post}}
                     <button class="btn btn-success" data-bind="enable:hasProvidedSecret,click:publishArticle">publish</button>
