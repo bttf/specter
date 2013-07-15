@@ -51,8 +51,8 @@ var draft = function (parsed, title) {
 
         };
 
-        self.showPreview = function () {
-
+        self.showPreview = function () {				
+			
             if (validateInputOnFousOut()) {
 
                 setHtmlinPreviewPane(getMarkdownText());
@@ -61,7 +61,8 @@ var draft = function (parsed, title) {
                 self.showTitle(true);
                 showThis([rawHtmlExpression,previewContainerExpression]);
                 self.saveAndNotify();
-				$("#tags_tagsinput").hide();
+				$("#tags_tagsinput").show();
+				$("#tags_tag").on('click',function(event){event.stopPropagation()});
             }
 
         };
@@ -72,7 +73,7 @@ var draft = function (parsed, title) {
             self.showEditor(true);
             editArea.trigger('autosize');
             editArea.focus();
-			$("#tags_tagsinput").show();
+			$("#tags_tagsinput").hide();
 
         };
 
@@ -88,7 +89,7 @@ var draft = function (parsed, title) {
             wordCountLabel.text(parsed.wordCount);
             self.showEditor(true);
             self.showTitle(true);
-			$("#tags_tagsinput").show();
+			$("#tags_tagsinput").hide();
 
         };
         
