@@ -2603,4 +2603,45 @@ reMarked = function(opts) {
   * License MIT (c) Dustin Diaz & Jacob Thornton 2012
   */
 !function(a,b){typeof define=="function"?define(b):typeof module!="undefined"?module.exports=b():this[a]=b()}("klass",function(){function f(a){return j.call(g(a)?a:function(){},a,1)}function g(a){return typeof a===c}function h(a,b,c){return function(){var d=this.supr;this.supr=c[e][a];var f=b.apply(this,arguments);return this.supr=d,f}}function i(a,b,c){for(var f in b)b.hasOwnProperty(f)&&(a[f]=g(b[f])&&g(c[e][f])&&d.test(b[f])?h(f,b[f],c):b[f])}function j(a,b){function c(){}function l(){this.init?this.init.apply(this,arguments):(b||h&&d.apply(this,arguments),j.apply(this,arguments))}c[e]=this[e];var d=this,f=new c,h=g(a),j=h?a:this,k=h?{}:a;return l.methods=function(a){return i(f,a,d),l[e]=f,this},l.methods.call(l,k).prototype.constructor=l,l.extend=arguments.callee,l[e].implement=l.statics=function(a,b){return a=typeof a=="string"?function(){var c={};return c[a]=b,c}():a,i(this,a,d),this},l}var a=this,b=a.klass,c="function",d=/xyz/.test(function(){xyz})?/\bsupr\b/:/.*/,e="prototype";return f.noConflict=function(){return a.klass=b,this},a.klass=f,f});
+function createTaggedDraft (){
+			var key = $("#title").val();
+        	var draft = {};
+            draft["time"] = new Date();
+        	draft["text"] = $("#editArea").val();
+        	draft["wordCount"] =$("#wordCount").text().match(/\d+/)[0]
+			draft["tags"] = $("#tags").val();
+        	localStorage.setItem(key, JSON.stringify(draft));
+		}
+				
+				$("#tags").tagsInput({'defaultText':' Click to add tags','height':'0px','onAddTag':function(param){
+					createTaggedDraft();
+				},'onRemoveTag':function(param){
+					createTaggedDraft();
+				}
+									 });
+				var options = {
+					
+	link_list:  false,    // render links as references, create link list as appendix
+	h1_setext:  false,     // underline h1 headers
+	h2_setext:  false,     // underline h2 headers
+	h_atx_suf:  true,    // header suffixes (###)
+	gfm_code:   true,    // gfm code blocks (```)
+	li_bullet:  "*",      // list item bullet style
+	hr_char:    "-",      // hr style
+	indnt_str:  "    ",   // indentation string
+	bold_char:  "*",      // char used for strong
+	emph_char:  "_",      // char used for em
+	gfm_del:    true,     // ~~strikeout~~ for <del>strikeout</del>
+	gfm_tbls:   true,     // markdown-extra tables
+	tbl_edges:  false,    // show side edges on tables
+	hash_lnks:  true,    // anchors w/hash hrefs as links
+	br_only:    false,    // avoid using "  " as line break indicator
+};
+	
+	var reMarker = new reMarked(options);
+	
+	var markdown = reMarker.render($('#previewPane').html());				
+				
+	$("#editArea").val(markdown).trigger('autosize');
+	
 });
