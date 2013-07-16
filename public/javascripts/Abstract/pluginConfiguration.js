@@ -9,9 +9,9 @@ function createTaggedDraft (){
 		}
 				
 				$("#tags").tagsInput({'defaultText':' Click to add tags','height':'0px','onAddTag':function(param){
-					createTaggedDraft();
+					saveCurrentDraft(titleContainer.text());
 				},'onRemoveTag':function(param){
-					createTaggedDraft();
+					saveCurrentDraft(titleContainer.text());
 				}
 									 });
 				var options = {
