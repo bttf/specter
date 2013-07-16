@@ -1,10 +1,10 @@
 function createTaggedDraft (){
-			var key = $("#title").val();
+			var key = titleContainer.val();
         	var draft = {};
             draft["time"] = new Date();
-        	draft["text"] = $("#editArea").val();
-        	draft["wordCount"] =$("#wordCount").text().match(/\d+/)[0]
-			draft["tags"] = $("#tags").val();
+        	draft["text"] = getMarkdownText();
+        	draft["wordCount"] =getWordCountFromLabel(wordCountLabel.text());
+			draft["tags"] = tags.val();
         	localStorage.setItem(key, JSON.stringify(draft));
 		}
 				
