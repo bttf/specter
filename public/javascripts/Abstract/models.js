@@ -89,6 +89,7 @@ var draft = function (parsed, title) {
             wordCountLabel.text(parsed.wordCount);
             self.showEditor(true);
             self.showTitle(true);
+			$("#tags").importTags(parsed.tags);
 			$("#tags_tagsinput").hide();
 
         };
