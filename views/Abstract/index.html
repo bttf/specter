@@ -94,8 +94,25 @@
         <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
         <script src="/javascripts/Abstract/index.min.js"></script>
         <script type="text/javascript">
-			$(function(){
-				$("#tags").tagsInput({'defaultText':' Click to add tags','height':'0px','onAddTag':saveDraft(titleContainer.val()),'onRemoveTag':saveDraft(titleContainer.val())});
+			$(function(){		
+				
+				
+		function createTaggedDraft (){
+			var key = $("#title").val();
+        	var draft = {};
+            draft["time"] = new Date();
+        	draft["text"] = $("#editArea").val();
+        	draft["wordCount"] =$("#wordCount").text().match(/\d+/)[0]
+			draft["tags"] = $("#tags").val();
+        	localStorage.setItem(key, JSON.stringify(draft));
+		}
+				
+				$("#tags").tagsInput({'defaultText':' Click to add tags','height':'0px','onAddTag':function(param){
+					createTaggedDraft();
+				},'onRemoveTag':function(param){
+					createTaggedDraft();
+				}
+									 });
 				var options = {
 					
 	link_list:  false,    // render links as references, create link list as appendix
