@@ -1364,7 +1364,7 @@ if (typeof exports === 'object') {
     var wordCountLabel = $("#wordCount");
     var secret = $("#secret");
     var update = $("#update");
-	
+	var tags = $("#tags");
     
 /*
 
@@ -1938,10 +1938,11 @@ function getItemsToPost(){
         postHtml: html,
         wordCount :getWordCountFromLabel(wordCountLabel.text()),
         title : titleContainer.val(),
-        secret :secret.val()
+        secret :secret.val(),
+		tags : tags.val().split(',')
         
     };    
-       
+     console.log(item);  
     return item;
 }
 
