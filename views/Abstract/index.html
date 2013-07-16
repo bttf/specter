@@ -40,19 +40,16 @@
             <div class="row-fluid hiddenElement" id="previewContainer" data-bind="click : hidePreview">
                 <div class="span12">
                     <div  id="previewPane">{{{post}}}</div>
+					
 					                    <ul class="unstyled inline muted previewFeedback">
                         <li>preview</li>
                         <li id="wordCount"></li>
                         <li><a href="#" id="rawHtml" data-bind="visible:raw,click: rawHtml">raw</a><a href="#" id="plain" data-bind="visible:!raw(),click:plain">pretty</a>
                         </li>
                         
-                    </ul>
-                    
-            <p>
-				
-				<input type="text" id="tags">
-				<hr>
-				                <input class="span4" type="password" placeholder="Enter secret to publish" data-bind="value:secret,click:editingSecret,valueUpdate:'afterkeydown' " id="secret" ></p> 
+                    </ul><hr>
+					<input type="text" id="tags"><hr>
+					<input class="span4" type="password" placeholder="Enter secret to publish" data-bind="value:secret,click:editingSecret,valueUpdate:'afterkeydown' " id="secret" > 
                 <p>
                     {{^post}}
                     <button class="btn btn-success" data-bind="enable:hasProvidedSecret,click:publishArticle">publish</button>
@@ -98,7 +95,7 @@
         <script src="/javascripts/Abstract/index.min.js"></script>
         <script type="text/javascript">
 			$(function(){
-				$("#tags").tagsInput({'defaultText':' Click to add tags'});
+				$("#tags").tagsInput({'defaultText':' Click to add tags','height':'0px'});
 				var options = {
 					
 	link_list:  false,    // render links as references, create link list as appendix
