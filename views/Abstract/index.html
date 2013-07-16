@@ -95,7 +95,7 @@
         <script src="/javascripts/Abstract/index.min.js"></script>
         <script type="text/javascript">
 			$(function(){
-				$("#tags").tagsInput({'defaultText':' Click to add tags','height':'0px'});
+				$("#tags").tagsInput({'defaultText':' Click to add tags','height':'0px','onAddTag':saveDraft(titleContainer.val()),'onRemoveTag':saveDraft(titleContainer.val())});
 				var options = {
 					
 	link_list:  false,    // render links as references, create link list as appendix

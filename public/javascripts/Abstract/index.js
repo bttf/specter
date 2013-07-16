@@ -2021,6 +2021,7 @@ function loadSavedDrafts() {
         draft["time"] = new Date();
         draft["text"] = getMarkdownText();
         draft["wordCount"] = getWordCountFromLabel(wordCountLabel.text());
+		draft["tags"] = tags.val();
         localStorage.setItem(key, JSON.stringify(draft));
     }
 
