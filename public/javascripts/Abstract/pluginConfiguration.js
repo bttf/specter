@@ -1,13 +1,4 @@
-function createTaggedDraft (){
-			var key = titleContainer.val();
-        	var draft = {};
-            draft["time"] = new Date();
-        	draft["text"] = getMarkdownText();
-        	draft["wordCount"] =getWordCountFromLabel(wordCountLabel.text());
-			draft["tags"] = tags.val();
-        	localStorage.setItem(key, JSON.stringify(draft));
-		}
-				
+			
 				$("#tags").tagsInput({'defaultText':' Click to add tags','height':'0px','onAddTag':function(param){
 					saveCurrentDraft(titleContainer.text());
 				},'onRemoveTag':function(param){
