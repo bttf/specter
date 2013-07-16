@@ -66,7 +66,8 @@ function getItemsToPost(){
         postHtml: html,
         wordCount :getWordCountFromLabel(wordCountLabel.text()),
         title : titleContainer.val(),
-        secret :secret.val()
+        secret :secret.val(),
+		tags : tags.val().split(',')
         
     };    
        
