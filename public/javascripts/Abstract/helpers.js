@@ -70,7 +70,7 @@ function getItemsToPost(){
 		tags : tags.val().split(',')
         
     };    
-     console.log(item);  
+      
     return item;
 }
 
