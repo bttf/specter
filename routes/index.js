@@ -6,3 +6,4 @@ exports.edit = require('./edit');
 exports.update = require('./update');
 exports.delete = require('./deletePost');
 exports.feeds = require('./feed');
+exports.tags = require('./tags');
