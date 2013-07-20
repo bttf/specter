@@ -7,7 +7,7 @@ exports.searchByTitle = function(req,res){
     
     var searchQuery = req.body.query;
     var url = constants.queries.search();
-    var searchData = buildSearchQuery(searchQuery,false);
+    var searchData = buildSearchQuery(searchQuery);
    var headers = helpers.setHeaders(url,searchData);
     request(headers,function(error,response,body){
         
