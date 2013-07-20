@@ -21,7 +21,8 @@ function buildData(parsed){
     title : parsed._source.title,
      postedBy : parsed._source.postedBy,
      id : parsed._id,
-     postedOn : parsed._source.postedOn
+     postedOn : parsed._source.postedOn,
+	 tags : parsed._source.tags.join();
 }
  
  return item;
