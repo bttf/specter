@@ -5,7 +5,7 @@ exports.buildResponse = function (common){
 	
 	var pageNo = common.pageNo;
 	var preferences = common.preferences;
-	var prefrenceIndex = common.index ? preferences.index : preferences.searchIndex;
+	var prefrenceIndex = common.index;
     var items = {};  
 	
     items.hits = prepareResponse(common.data,prefrenceIndex); 

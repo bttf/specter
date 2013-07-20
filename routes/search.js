@@ -36,7 +36,8 @@ exports.deepSearch = function(req,res){
 			data : results.hits.slice(0,resultCount),
 			pageNo : pageNo,
 			total: body.hits.hits.length,
-			preferences : preferences
+			preferences : preferences,
+			index : preferences.searchIndex
 		};		
 		
         var dataToRender = helpers.buildResponse(common);
