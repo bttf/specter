@@ -1,11 +1,13 @@
 			
-				$("#tags").tagsInput({'defaultText':' Click to add tags','height':'0px','onAddTag':function(param){
-					saveCurrentDraft(titleContainer.text());
-				},'onRemoveTag':function(param){
-					saveCurrentDraft(titleContainer.text());
-				}
-									 });
-				var options = {
+	$("#tags").tagsInput({'defaultText':' Click to add tags','height':'0px','onAddTag':function(param){
+		saveCurrentDraft(titleContainer.text());
+	},'onRemoveTag':function(param){
+		saveCurrentDraft(titleContainer.text());
+	}
+						
+});
+
+   var options = {
 					
 	link_list:  false,    // render links as references, create link list as appendix
 	h1_setext:  false,     // underline h1 headers
