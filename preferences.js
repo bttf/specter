@@ -18,6 +18,13 @@ exports.preferences = {
 	"summaryLength" : 2,
 	"paginationSize" : 11
 },
+
+"tagIndex" : {
+		
+	"pageFields" : ["postedBy","postedOn","title","wordCount","postHtml"],
+	"summaryLength" : 2,
+	"paginationSize" : 11
+},	
 	
 "feed" : {
 	
