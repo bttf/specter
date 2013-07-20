@@ -22,8 +22,13 @@ function buildData(parsed){
      postedBy : parsed._source.postedBy,
      id : parsed._id,
      postedOn : parsed._source.postedOn,
-	 tags : parsed._source.tags.join()
+	 tags : getTags(parsed._source.tags)
 }
  
  return item;
+}
+ 
+function getTags(tags){
+	
+	return tags ? tags.join() : undefined
 }
