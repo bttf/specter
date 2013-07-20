@@ -73,6 +73,11 @@ var query = {
                     }
                 }
             },
+		{
+				"term" :{
+				"tags" :searchTerm
+			}
+		},
                     {
                         "match_phrase" :{
                             

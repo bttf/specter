@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Posts tagged under{{#hits.fields.tags}} {{.}} {{/hits.fields.tags}}</title>
+    <title>Posts tagged under {{tag}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
       <link rel="stylesheet" href="/styles/globalStyles.css">
@@ -31,6 +31,7 @@
           </div>
       </div>
 	  <hr>
+	  <p class="lead" style="text-align:center">Posts tagged under "{{tag}}"</p>
       <div class="container-fluid">
           {{#hits}}
 

@@ -27,6 +27,7 @@ exports.getTaggedPosts = function(req,res){
 		}
 		
         var dataToRender = helpers.buildResponse(common);
+		dataToRender.tag = tag
 		return res.render(constants.views.tagResults,dataToRender);
     });
     
