@@ -5,5 +5,5 @@ exports.views = {
     postDetail : 'postDetail.html',
     deletePost : 'deletePost.html',
 	searchResults: 'searchResults.html'
-    
+    tagResults : 'tags.html'
 };
