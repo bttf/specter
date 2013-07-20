@@ -1,7 +1,7 @@
 var helpers = require('../helpers');
 var request = require('request');
 var preferences = require('../preferences').preferences;
-
+var constants = require('../constants');
 
 exports.getTaggedPosts = function(req,res){
 	
@@ -11,7 +11,7 @@ exports.getTaggedPosts = function(req,res){
 	var tag = req.params.tag;
     var headers = helpers.setHeaders(url,buildTagQuery(tag,pageNo,paginationSize));
     
-    request(headers,function(error,response,body){		
+	request(headers,function(error,response,body){		
 				
 		var total = body.hits.hits.length;
         var resultCount = paginationSize - 1;
@@ -39,7 +39,7 @@ function buildTagQuery(tag,pageNo,paginationSize){
 		"size" : preferences.tagIndex.paginationSize,
 		"query" : {
 			"term" :{
-				"tag" : tag
+				"tags" : tag
 			}
 		}
 	}

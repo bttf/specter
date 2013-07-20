@@ -6,6 +6,7 @@ app.get('/create',routes.create.newPost);
 app.get('/search',routes.search.deepSearch);
 app.get('/feed/:type',routes.feeds.getFeeds);	
 app.get('/page/:page',routes.recentPosts.getRecentPosts);
+app.get('/tag/:tag',routes.tags.getTaggedPosts);
 app.get('/tag/:tag/:page',routes.tags.getTaggedPosts);	
 app.get('/:id',routes.postDetail.postDetail);
 app.get('/:id/edit',routes.edit.editPost);
