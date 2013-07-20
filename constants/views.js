@@ -4,6 +4,6 @@ exports.views = {
     home : 'index.html',
     postDetail : 'postDetail.html',
     deletePost : 'deletePost.html',
-	searchResults: 'searchResults.html'
+	searchResults: 'searchResults.html',
     tagResults : 'tags.html'
 };

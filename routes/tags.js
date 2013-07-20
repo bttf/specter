@@ -27,7 +27,7 @@ exports.getTaggedPosts = function(req,res){
 		}
 		
         var dataToRender = helpers.buildResponse(common);
-		return res.render(constants.views.home,dataToRender);
+		return res.render(constants.views.tagResults,dataToRender);
     });
     
 }
