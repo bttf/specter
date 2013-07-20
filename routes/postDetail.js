@@ -9,7 +9,7 @@ exports.postDetail = function(req,res){
         try{
         var parsed = JSON.parse(body);      
         parsed._source.postedOn = new Date(parsed._source.postedOn).toDateString();
-        return res.render(constants.views.postDetail,parsed);
+		return res.render(constants.views.postDetail,parsed);
         }
         catch(e){
             
