@@ -16,7 +16,8 @@ exports.getTaggedPosts = function(req,res){
 		var total = body.hits.hits.length;
         var resultCount = paginationSize - 1;
         var results = body.hits;
-		
+
+	if(results.hits.length===0) return res.send(404);	
 		var common = {
 			
 			data : results.hits.slice(0,resultCount),
