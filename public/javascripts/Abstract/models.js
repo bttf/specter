@@ -30,12 +30,12 @@ var draft = function (parsed, title) {
 
         self.showDrafts = function () {
 
-            self.showEditor(false);
+			previewContainerView.hide();
+            self.showEditor(false);			
             self.showTitle(false);
-            renderSavedDrafts();
-            previewContainerView.hide();
+            renderSavedDrafts();            
 			$("#tags_tagsinput").hide();
-            draftsView.show();
+			draftsView.show();
 
         };
 
@@ -68,7 +68,7 @@ var draft = function (parsed, title) {
         };
 
         self.hidePreview = function () {
-
+			
             previewContainerView.hide();
             self.showEditor(true);
             editArea.trigger('autosize');
