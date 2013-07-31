@@ -37,7 +37,7 @@ var draft = function (parsed, title) {
             renderSavedDrafts();            
 			$("#tags_tagsinput").hide();
 			draftsView.show();
-
+			saveAndPreview.hide();
         };
 
         self.newDraft = function () {
@@ -49,13 +49,14 @@ var draft = function (parsed, title) {
             editArea.val('');
             titleContainer.val('');
 			$("#tags_tagsinput").show();
-
+			saveAndPreview.show();
         };
 
         self.showPreview = function () {				
 			
             if (validateInputOnFousOut()) {
 				
+				saveAndPreview.hide();
                 setHtmlinPreviewPane(getMarkdownText());
                 plainViewButton.hide();
                 self.showEditor(false);
@@ -92,7 +93,7 @@ var draft = function (parsed, title) {
             self.showTitle(true);
 			$("#tags").importTags(parsed.tags);
 			$("#tags_tagsinput").hide();
-
+			saveAndPreview.show();
         };
         
         

@@ -1365,7 +1365,7 @@ if (typeof exports === 'object') {
     var secret = $("#secret");
     var update = $("#update");
 	var tags = $("#tags");
-    
+    var saveAndPreview = $("#saveAndPreview");
 /*
 
 	jQuery Tags Input Plugin 1.3.3
@@ -1752,18 +1752,19 @@ var draft = function (parsed, title) {
         };
 
         self.showDrafts = function () {
-
+			
+			self.saveAndNotify();
 			previewContainerView.hide();
             self.showEditor(false);			
             self.showTitle(false);
             renderSavedDrafts();            
 			$("#tags_tagsinput").hide();
 			draftsView.show();
-
+			saveAndPreview.hide();
         };
 
         self.newDraft = function () {
-
+			self.saveAndNotify();
             hideThis([previewContainerExpression,draftsExpression]);
             self.showTitle(true);
             self.showEditor(true);
@@ -1771,13 +1772,14 @@ var draft = function (parsed, title) {
             editArea.val('');
             titleContainer.val('');
 			$("#tags_tagsinput").show();
-
+			saveAndPreview.show();
         };
 
         self.showPreview = function () {				
 			
             if (validateInputOnFousOut()) {
-
+				
+				saveAndPreview.hide();
                 setHtmlinPreviewPane(getMarkdownText());
                 plainViewButton.hide();
                 self.showEditor(false);
@@ -1814,7 +1816,7 @@ var draft = function (parsed, title) {
             self.showTitle(true);
 			$("#tags").importTags(parsed.tags);
 			$("#tags_tagsinput").hide();
-
+			saveAndPreview.show();
         };
         
         
@@ -2020,9 +2022,10 @@ function loadSavedDrafts() {
            removeDraft(prevKey);
         }
         var draft = {};
+		var markdownText = getMarkdownText();
         draft["time"] = new Date();
-        draft["text"] = getMarkdownText();
-        draft["wordCount"] = getWordCountFromLabel(wordCountLabel.text());
+        draft["text"] = markdownText;
+        draft["wordCount"] = getWordCount(markDownText);
 		draft["tags"] = tags.val();
         localStorage.setItem(key, JSON.stringify(draft));
     }

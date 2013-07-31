@@ -41,7 +41,7 @@ function loadSavedDrafts() {
 		var markdownText = getMarkdownText();
         draft["time"] = new Date();
         draft["text"] = markdownText;
-        draft["wordCount"] = getWordCount(markDownText);
+        draft["wordCount"] = getWordCount(markdownText);
 		draft["tags"] = tags.val();
         localStorage.setItem(key, JSON.stringify(draft));
     }
