@@ -1799,7 +1799,7 @@ var draft = function (parsed, title) {
             editArea.trigger('autosize');
             editArea.focus();
 			$("#tags_tagsinput").hide();
-
+			saveAndPreview.show();
         };
 
         self.editDraft = function (draft) {
