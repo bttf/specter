@@ -38,9 +38,10 @@ function loadSavedDrafts() {
            removeDraft(prevKey);
         }
         var draft = {};
+		var markdownText = getMarkdownText();
         draft["time"] = new Date();
-        draft["text"] = getMarkdownText();
-        draft["wordCount"] = getWordCountFromLabel(wordCountLabel.text());
+        draft["text"] = markdownText;
+        draft["wordCount"] = getWordCount(markDownText);
 		draft["tags"] = tags.val();
         localStorage.setItem(key, JSON.stringify(draft));
     }
