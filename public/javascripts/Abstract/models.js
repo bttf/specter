@@ -29,7 +29,8 @@ var draft = function (parsed, title) {
         };
 
         self.showDrafts = function () {
-
+			
+			self.saveAndNotify();
 			previewContainerView.hide();
             self.showEditor(false);			
             self.showTitle(false);
@@ -40,7 +41,7 @@ var draft = function (parsed, title) {
         };
 
         self.newDraft = function () {
-
+			self.saveAndNotify();
             hideThis([previewContainerExpression,draftsExpression]);
             self.showTitle(true);
             self.showEditor(true);
@@ -54,7 +55,7 @@ var draft = function (parsed, title) {
         self.showPreview = function () {				
 			
             if (validateInputOnFousOut()) {
-
+				
                 setHtmlinPreviewPane(getMarkdownText());
                 plainViewButton.hide();
                 self.showEditor(false);
