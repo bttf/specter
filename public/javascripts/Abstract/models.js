@@ -135,7 +135,7 @@ var draft = function (parsed, title) {
         };
         
         self.saveAndNotify = function(){
-		if(!editArea.val()) return;			
+		if(!editArea.val() || !titleContainer.val()) return; return;			
              saveCurrentDraft(self.currentKey);
             saveStatusNotification.fadeIn().show().delay(1000).fadeOut();
         };
