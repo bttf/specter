@@ -20,4 +20,4 @@
     var secret = $("#secret");
     var update = $("#update");
 	var tags = $("#tags");
-    
+    var saveAndPreview = $("#saveAndPreview");
