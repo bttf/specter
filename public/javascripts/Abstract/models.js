@@ -43,6 +43,7 @@ var draft = function (parsed, title) {
         self.newDraft = function () {
 			self.saveAndNotify();
             hideThis([previewContainerExpression,draftsExpression]);
+            self.currentKey = '';
             self.showTitle(true);
             self.showEditor(true);
             titleContainer.focus();
