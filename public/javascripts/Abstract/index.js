@@ -1742,9 +1742,16 @@ var draft = function (parsed, title) {
         self.raw = ko.observable(true);
         self.secret = ko.observable();
         self.currentKey = '';
+
+        self.clearCurrentWorkSpace = function(){
+            self.currentKey = '';
+            titleContainer.val('');
+            editArea.val('');
+        };
         
         self.deleteDraft = function (draft, event) {
 
+            self.clearCurrentWorkSpace();
             event.stopPropagation();
             removeDraft(draft.title);
             self.drafts.remove(draft);
@@ -1766,11 +1773,9 @@ var draft = function (parsed, title) {
         self.newDraft = function () {
 			self.saveAndNotify();
             hideThis([previewContainerExpression,draftsExpression]);
-            self.currentKey = '';
+            self.clearCurrentWorkSpace();
             self.showTitle(true);
             self.showEditor(true);
-            titleContainer.focus();
-            editArea.val('');
             titleContainer.val('');
 			$("#tags_tagsinput").show();
 			saveAndPreview.show();
