@@ -1774,6 +1774,7 @@ var draft = function (parsed, title) {
 			self.saveAndNotify();
             hideThis([previewContainerExpression,draftsExpression]);
             self.clearCurrentWorkSpace();
+editArea.trigger('autosize');
             self.showTitle(true);
             self.showEditor(true);
             titleContainer.val('');
