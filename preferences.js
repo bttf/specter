@@ -35,8 +35,8 @@ exports.preferences = {
 	"description" : '',
 	"link" : '',
 	"summaryLength" : 2,
-	 author: {
-        'name':       'mandatory',
+	 "author": {
+        'name':       '',
         'email':      '',
         'link':       ''
     }	
