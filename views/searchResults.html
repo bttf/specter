@@ -34,7 +34,13 @@
       <div class="container-fluid">
       <div class="row-fluid">
 			  <div class="span12">
+        {{#hits.0}}
 				  <p class="lead" style="text-align:center;">Search results for "{{query}}"<p>
+        {{/hits.0}}
+              
+              {{^hits}}
+              <p class="lead" style="text-align:center;">No results found for "{{query}}"<p>
+              {{/hits}}      
 			  </div>
 		  </div>
           {{#hits}}
