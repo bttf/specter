@@ -1,4 +1,4 @@
-Check out this excellent [getting started guide](http://nevinera.net/trying-out-specter)by [Eric Mueller](https://github.com/nevinera)	
+Check out this excellent [getting started guide](http://nevinera.net/trying-out-specter) by [Eric Mueller](https://github.com/nevinera)	
 
 
 # Specter Is
