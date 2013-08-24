@@ -6,11 +6,9 @@ var searchViewModel = function(){
     self.keydown = function(data,event){
         
         if (event.keyCode === 13){
-            
-            
-            if(self.searchResults().length>0){ 
+                     
                 self.deepSearch();
-            }
+            
         }
         
         if(event.keyCode == 27){
