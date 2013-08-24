@@ -1,3 +1,6 @@
+Check out this excellent [getting started guide](http://nevinera.net/trying-out-specter)by [Eric Mueller](https://github.com/nevinera)	
+
+
 # Specter Is
 
 An open source platform that simplifies the process of blogging by providing:
