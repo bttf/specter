@@ -22,18 +22,8 @@ exports.getFeeds = function(req,res){
 		
 		if(error||body.error) return res.send(500);
 
-		var feed = new feedBuilder({	
-	
-    	title:feedPref.title,
-	
-    	description:feedPref.description,
-	
-    	link:feedPref.link,
-	
-		author : feedPref.author
-    
-});
-
+		
+		var feed = buildFeed();
 		
 		buildResponse(body.hits.hits,feed);
 		
@@ -49,6 +39,21 @@ exports.getFeeds = function(req,res){
 	
 };
 
+function buildFeed(){
+
+		var feed = new feedBuilder({
+	
+    	title:feedPref.title,
+	
+    	description:feedPref.description,
+	
+    	link:feedPref.link,
+	
+		author : feedPref.author
+    
+});
+	return feed;
+}
 
 function getRecentFeedsQuery(){
 	
