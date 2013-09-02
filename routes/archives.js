@@ -3,13 +3,12 @@ var helpers = require('../helpers');
 var constants = require('../constants');
 
 exports.getArchives = function(req,res){
-console.log(buildArchivesQuery());
 request(buildArchivesQuery(),function(error,response,body){
 
-	if(error||!body) console.log(error);
+	if(error||!body) res.send(500);
 	
-	var dataToSend = buildResponse(body.hits.hits);
-	return res.send(dataToSend);
+	var data = buildResponse(body.hits.hits); console.log(data);
+	return res.render(constants.views.archives,data);
 });
 
 }
@@ -44,5 +43,5 @@ function buildResponse(data){
 	});
 
 	
-	return {dataToSend:data,archiveTags: uniqueTags};
+	return {archives:data,archiveTags: uniqueTags};
 }
