@@ -43,7 +43,6 @@ function buildResponse(data){
 		return item;
 	});
 
-	data.archiveTags = uniqueTags;
-	console.log(data);
-	return data;
+	
+	return {dataToSend:data,archiveTags: uniqueTags};
 }
