@@ -4,6 +4,7 @@ exports.defineRoutes= function(app){
     
 app.get('/create',routes.create.newPost);
 app.get('/search',routes.search.deepSearch);
+app.get('/blog/archive',routes.archives.getArchives);
 app.get('/feed/:type',routes.feeds.getFeeds);	
 app.get('/page/:page',routes.recentPosts.getRecentPosts);
 app.get('/tag/:tag',routes.tags.getTaggedPosts);
