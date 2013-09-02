@@ -3,7 +3,7 @@ var helpers = require('../helpers');
 var constants = require('../constants');
 
 exports.getArchives = function(req,res){
-
+console.log(buildArchivesQuery());
 request(buildArchivesQuery(),function(error,response,body){
 
 	if(error||!body) console.log(error);
@@ -15,12 +15,16 @@ request(buildArchivesQuery(),function(error,response,body){
 function buildArchivesQuery(){
 
 	var query = {
+		"fields": ["postedBy","postedOn","title","wordCount","tags"],
 
-		"match_all" :{},
-		"fields": ["postedBy","postedOn","title","wordCount","date","tags"]
-	};
+		"query" : {
 
-	var url = constants.query.search();
+		"match_all" :{}
+	}
+		
+};
+
+	var url = constants.queries.search();
 	var headers = helpers.setHeaders(url,query);
 	return headers;
 }
