@@ -7,7 +7,7 @@ request(buildArchivesQuery(),function(error,response,body){
 
 	if(error||!body) res.send(500);
 	
-	var data = buildResponse(body.hits.hits); console.log(data);
+	var data = buildResponse(body.hits.hits); 
 	return res.render(constants.views.archives,data);
 });
 
@@ -17,7 +17,8 @@ function buildArchivesQuery(){
 
 	var query = {
 		"fields": ["postedBy","postedOn","title","wordCount","tags"],
-
+		"size" : 1000000,
+		"sort" :{ "postedOn" : {"order" : "asc"}},
 		"query" : {
 
 		"match_all" :{}
@@ -37,7 +38,9 @@ function buildResponse(data){
 	data.forEach(function(item){
 
 		item.fields.postedOn = new Date(item.fields.postedOn).toDateString(); 
+		
 		var intersection = item.fields.tags.filter(function(tag){return uniqueTags.indexOf(tag)<0});
+	
 		uniqueTags.push.apply(uniqueTags,intersection);
 		return item;
 	});
