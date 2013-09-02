@@ -7,17 +7,6 @@ var constants = require('../constants');
 var feedPref = preferences.feed;
 
 
-var feed = new feedBuilder({	
-	
-    title:feedPref.title,
-	
-    description:feedPref.description,
-	
-    link:feedPref.link,
-	
-	author : feedPref.author
-    
-});
 
 exports.getFeeds = function(req,res){
 	
@@ -32,6 +21,19 @@ exports.getFeeds = function(req,res){
 	request(headers,function(error,response,body){
 		
 		if(error||body.error) return res.send(500);
+
+		var feed = new feedBuilder({	
+	
+    	title:feedPref.title,
+	
+    	description:feedPref.description,
+	
+    	link:feedPref.link,
+	
+		author : feedPref.author
+    
+});
+
 		
 		buildResponse(body.hits.hits,feed);
 		
