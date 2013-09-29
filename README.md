@@ -58,6 +58,9 @@ to one of the sections : admins, users or guests.
 An administrator has the highest authority he can edit or delete any post. A user and a guest have equal privileges and they can edit or delete only their own posts.
 
 
+Don't forget to check out the [wiki](https://github.com/brislink/specter/wiki)
+
+For the latest news check [posts](http://www.staticshin.com/specter) tagged specter on my [blog](http://www.staticshin.com/)
 
 # Theming specter
 

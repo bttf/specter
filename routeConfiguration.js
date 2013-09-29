@@ -32,6 +32,6 @@ app.post('/addpost',routes.create.addPost);
 app.post('/updatePost',routes.update.updatePost);    
 app.post('/deletePost',routes.delete.deletePost);
 app.post('/search',routes.search.deepSearch);
-app.post('/search',routes.search.deepSearchAPI);
-	
+app.post('/api/search',routes.search.deepSearchAPI);
+
 };
