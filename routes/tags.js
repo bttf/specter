@@ -1,11 +1,13 @@
-var helpers = require('../helpers');
-var request = require('request');
-var preferences = require('../preferences').preferences;
-var constants = require('../constants');
+var core = require('../core');
 
 exports.getTaggedPosts = function(req,res){
 	
-	
+	return core.getTaggedPosts(req,res,false);
     
 };
 
+exports.getTaggedPostsAPI = function(req,res){
+
+	return core.getTaggedPosts(req,res,true);
+
+}
