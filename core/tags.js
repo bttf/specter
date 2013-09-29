@@ -17,8 +17,11 @@ exports.getTaggedPosts = function(req,res,api){
 		
         var resultCount = paginationSize - 1;
         var results = body.hits;
+        var noHits = results.hits.length===0;
 
-	if(results.hits.length===0) return res.send(404);
+		if( noHits &&!api) return res.send(404);
+		if(noHits && api) return res.json(null);
+
 		var total = body.hits.hits.length;
 		var common = {
 			
@@ -31,6 +34,7 @@ exports.getTaggedPosts = function(req,res,api){
 		
         var dataToRender = helpers.buildResponse(common);
 		dataToRender.tag = tag;
+		if(api){return res.json(dataToRender);}
 		return res.render(constants.views.tagResults,dataToRender);
     });
 };
