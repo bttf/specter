@@ -8,6 +8,7 @@ app.get('/search',routes.search.deepSearch);
 
 // Routes for API
 app.get('/api/posts/recent',routes.recentPosts.getRecentPostsAPI);
+app.get('/api/posts/recent/:page',routes.recentPosts.getRecentPostsAPI);
 
 // GET Routes 
 app.get('/blog/archives',routes.archives.getArchives);
