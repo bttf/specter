@@ -7,10 +7,13 @@ app.get('/create',routes.create.newPost);
 app.get('/search',routes.search.deepSearch);
 
 // Routes for API
-app.get('/api/posts/recent',routes.recentPosts.getRecentPostsAPI);
+
 app.get('/api/posts/recent/:page',routes.recentPosts.getRecentPostsAPI);
+app.get('/api/posts/recent',routes.recentPosts.getRecentPostsAPI);
+app.get('/api/posts/archives',routes.archives.getArchivesAPI);
 app.get('/api/posts/:tag',routes.tags.getTaggedPostsAPI);
 app.get('/api/posts/:tag/:page',routes.tags.getTaggedPostsAPI);
+
 
 // GET Routes 
 app.get('/blog/archives',routes.archives.getArchives);

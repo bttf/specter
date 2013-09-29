@@ -2,12 +2,13 @@ var request = require('request');
 var helpers = require('../helpers');
 var constants = require('../constants');
 
-exports.getArchives = function(req,res){
+exports.getArchives = function(req,res,api){
 request(buildArchivesQuery(),function(error,response,body){
 
 	if(error||!body) res.send(500);
 	
-	var data = buildResponse(body.hits.hits); 
+	var data = buildResponse(body.hits.hits);
+	if(api){return res.json(data);} 
 	return res.render(constants.views.archives,data);
 });
 
