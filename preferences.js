@@ -8,7 +8,7 @@ exports.preferences = {
 	
 	"pageFields":["postedBy","postedOn","title","wordCount","postHtml"],
 	"summaryLength" : 3,
-	"paginationSize" :3
+	"paginationSize" :11
 		
 	},
 	
