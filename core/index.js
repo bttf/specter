@@ -1,0 +1,1 @@
+exports.getRecentPosts = require('./recentPosts').getRecentPosts;
