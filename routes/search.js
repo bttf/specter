@@ -3,7 +3,7 @@ var core = require('../core');
 
 exports.searchByTitle = function (req, res) {
 
-    return core.searh.searchByTitle(req,res);
+    return core.search.searchByTitle(req,res);
     
 };
 
