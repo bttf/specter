@@ -58,9 +58,6 @@ to one of the sections : admins, users or guests.
 An administrator has the highest authority he can edit or delete any post. A user and a guest have equal privileges and they can edit or delete only their own posts.
 
 
-Don't forget to check out the [wiki](https://github.com/brislink/specter/wiki)
-
-For the latest news check [posts](http://www.staticshin.com/specter) tagged specter on my [blog](http://www.staticshin.com/)
 
 # Theming specter
 
@@ -69,6 +66,12 @@ Theming specter is incredibly easy. In the `\views` directory there are template
 
 
 Specter imposes no restrictions on the structuring your markup either. Only thing it cares about is the mustache variables. As long as you are using the right variables in the templates feel free to change the html structure to any form that you want.
+
+
+Don't forget to check out the [wiki](https://github.com/brislink/specter/wiki)
+
+For the latest news check [posts](http://www.staticshin.com/specter) tagged specter on my [blog](http://www.staticshin.com/)
+
 
 
 # Coming soon
