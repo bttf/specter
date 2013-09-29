@@ -70,7 +70,7 @@ Specter imposes no restrictions on the structuring your markup either. Only thin
 
 Don't forget to check out the [wiki](https://github.com/brislink/specter/wiki)
 
-For the latest news check [posts](http://www.staticshin.com/specter) tagged specter on my [blog](http://www.staticshin.com/)
+For the latest news check [posts](http://www.staticshin.com/tag/specter) tagged under specter on my [blog](http://www.staticshin.com/)
 
 
 
