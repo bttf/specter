@@ -1788,8 +1788,7 @@ editArea.trigger('autosize');
 				
 				saveAndPreview.hide();
                 setHtmlinPreviewPane(getMarkdownText());
-		MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
-                plainViewButton.hide();
+		 plainViewButton.hide();
                 self.showEditor(false);
                 self.showTitle(true);
                 showThis([rawHtmlExpression,previewContainerExpression]);
