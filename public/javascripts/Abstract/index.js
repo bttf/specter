@@ -1788,6 +1788,7 @@ editArea.trigger('autosize');
 				
 				saveAndPreview.hide();
                 setHtmlinPreviewPane(getMarkdownText());
+		MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
                 plainViewButton.hide();
                 self.showEditor(false);
                 self.showTitle(true);
@@ -1904,8 +1905,8 @@ function prepareInitialWorkSpace() {
     }
 
     function getWordCount(text) {
-
-        return text.split(/\s+\b/).length;
+	var strippedText = $('<span>'+text+'</span>').text();
+        return strippedText.split(/\s+\b/).length;
     }
 
     function setHtmlinPreviewPane(markdownText) {
@@ -2733,7 +2734,7 @@ reMarked = function(opts) {
 	hr_char:    "-",      // hr style
 	indnt_str:  "    ",   // indentation string
 	bold_char:  "*",      // char used for strong
-	emph_char:  "?",      // char used for em
+	emph_char:  "_",      // char used for em
 	gfm_del:    true,     // ~~strikeout~~ for <del>strikeout</del>
 	gfm_tbls:   true,     // markdown-extra tables
 	tbl_edges:  false,    // show side edges on tables
