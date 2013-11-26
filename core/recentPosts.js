@@ -33,6 +33,7 @@ exports.getRecentPosts = function(req,res,api){
 		}
 		
         var dataToRender = helpers.buildResponse(common);
+	dataToRender.websiteName = require('../preferences').preferences.websiteName;
         if(api){
 
         	return res.json(dataToRender);
