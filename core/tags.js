@@ -34,6 +34,7 @@ exports.getTaggedPosts = function(req,res,api){
 		
         var dataToRender = helpers.buildResponse(common);
 		dataToRender.tag = tag;
+	    dataToRender.websiteName = require('../preferences').preferences.websiteName;
 		if(api){return res.json(dataToRender);}
 		return res.render(constants.views.tagResults,dataToRender);
     });
