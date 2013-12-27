@@ -4,25 +4,25 @@ exports.contributors = {
     
     admins :[ {
         
-        name : "Akshat Jiwan Sharma",
-        secret : 'dont#fail@',
+        name : "adnan",
+        secret : '4nn4purn4',
         about : ''
         
     }],
     
     users : [
         
-        {
-            name : "Not an admin",
-            secret : 'get@creative#',
-            about : ''
-        }
+        //{
+            //name : "user01",
+            //secret : 'get@creative#',
+            //about : ''
+        //}
     ],
     
     guests : [
         {
-            name : 'A guest',
-            secret : 'by!invitation&',
+            name : 'guest01',
+            secret : 'believeinyourself',
             website : ''
         }
     ]

@@ -1,26 +1,27 @@
 #searchBox{
-    
-    border:none;
-    outline:none;
-    font-size:25px;
-    box-shadow: none;
-    text-align:center;
-    margin-top:10px;
+
+  background-color: #272B30;
+  border:none;
+  outline:none;
+  font-size:25px;
+  box-shadow: none;
+  text-align:center;
+  margin-top:10px;
 }
 
 #results li {
 
-font-size:20px;    
-text-align:center;
-line-height:28px;
+  font-size:20px;    
+  text-align:center;
+  line-height:28px;
 }
 
 figure{
-	margin: 0px;
+  margin: 0px;
 }
 figcaption{
-	
-	font-style:italic;
-	padding:2px;
+
+  font-style:italic;
+  padding:2px;
 }
 
