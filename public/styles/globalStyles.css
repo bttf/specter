@@ -1,27 +1,43 @@
-#searchBox{
-
-  background-color: #272B30;
-  border:none;
-  outline:none;
-  font-size:25px;
-  box-shadow: none;
-  text-align:center;
-  margin-top:10px;
+html {
+  font-size: 100%;
 }
 
-#results li {
-
-  font-size:20px;    
-  text-align:center;
-  line-height:28px;
+body {
+  font-family: 'Open Sans', arial, sans-serif;
 }
 
-figure{
-  margin: 0px;
+ul {
+  list-style-type: none;
 }
-figcaption{
 
-  font-style:italic;
-  padding:2px;
+input {
+  border: 0;
+  background-color: #BFBDBD;
+  border:solid 1px #BFBDBD;
+  /*color: #979797;*/
+  height: 28px;
+  padding-left:10px;
+  width: 191px;
+  text-align: center;
+  /*box-shadow: 2px 2px 0 #828181 inset;*/
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+.container-fluid {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.row-fluid {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.span12 {
+  width: 50%;
 }
 

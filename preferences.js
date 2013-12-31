@@ -3,7 +3,7 @@ exports.preferences = {
 
   "databaseUrl"   :"http://localhost:9200/",
   "searchResults" :5,
-  "websiteName" : "galaxy buttcheeks",
+  "websiteName" : "cuttin' loose, goose moose",
   "index" : {
 
     "pageFields":["postedBy","postedOn","title","wordCount","postHtml"],
