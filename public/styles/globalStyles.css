@@ -6,20 +6,41 @@ body {
   font-family: 'Open Sans', arial, sans-serif;
 }
 
+p {
+}
+
+h1 {
+  margin: 0;
+  font-size: 4em;
+}
+
+h2 {
+  margin: 0;
+  font-size: 3em;
+}
+
+hr {
+  border: 0;
+  width: 35%;
+  margin-left: 0;
+}
+
 ul {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 input {
   border: 0;
   background-color: #BFBDBD;
   border:solid 1px #BFBDBD;
+  margin-bottom: 2%;
   /*color: #979797;*/
   height: 28px;
   padding-left:10px;
   width: 191px;
   text-align: center;
-  /*box-shadow: 2px 2px 0 #828181 inset;*/
 }
 
 a {
@@ -28,16 +49,37 @@ a {
 }
 
 .container-fluid {
-  margin: 0 auto;
+  margin: 0 0;
   width: 80%;
 }
 
 .row-fluid {
   margin: 0 auto;
-  text-align: center;
+  /*text-align: center;*/
 }
 
-.span12 {
-  width: 50%;
+.postHeading {
+  font-size: 2em;
+}
+
+.postDate {
+  font-size: 0.5em;
+}
+
+.postAuthor {
+  font-size: 0.5em;
+  opacity: 0.5;
+}
+
+.tags {
+  opacity: 0.5;
+}
+
+.pager {
+  margin-top: 5%;
+}
+
+.disabled {
+  display: none;
 }
 

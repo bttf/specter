@@ -3,7 +3,7 @@ exports.preferences = {
 
   "databaseUrl"   :"http://localhost:9200/",
   "searchResults" :5,
-  "websiteName" : "cuttin' loose, goose moose",
+  "websiteName" : "chewbonga blog",
   "index" : {
 
     "pageFields":["postedBy","postedOn","title","wordCount","postHtml"],
