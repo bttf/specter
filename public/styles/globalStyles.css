@@ -36,7 +36,6 @@ input {
   background-color: #BFBDBD;
   border:solid 1px #BFBDBD;
   margin-bottom: 2%;
-  /*color: #979797;*/
   height: 28px;
   padding-left:10px;
   width: 191px;
@@ -45,7 +44,7 @@ input {
 
 a {
   color: #000;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .container-fluid {
@@ -55,7 +54,6 @@ a {
 
 .row-fluid {
   margin: 0 auto;
-  /*text-align: center;*/
 }
 
 .postHeading {
@@ -71,6 +69,10 @@ a {
   opacity: 0.5;
 }
 
+.postBody a {
+  text-decoration: underline;
+}
+
 .tags {
   opacity: 0.5;
 }
@@ -83,6 +85,3 @@ a {
   display: none;
 }
 
-.tags a {
-  text-decoration: none;
-}
