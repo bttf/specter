@@ -1,3 +1,6 @@
+var dotenv = require('dotenv');
+dotenv.load();
+
 //In decreasing order of privileges admin > user > guest. 
 
 exports.contributors = {
@@ -5,7 +8,7 @@ exports.contributors = {
     admins :[ {
         
         name : "adnan",
-        secret : '4nn4purn4',
+        secret : process.env.ADNAN_PASS,
         about : ''
         
     }],
@@ -22,7 +25,7 @@ exports.contributors = {
     guests : [
         {
             name : 'guest01',
-            secret : 'believeinyourself',
+            secret : process.env.GUEST_PASS,
             website : ''
         }
     ]
